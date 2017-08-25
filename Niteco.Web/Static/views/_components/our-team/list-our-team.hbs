@@ -1,0 +1,46 @@
+﻿<section class="awards-section">
+
+    {{> _page-description our_team.description}}
+
+    <div class="awards">
+        <div class="award-list--top">
+            <div class="award-group __group">
+                <div class="__subgroup award-subgroup">
+                    {{> _our_team_item our_team.teams.[0]}}
+                    {{> _our_team_item our_team.teams.[1]}}
+                </div>
+                <div class="__subgroup award-subgroup">
+                    {{> _our_team_item our_team.teams.[2]}}
+                    {{> _our_team_item our_team.teams.[3]}}
+                </div>
+            </div>
+            <div class="award-group __group">
+                <div class="__subgroup award-subgroup">
+                    {{> _our_team_item our_team.teams.[4]}}
+                    {{> _our_team_item our_team.teams.[5]}}
+                </div>
+                <div class="__subgroup award-subgroup">
+                    {{> _our_team_item our_team.teams.[6]}}
+                    {{> _our_team_item our_team.teams.[7]}}
+                </div>
+            </div>
+            <div class="award-group __group">
+                <div class="__subgroup award-subgroup">
+                    {{> _our_team_item our_team.teams.[8]}}
+                    {{> _our_team_item our_team.teams.[9]}}
+                </div>
+                <div class="__subgroup award-subgroup">
+                  {{> _our_team_item our_team.teams.[10]}}
+                  {{> _our_team_item our_team.teams.[11]}}
+                </div>
+            </div>
+        </div>
+        <div class="__info award-info">
+            {{#each our_team.teams}}
+                {{> _our_team_item_description this}}
+            {{/each}}
+        </div>
+        <div class="award-list--bottom">
+        </div>
+    </div>
+</section>

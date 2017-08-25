@@ -1,0 +1,9 @@
+@using EPiServer.Web.Routing
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.AboutUsInfoBlock
+
+<div class="about-group__content-container record-number" style="background-image: url('/img/small-bg.jpg')">
+    <div class="container">
+        @Html.PropertyFor(m => m.AboutUsInfoItems, new { CustomTag="div",CssClass = "row",ChildrenCustomTagName="div", ChildrenCssClass = "col-xs-12 col-sm-6 col-lg-3" })
+    </div>
+</div>

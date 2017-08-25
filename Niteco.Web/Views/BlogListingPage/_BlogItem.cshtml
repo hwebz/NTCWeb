@@ -1,0 +1,82 @@
+﻿@using EPiServer.Web
+@using Niteco.Common.Extensions
+@using Niteco.ContentTypes
+@model BlogsListingViewModel
+
+
+@{
+}
+
+@functions {
+
+    private string GetFullLink(BlogDetailPage blog)
+    {
+        var url = blog.ContentLink.GetSimpleAddressIfExits();
+        var uri = UrlHelpers.TryCreateUri(url, SiteDefinition.Current);
+        return uri.ToString().ToLowerInvariant();
+    }
+
+}
+
+@*<div class="blog-list-articles__container" id="blog-list-articles__content" data-require="base/blog-list-endless-scroll">*@
+@if (Model.ListBlogDetail != null && Model.ListBlogDetail.Count > 0)
+{
+    foreach (var blog in Model.ListBlogDetail)
+    {
+        var categoryName = CategoryHelper.GetCategoryByName(blog.BlogCategory) == null ? "Uncategorized" : blog.BlogCategory;
+        <div class="blog-list-articles__article">
+            <script id="dsq-count-scr" src="//@(SiteSettingsHandler.Instance.SiteSettings.CommentConfig)/count.js" async></script>
+            <div class="blog-list-articles__article-title">
+                <h2>
+                    <a href="@Url.ContentUrl(blog.ContentLink)">@blog.Title</a>
+                </h2>
+                <div class="yellow-divider"></div>
+                <div class="blog-list-articles__article-meta">
+                    <a class="blog-list-articles__article-meta__category" href="?cat=@categoryName">@categoryName</a>
+                    <a class="blog-list-articles__article-meta__author" href="?author=@blog.AuthorName">@blog.AuthorName</a>
+                    <a class="blog-list-articles__article-meta__comment" href="@Url.ContentUrl(blog.ContentLink)#disqus_thread"></a>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-thumbnail">
+                <a href="@Url.ContentUrl(blog.ContentLink)">
+                    <img src="@Url.ContentUrl(blog.Thumbnail)" alt="@blog.Title" />
+                </a>
+                <div class="blog-list-articles__article-date">
+                    <span class="blog-list-articles__article-date__day">@blog.StartPublish.Day</span>
+                    <span class="blog-list-articles__article-date__monthYear">@blog.StartPublish.ToString("MMM").@blog.StartPublish.Year</span>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-content">
+                <div class="blog-list-articles__article-content__description">
+                    <p>@blog.SummaryDes</p>
+                </div>
+                <a href="@Url.ContentUrl(blog.ContentLink)" alt="@blog.Title" class="blog-list-articles__article-content__more-link">Read more</a>
+            </div>
+
+            @*0-last*@
+            @*    1- has next*@
+            @if (Model.IsAjaxRequestLastPage)
+            {
+                <div style="display: none;" class="next-page">0</div>
+            }
+            else
+            {
+                <div style="display: none;" class="next-page">1</div>
+            }
+        </div>
+    }
+}
+else
+{
+    <div class="blog-list-articles__article">
+        <div class="blog-list-articles__article-title">
+            <h2>
+                No Result
+            </h2>
+            <div class="yellow-divider"></div>
+            <div class="blog-list-articles__article-meta">
+                <p>Your search returns no result. Please do another search or <a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)"> view all our blogs</a></p>
+            </div>
+        </div>
+    </div>
+}

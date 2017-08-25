@@ -1,0 +1,28 @@
+﻿@model SitePageData
+           
+@{
+    var background = Model.TeaserBackgroundImage ?? Model.BackgroundImage;
+}
+<div class="home-block-item home-color-block-item">
+
+    <a href="@Url.ContentUrl(Model.ContentLink)" title="">
+        <span class="home-color-block-item__background" style="background-image: url('@Url.ContentUrl(background)')"></span>
+        <span class="home-color-block-item__background home-color-block-item__background-hover" style="background-image: url('@Url.ContentUrl(Model.HoverImage)')"></span>
+        <div class="home-color-block-item__content-container">
+            <div class="home-color-block-item__content-career">
+                <span class="career-animation">
+                    <span class="career-animation__spins">
+                        <img src="/img/cogs.gif" alt="Join our team image" />
+                    </span>
+                    <span class="career-animation__head"></span>
+                    <span class="career-animation__body"></span>
+                </span>
+                <div class="home-color-block-item__content-career__text">
+                    <span class="home-color-block-item__content-career__text__small-text">@Model.TeaserTitle</span>
+                    <h2 class="home-color-block-item__content-career__text__big-text">@Model.TeaserSubTitle</h2>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>
+

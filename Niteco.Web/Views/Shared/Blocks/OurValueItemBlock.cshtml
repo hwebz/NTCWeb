@@ -1,0 +1,14 @@
+
+
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.OurValueItemBlock
+
+<div class="our-value-item col-xs-12">
+    <div class="value-index"></div>
+    <div class="value-description">
+        <h3>@Html.PropertyFor(x => x.ItemTitle)</h3>
+        @Html.PropertyFor(x => x.ItemContent)
+    </div>
+</div>
+
+

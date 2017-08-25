@@ -1,0 +1,45 @@
+
+.home-block-row {
+    &.our-work-footer {
+        height: auto;
+
+        .home-block-item {
+            height: 250px;
+
+            @include respond-to-min($tabletSize) {
+                height: 100%;
+            }
+        }
+
+        @include respond-to-min($tabletSize) {
+            height: 250px;
+        }
+
+        @include respond-to-min($desktopSize) {
+            height: 250px;
+        }
+
+        @include respond-to-min($laptopSize) {
+            height: 300px;
+        }
+
+        &::after{
+            display: block;
+            width: 100%;
+            content: '';
+            clear: both;
+        }
+    }
+}
+
+.our-works-footer__item {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    float: left;
+    //background: #282828;
+
+    @include respond-to-min($tabletSize) {
+        width: 50%;
+    }
+}

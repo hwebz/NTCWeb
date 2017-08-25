@@ -1,0 +1,472 @@
+﻿@using System.Configuration
+@using System.Web.Optimization
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.Core
+@using EPiServer.Framework.Web.Mvc.Html
+@using EPiServer.ServiceLocation
+@using EPiServer.Web
+@using Niteco.ContentTypes
+@model IPageViewModel<Niteco.ContentTypes.Pages.SitePageData>
+@{
+    var site = SiteDefinition.Current;
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var deployVer = string.Empty;
+    if (!string.IsNullOrEmpty(Model.Layout.AssetsVersion))
+    {
+        deployVer = Model.Layout.AssetsVersion;
+    }
+}
+
+
+<!DOCTYPE html>
+<html lang="@Model.CurrentPage.LanguageBranch">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>@Model.CurrentPage.MetaTitle</title>
+
+    @*@Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/js")*@
+    <link rel="dns-prefetch" href="//@site.SiteUrl.Host" />
+    <link rel="dns-prefetch" href="https://maps.googleapis.com/" />
+    <link rel="dns-prefetch" href="http://www.google-analytics.com/" />
+    <link rel="dns-prefetch" href="http://vjs.zencdn.net/" />
+    <link rel="dns-prefetch" href="http://maps.google.com/" />
+    <link rel="dns-prefetch" href="https://ajax.googleapis.com/" />
+    <link rel="dns-prefetch" href="https://www.google.com/" />
+    <link rel="dns-prefetch" href="https://www.gstatic.com/" />
+    <link rel="dns-prefetch" href="https://apis.google.com/" />
+
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="canonical" href="@Model.CanonicalLink">
+
+    @if (string.IsNullOrWhiteSpace(Model.CurrentPage.MetaDescription))
+    {
+        <meta name="description" content="@Html.Raw(ConfigurationManager.AppSettings["DefaultMetaDescription"])" />
+    }
+    else
+    {
+        <meta name="description" content="@Html.Raw(Model.CurrentPage.MetaDescription)" />
+    }
+
+    @if (Model.CurrentPage.MetaKeywords == null || Model.CurrentPage.MetaKeywords.Length == 0)
+    {
+        <meta name="keywords" content="@Html.Raw(ConfigurationManager.AppSettings["DefaultMetaKeywords"])" />
+    }
+    else
+    {
+        <meta name="keywords" content="@Html.Raw(string.Join(",", Model.CurrentPage.MetaKeywords))" />
+    }
+
+    <meta property="og:title" content="@Model.CurrentPage.MetaTitle" />
+    <meta property="og:url" content="@Model.CanonicalLink" />
+    <meta property="og:description" content="@Model.CurrentPage.MetaDescription" />
+    <meta property="og:image" content="http://@site.SiteUrl.Host/img/niteco-sharing-horizontal.jpg">
+
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <link href="/css/screen.css" rel="stylesheet" media="screen" />
+        <link href="/css/print.css" rel="stylesheet" media="print" />
+    }
+    else
+    {
+        <link href="@string.Format("/css/screen{0}.css", deployVer)" rel="stylesheet" media="screen" />
+        <link href="@string.Format("/css/print{0}.css", deployVer)" rel="stylesheet" media="print" />
+    }
+
+    @Html.RequiredClientResources("Header") @*Enable components to require resources. For an example, see the view for VideoBlock.*@
+    @(new MvcHtmlString(Model.Layout.GlobalHeadScripts))
+    @(new MvcHtmlString(Model.CurrentPage.HeadScripts))
+</head>
+
+<body>
+    @if (PageEditing.PageIsInEditMode)
+    {
+        <script type="text/javascript">
+            var isInEditMode = true;
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            var isInEditMode = false;
+        </script>
+    }
+
+    @(new MvcHtmlString(Model.Layout.GlobalBodyScripts))
+    @Html.RenderEPiServerQuickNavigator()
+    @Html.FullRefreshPropertiesMetaData()
+
+    <div class="loading-container" data-require="base/loading">
+        <div class="loading-mask">
+        </div>
+    </div>
+    <div class="page-wrapper disable-scrolling">
+        @(new MvcHtmlString(Model.CurrentPage.BodyScripts))
+        @{ Html.RenderPartial("Header", Model); }
+
+        @RenderBody()
+    </div>
+
+    @{
+        if (Model.Layout.SearchPageLink != null)
+        {
+            var searchPage = contentLoader.Get<SearchPage>(Model.Layout.SearchPageLink);
+            Html.RenderPartial("Search", searchPage);
+        }
+    }
+
+    @*scroll to top*@
+    @*<div class="scroll-top" data-require="base/scroll-to-top">
+            <i class="fa fa-angle-up icon-arrow-up">
+            </i>
+        </div>*@
+
+    @Html.RequiredClientResources("Footer")
+    @(new MvcHtmlString(Model.Layout.GlobalFooterScripts))
+    @(new MvcHtmlString(Model.CurrentPage.FooterScripts))
+
+
+    <script type="text/javascript">
+        var isDocumentReady = false;
+        var isMapReady = false;
+        var isAddZoomControl = false;
+        var mapIsCreated = false;
+
+        window.mapReady = function () {
+            isMapReady = true;
+            initMap();
+        }
+
+        window.initMap = function () {
+            if (!isDocumentReady || !isMapReady)
+                return;
+
+            if (mapIsCreated)
+                return;
+            mapIsCreated = true;
+
+            var mappOfficeContainer = $(".map-office-section");
+            if (mappOfficeContainer == null || mappOfficeContainer.length == 0)
+                return;
+
+            //set your google maps parameters
+            var map_zoom = 3, centerLong = 46.862496, centerLat = 103.846656;
+
+            //var locations = [
+            //      ['Causeway Bay, HongKong', 22.2859787, 114.1914919, 5],
+            //      ['Palm Desert, CA 92260, USA', 33.6917281, -116.4075854, 4],
+            //      ['Stockholm, Sweden', 59.3294, 18.0686, 3],
+            //      ['Ho Chi Minh city, Vietnam', 10.7500, 106.6667, 2],
+            //      ['Ha Noi, Vietnam', 21.0285, 105.8542, 1]
+            //];
+            var locations = eval(mappOfficeContainer.attr('data-locations'));
+            //google map custom marker icon - .png fallback for IE11
+            var is_internetExplorer11 = navigator.userAgent.toLowerCase().indexOf('trident') > -1;
+            var marker_url = (is_internetExplorer11) ? '/img/cd-icon-location.png' : '/img/cd-icon-location.svg';
+
+            var icon = {
+                url: marker_url,
+                //scaledSize: new google.maps.Size(25, 25)
+            };
+
+            //define the basic color of your map, plus a value for saturation and brightness
+            var main_color = '#2d313f',
+                saturation_value = -20,
+                brightness_value = 5;
+
+            //we define here the style of the map
+            var style = [
+                {
+                    //set saturation for the labels on the map
+                    elementType: "labels",
+                    stylers: [
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    //poi stands for point of interest - don't show these lables on the map
+                    featureType: "poi",
+                    elementType: "labels",
+
+                },
+                {
+                    //don't show highways lables on the map
+                    featureType: 'road.highway',
+                    elementType: 'labels',
+
+                },
+                {
+                    //don't show local road lables on the map
+                    featureType: "road.local",
+                    elementType: "labels.icon",
+
+                },
+                {
+                    //don't show arterial road lables on the map
+                    featureType: "road.arterial",
+                    elementType: "labels.icon",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                },
+                {
+                    //don't show road lables on the map
+                    featureType: "road",
+                    elementType: "geometry.stroke",
+                    stylers: [
+                        { visibility: "off" }
+                    ]
+                },
+                //style different elements on the map
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.government",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.sport_complex",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.attraction",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "poi.business",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "transit.station",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "landscape",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "road.highway",
+                    elementType: "geometry.fill",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                },
+                {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [
+                        { hue: main_color },
+                        { visibility: "on" },
+                        { lightness: brightness_value },
+                        { saturation: saturation_value }
+                    ]
+                }
+            ];
+
+            if ($(window).width() < 768) {
+                map_zoom = 2;
+                if (locations.length > 0) {
+                    centerLong = locations[0][1];
+                    centerLat = locations[0][2];
+                }
+            }
+
+            if ($('#google-container').height() > $(window).height() * 0.8) {
+                $('#google-container').height($(window).height() * 0.8);
+            }
+
+            //set google map options
+            var map_options = {
+                center: new google.maps.LatLng(centerLong, centerLat),
+                zoom: map_zoom,
+                panControl: false,
+                zoomControl: false,
+                mapTypeControl: false,
+                streetViewControl: false,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false,
+                styles: style
+            };
+            //inizialize the map
+            var map = new google.maps.Map(document.getElementById('google-container'), map_options);
+            //add a custom marker to the map
+            var infowindow = new google.maps.InfoWindow();
+
+            var marker, i, currentMark;
+            var markers = new Array();
+            var bounds = new google.maps.LatLngBounds();
+
+            for (i = 0; i < locations.length; i++) {
+                marker = new google.maps.Marker({
+                    position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+                    map: map,
+                    icon: icon,
+                    animation: google.maps.Animation.DROP,
+                    optimized: false
+                });
+
+                google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                    return function () {
+                        //marker.setAnimation(google.maps.Animation.BOUNCE);
+                        infowindow.setContent(locations[i][0]);
+                        infowindow.open(map, marker);
+                        currentMark = marker;
+                    };
+                })(marker, i));
+                markers.push(marker);
+
+                bounds.extend(new google.maps.LatLng(locations[i][1], locations[i][2]));
+            }
+            map.fitBounds(bounds);
+
+            google.maps.event.addListener(infowindow, 'closeclick', function () {
+                currentMark.setAnimation(null);
+            });
+
+
+            google.maps.event.addListenerOnce(map, 'idle', function () {
+                if (!isAddZoomControl) {
+                    isAddZoomControl = true;
+                    var zoomControlDiv = document.createElement('div');
+                    var zoomControl = new CustomZoomControl(zoomControlDiv, map);
+
+                    //insert the zoom div on the top left of the map
+                    map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControlDiv);
+                }
+            });
+
+
+            $(".location-item .icon-map").each(function (index) {
+                $(this).on('click', function () {
+                    $("html, body").animate({
+                        scrollTop: '-85px'
+                    }, 300);
+                    map.setZoom(18);
+                    map.setCenter(markers[index].getPosition());
+                    google.maps.event.trigger(markers[index], 'click');
+                });
+            });
+        };
+
+        //add custom buttons for the zoom-in/zoom-out on the map
+        window.CustomZoomControl = function (controlDiv, map) {
+            //grap the zoom elements from the DOM and insert them in the map
+            var controlUIzoomIn = document.getElementById('cd-zoom-in'),
+                controlUIzoomOut = document.getElementById('cd-zoom-out');
+            controlDiv.appendChild(controlUIzoomIn);
+            controlDiv.appendChild(controlUIzoomOut);
+
+            // Setup the click event listeners and zoom-in or out according to the clicked element
+            google.maps.event.addDomListener(controlUIzoomIn, 'click', function () {
+                map.setZoom(map.getZoom() + 1);
+            });
+            google.maps.event.addDomListener(controlUIzoomOut, 'click', function () {
+                map.setZoom(map.getZoom() - 1);
+            });
+        };
+    </script>
+
+    <script src="//maps.google.com/maps/api/js?callback=mapReady"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://vjs.zencdn.net/4.12/video.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () {
+            isDocumentReady = true;
+            initMap();
+
+            if ($('.xform-container').length > 0) {
+                $('.xform-container').replaceWith(function () {
+                    return $('div', this);
+                });
+            }
+        });
+    </script>
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script src="/js/lib/bower/require.js" data-main="/js/main-async"></script>
+    }
+    else
+    {
+        <script src="@string.Format("/js/scripts{0}.js", deployVer)"></script>
+    }
+</body>
+</html>

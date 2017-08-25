@@ -1,0 +1,76 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model IPageViewModel<OurTeamPage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<div class="content-container our-team-page" data-require="base/our-team-page">
+    <div class="our-team-wrapper content-wrapper">
+        <h2 class="all-page__header">Our Team</h2>
+
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">
+                        @Html.PropertyFor(x => x.CurrentPage.ShortDescription)
+                    </div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        <section class="awards-section">
+            @Html.PropertyFor(x => x.CurrentPage.MainContent)
+            <div class="awards">
+                <div class="award-list--top">
+                    @if (Model.CurrentPage.TeamsContentArea != null && Model.CurrentPage.TeamsContentArea.Items.Any())
+                    {
+                        //Html.RenderNoWrappersContentArea(Model.CurrentPage.TeamsContentArea);
+                        var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                        var total = Model.CurrentPage.TeamsContentArea.Items.Count;
+                        for (int i = 0; i < total; i++)
+                        {
+                            var item = Model.CurrentPage.TeamsContentArea.Items[i];
+                            var peopleBlock = contentLoader.Get<PeopleBlock>(item.ContentLink);
+                            @Html.Html("<div class='award-group __group'>", i % 4 == 0)
+                            @Html.Html("<div class='__subgroup award-subgroup'>", i % 2 == 0)
+                            { Html.RenderPartial("PeopleBlock", peopleBlock); }
+                            @Html.Html("</div>", i % 2 == 1 || i == total - 1);
+                        @Html.Html("</div>", i % 4 == 3 || i == total - 1);
+
+                        }
+                    }
+                </div>
+                <div class="__info award-info">
+                    @Html.PropertyFor(x => x.CurrentPage.TeamsContentArea, new { Tag = ContentAreaTags.PeopleBlockInfo })
+                </div>
+                <div class="award-list--bottom">
+                </div>
+            </div>
+        </section>
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>
+

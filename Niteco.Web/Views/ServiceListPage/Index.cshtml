@@ -1,0 +1,109 @@
+﻿@using System.Activities.Statements
+@using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
+@using System.Web.Services.Description
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model IPageViewModel<ServiceListPage>
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+
+<div class="content-container service-page" data-require="base/services">
+    <div class="service-wrapper content-wrapper">
+        <h2 class="all-page__header">Service List</h2>
+
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i></div>
+            </div>
+        </section>
+        @Html.PropertyFor(x => x.CurrentPage.MainContent)
+        <div class="service-listing">
+            <div class="container">
+
+                <div class="service-listing__container">
+                    <div class="row">
+                        @if (PageEditing.PageIsInEditMode)
+                        {
+                            @Html.PropertyFor(x => x.CurrentPage.ServiceItems, new { Tag = ContentAreaTags.SmallServicePartial, CustomTag = "div", CssClass = "row", ChildrenCustomTagName = "div", ChildrenCssClass = "col-xs-12 col-sm-6 col-lg-3 checking-animate fade-in" })
+                        }
+                        else
+                        {
+                            if (Model.CurrentPage.ServiceItems != null && Model.CurrentPage.ServiceItems.Items.Any())
+                            {
+                                for (int i = 0; i < Model.CurrentPage.ServiceItems.Items.Count; i++)
+                                {
+                                    var item = Model.CurrentPage.ServiceItems.Items[i];
+                                    var sitePage = contentLoader.Get<ServicePage>(item.ContentLink);
+                                    sitePage.TeaserOrder = @i;
+                                    Html.RenderPartial("SmallServicePagePartial", sitePage);
+
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*render button block*@
+        <div class="service-contact__container">
+            <div class="container">
+                @Html.PropertyFor(x => x.CurrentPage.ContactUs)
+            </div>
+        </div>
+
+
+        @*render service item detail*@
+        @if (Model.CurrentPage.ServiceItems != null && Model.CurrentPage.ServiceItems.Items.Any())
+        {
+
+            <div class="list-service-detail">
+                @if (PageEditing.PageIsInEditMode)
+                {
+                    @Html.PropertyFor(x => x.CurrentPage.ServiceItems, new { Tag = ContentAreaTags.WideServicePartial, CustomTag = "div", CssClass = "list-service-detail", ChildrenCustomTagName = "div", ChildrenCssClass = "service-item-detail__container" })
+                }
+                else
+                {
+
+                    for (int i = 0; i < Model.CurrentPage.ServiceItems.Items.Count; i++)
+                    {
+                        var titleClass = string.Empty;
+                        var item = Model.CurrentPage.ServiceItems.Items[i];
+                        var sitePage = contentLoader.Get<ServicePage>(item.ContentLink);
+                        sitePage.TeaserOrder = @i;
+                        Html.RenderPartial("WideServicePagePartial", sitePage);
+                    }
+                }
+            </div>            
+        }
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>

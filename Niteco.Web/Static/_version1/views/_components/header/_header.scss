@@ -1,0 +1,89 @@
+.introduce-overflow-hidden {
+    overflow: hidden;
+}
+.header-logo{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bgzoom {
+    -webkit-animation: bgzoom 10s .5s linear infinite alternate;
+    -moz-animation: bgzoom 10s .5s linear infinite alternate;
+    -o-animation: bgzoom 10s .5s linear infinite alternate;
+    animation: bgzoom 10s .5s linear infinite alternate;
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+    -o-animation-play-state: running;
+}
+
+@keyframes bgzoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+
+@-webkit-keyframes bgzoom {
+    from {
+        -webkit-transform: scale(1); /* Safari and Chrome */
+    }
+
+    to {
+        -webkit-transform: scale(1.2); /* Safari and Chrome */
+    }
+}
+
+@-moz-keyframes bgzoom {
+    from {
+        -moz-transform: scale(1); /* Firefox */
+    }
+
+    to {
+        -moz-transform: scale(1.2); /* Firefox */
+    }
+}
+
+.introduce-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-49%) translateY(-16%);
+    -webkit-transform: translateX(-49%) translateY(-16%);
+    -moz-transform: translateX(-49%) translateY(-16%);
+}
+
+.introduce-content-image {
+    text-align: center;
+    img{
+    	width: 100%;
+    }
+}
+
+        
+.introduce-content-text {
+    padding: 15px 0px 40px;
+    color: white;
+    font-family: 'robotothin';
+    text-align: center;
+	h2{
+		padding: 0;
+		margin:0;
+		font-weight: normal;
+		@include respond-to-min($tabletSize) {
+					font-size: 1.125rem;
+				}
+				@include respond-to-min($desktopSize) {
+					font-size: 1.375rem;
+				}
+				@include respond-to-min($laptopSize) {
+					font-size: 1.688rem;	
+				}
+				@include respond-to-min($bigScreen) {
+					font-size: 1.688rem;
+				}
+	}
+}

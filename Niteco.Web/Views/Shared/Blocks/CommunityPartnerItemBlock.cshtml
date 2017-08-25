@@ -1,0 +1,21 @@
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.CommunityPartnerItemBlock
+<a title="@Model.Title" class="skip_contents" target="_blank" href="@Url.ContentUrl(Model.LinkContent)">
+    [Skip to Content]
+    <div class="careers-step-detail">
+        <div class="step-content community-content">
+            <h3 class="step-name">@Html.PropertyFor(x => x.Title)</h3>
+            @Html.PropertyFor(x => x.Description)
+        </div>
+        <div class="group-image-header">
+            <div class="group-image-header__image">
+                <picture @Html.EditAttributes(m => m.ImageUrl)>
+                    <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1900">
+                    <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1300">
+                    <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1000">
+                    <img src="@Url.ContentUrl(Model.ImageUrl)?preset=800" alt="@Model.Title" />
+                </picture>
+            </div>
+        </div>
+    </div>
+</a>

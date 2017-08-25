@@ -1,0 +1,116 @@
+﻿.sharing-block {
+    h4 {
+        font-family: 'robotolight';
+        font-size: rem(18px);
+        color: #282828;
+        margin-bottom: 25px;
+    }
+    .social_button {
+        display: block;
+        height: 59px;
+        max-width: 280px;
+        margin: 15px;
+        background-size: contain;
+        &:hover{
+            opacity: 0.8;
+        }
+
+        &.fa-button {
+            background: url('/img/fb-icon-mobile.png') no-repeat center center;
+        }
+        &.tw-button {
+            background: url('/img/tw-icon-mobile.png') no-repeat center center;
+        }
+        &.linkedin-button {
+            background: url('/img/linkedin-icon-mobile.png') no-repeat center center;
+        }
+        &.email-button {
+            background: url('/img/email-icon-mobile.png') no-repeat center center;
+        }
+        @include respond-to-min($tabletSize) {
+            background-size: cover;
+            &.fa-button {
+                background: url('/img/fb-button.png') no-repeat center center;
+            }
+            &.tw-button {
+                background: url('/img/tw-button.png') no-repeat center center;
+            }
+            &.linkedin-button {
+                background: url('/img/linkedin-button.png') no-repeat center center;
+            }
+            &.email-button {
+                background: url('/img/email-button.png') no-repeat center center;
+            }
+        }
+
+        @include respond-to-min($desktopSize) {
+            background-size: cover;
+            &.fa-button {
+                background: url('/img/fb-button.png') no-repeat center center;
+            }
+            &.tw-button {
+                background: url('/img/tw-button.png') no-repeat center center;
+            }
+            &.linkedin-button {
+                background: url('/img/linkedin-button.png') no-repeat center center;
+            }
+            &.email-button {
+                background: url('/img/email-button.png') no-repeat center center;
+            }
+        }
+    }
+    @include respond-to-min($tabletSize) {
+        .social_button {
+            max-width: 280px;
+            background-size: 100%;
+        }
+    }
+
+    @include respond-to-min($desktopSize) {
+        .haft-gutter {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        .social_button {
+            max-width: 280px;
+            background-size: 100% !important;
+        }
+        h4 {
+            font-size: rem(30px);
+        }
+    }
+
+    @include respond-to-min($laptopSize) {
+        .haft-gutter {
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+        .social_button {
+            width: 280px;
+        }
+        h4 {
+            font-size: rem(30px);
+        }
+    }
+}
+
+.job-details-sections 
+{
+    .sharing-block{
+        .col-xs-12.col-sm-6.col-md-3.haft-gutter{
+			@include respond-to-max($phonePortrait) {
+               width:25%;
+               padding:0;
+            }
+			
+            @include respond-to-min-max($phonePortrait,$tabletSize - 1) {
+				width:15%;
+				padding:0;
+				&:nth-child(4n+2){
+					margin-left:20%;
+				}   
+            }
+        }
+		
+    }
+}

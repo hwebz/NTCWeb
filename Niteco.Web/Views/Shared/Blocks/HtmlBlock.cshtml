@@ -1,0 +1,32 @@
+﻿@model HtmlBlock
+           
+@if (!string.IsNullOrEmpty(Model.Title) || !string.IsNullOrEmpty(Model.SubTitle))
+{
+    <div class="page-description__title-container">
+        <div class="container">
+            <div class="page-description__title">
+                @Html.PropertyFor(x => x.Title)
+            </div>
+            <div class="page-description__sub-title">
+                @Html.PropertyFor(x => x.SubTitle)
+            </div>
+           
+            <div class="yellow-divider service-listing__yellow-underline">
+            </div>
+            <div class="page-description__description">
+                @Html.PropertyFor(x => x.Description)
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    if (!string.IsNullOrEmpty(Model.RawDescription))
+     {
+         @Html.Raw(Model.RawDescription)
+     }
+    else
+    {
+        @Html.PropertyFor(x => x.Description)
+     }
+}

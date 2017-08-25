@@ -1,0 +1,89 @@
+﻿@using EPiServer.Editor.TinyMCE.Plugins
+@using Niteco.Common.Data
+@using Niteco.ContentTypes
+@model Niteco.Web.Models.ViewModels.ItemViewModel<OfficeBlock>
+
+
+@{
+    var settingPage = SiteSettingsHandler.Instance.SiteSettings;
+    var imageClass = string.Empty;
+    var contentClass = string.Empty;
+    switch (Model.IndexNumber)
+    {
+        case 0:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-info";
+            break;
+        case 1:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 col-sm-push-6 col-lg-push-0 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 col-lg-pull-0 no-gutter location-info";
+            break;
+        case 2:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-info";
+            break;
+        case 3:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 col-sm-push-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 no-gutter location-info";
+            break;
+        case 4:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 col-lg-push-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 col-lg-pull-6 no-gutter location-info";
+            break;
+        case 5:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 col-sm-push-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 no-gutter location-info";
+            break;
+        default:
+            imageClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-image";
+            contentClass = "col-xs-12 col-sm-6 col-md-6 no-gutter location-info";
+            break;
+    }
+}
+@if (Model.CurrentBlock is OfficeStayConnectedBlock)
+{
+    var officeStay = Model.CurrentBlock as OfficeStayConnectedBlock;
+    
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-info social-links">
+        <span class="location-title">@officeStay.OfficeName</span>
+        <span class="location-address">
+            @officeStay.ShortDescription
+        </span>
+        <div class="contact-info">
+            <a href="@Url.ContentUrl(settingPage.FacebookLink)"><i class="fa fa-facebook "></i> <b>Like us on Facebook</b></a>
+            @*<a href="@Url.ContentUrl(settingPage.TwitterLink)"><i class="fa fa-twitter"></i> <b>Follow us on Twitter</b></a>*@
+            <a href="@Url.ContentUrl(settingPage.LinkedinLink)"><i class="fa fa-linkedin"></i> <b>Add us on LinkedIn</b></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-image">
+        <picture>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(officeStay.OfficeImage)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(officeStay.OfficeImage)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(officeStay.OfficeImage)?preset=1000">
+            <img src="@Url.ContentUrl(officeStay.OfficeImage)?preset=800" alt="@officeStay.OfficeName" />
+        </picture>
+    </div>
+}
+else
+{
+    <div class="col-xs-12 col-lg-4">
+        <div class="row">
+            <div class="@imageClass">
+                <img src="@Url.ContentUrl(Model.CurrentBlock.OfficeImage)" alt="@Html.PropertyFor(x => x.CurrentBlock.OfficeName)" />
+            </div>
+            <div class="@contentClass">
+                <span class="location-title">@Html.PropertyFor(x => x.CurrentBlock.OfficeName)</span>
+                <span class="location-address">
+                    @Html.PropertyFor(x => x.CurrentBlock.Address)
+                </span>
+                <div class="contact-info">
+                    <a class="icon-map" href="javascript:void(0);"><i class="fa fa-map-marker"></i>view map</a>
+                    <a href="mailto:@Model.CurrentBlock.Email" class="iconMail"><i class="fa fa-envelope"></i>@Model.CurrentBlock.Email</a>
+                    <a href="tel:+8435739623" class="iconTel"><i class="fa fa-phone-square"></i>@Model.CurrentBlock.Phone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

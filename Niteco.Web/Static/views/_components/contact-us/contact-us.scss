@@ -1,0 +1,512 @@
+﻿.contact-us-page {
+    height: 100%;
+	.service-listing__yellow-underline{
+		margin: 20px auto 0px;
+	}
+
+    .page-description__title {
+        @include respond-to-min($desktopSize) {
+            padding: .9375rem 0px 40px;
+        }
+
+        @include respond-to-min($tabletSize) {
+            padding: 15px 0;
+            font-size: rem(40px);
+        }
+    }
+
+    
+    @include respond-to-min($tabletSize) {            
+        .page-description__sub-title {
+            font-size: rem(30px);
+        }
+    }
+
+    @include respond-to-min($desktopSize) {
+        .page-description__sub-title {
+            font-size: rem(28px);
+        }
+    }           
+
+    @include respond-to-min($laptopSize) {
+        .page-description__sub-title {
+            font-size: rem(30px);
+        }
+    }           
+}
+
+.no-gutter {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.map-office-section {
+    padding-top: 85px;
+
+    @include respond-to-max($desktopSize) {
+        padding-top: 60px;
+    }
+}
+
+#google-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background-color: #e7eaf0;
+
+    @include respond-to-max($tabletSize) {
+        height: 400px;
+    }
+
+    @include respond-to-max($phonePortrait) {
+        height: 300px;
+    }
+}
+
+
+#cd-google-map {
+    position: relative;
+}
+
+#cd-google-map address {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    padding: 1em 1em;
+    background-color: rgba(211, 104, 104, 0.9);
+    color: white;
+    font-size: 13px;
+    font-size: 0.8125rem;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-google-map address {
+        font-size: 15px;
+        font-size: 0.9375rem;
+        text-align: center;
+    }
+}
+
+#cd-zoom-in, #cd-zoom-out {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    margin-left: 10px;
+    background-color: rgba(51, 51, 51, 0.9);
+    background-repeat: no-repeat;
+    background-size: 32px 64px;
+    background-image: url("/img/cd-icon-controller-yellow.svg");
+}
+
+.no-touch #cd-zoom-in:hover, .no-touch #cd-zoom-out:hover {
+    background-color: #d36868;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-zoom-in, #cd-zoom-out {
+        margin-left: 50px;
+    }
+}
+
+#cd-zoom-in {
+    background-position: 50% 0;
+    margin-top: 10px;
+    margin-bottom: 1px;
+}
+
+@media only screen and (min-width: 768px) {
+    #cd-zoom-in {
+        margin-top: 50px;
+    }
+}
+
+#cd-zoom-out {
+    background-position: 50% -32px;
+}
+
+
+
+/*Our locations*/
+.section-our-locations {
+    .location-item {
+        background: #fff;
+        display: block;
+
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+            margin-bottom: -1px;
+        }
+
+        .location-image, .location-info {
+            position: relative;
+            display: block;
+            min-height: 220px;
+
+            &.social-links {
+                min-height: 280px;
+
+                @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+                    width: 50%;
+                }
+
+                @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+                    width: 50%;
+                }
+            }
+        }
+
+        .location-image {
+            overflow: hidden;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-color: whitesmoke;
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+                width: 50%;
+            }
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+                width: 50%;
+            }
+
+            img {
+                position: static;
+                width: 100%;
+                top: 0;
+                left: 0;
+                transform: none;
+
+                @include respond-to-min($tabletSize) {
+                    @include image-cover-center-center();
+                }
+
+                @include respond-to-min($desktopSize) {
+                    @include image-cover-center-center();
+                }
+            }
+        }
+
+        .location-info {
+            background: #f5f5f5;
+            padding: rem(40px) rem(24px);
+
+            @include respond-to-min($tabletSize) {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+
+            @include respond-to-min($desktopSize) {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+
+            @include respond-to-min($laptopSize) {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+                margin-bottom: 0;
+                padding: rem(24px) rem(24px);
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+
+            @include respond-to-min($bigScreen) {
+                padding: rem(40px) rem(24px);
+            }
+
+            @media only screen and (device-width: 1280px) and (device-height: 800px) {
+                transform: scaleY(0.68);
+                margin-top: 1px;
+            }
+
+            .location-title {
+                font-family: 'robotoblack';
+                color: #2c3e50;
+                display: block;
+                text-transform: uppercase;
+                padding-bottom: 20px;
+                letter-spacing: 2px;
+                font-size: rem(22px);
+
+                @include respond-to-min($desktopSize) {
+                    font-size: rem(25px);
+                    line-height: 1;
+                }
+
+                @include respond-to-min($laptopSize) {
+                    font-size: rem(20px);
+                    line-height: 1;
+                }
+
+                @include respond-to-min($bigScreen) {
+                    font-size: rem(25px);
+                    line-height: 1;
+                }
+            }
+
+            .location-address {
+                color: #a1b1bc;
+                font-family: "robotoregular";
+                display: block;
+
+                @include respond-to-min($desktopSize) {
+                    font-size: rem(15px);
+                    line-height: rem(25px);
+                }
+
+                @include respond-to-min($laptopSize) {
+                    font-size: rem(13px);
+                    line-height: rem(21px);
+                }
+
+                @include respond-to-min($bigScreen) {
+                    font-size: rem(15px);
+                    line-height: rem(25px);
+                }
+            }
+
+            .contact-info {
+                font-size: rem(20px);
+                line-height: rem(28px);
+                font-family: "robotolight";
+                margin-top: 30px;
+
+                @include respond-to-min($laptopSize) {
+                    position: absolute;
+                    bottom: 40px;
+                    font-size: rem(16px);
+                    bottom: 5px;
+                }
+
+                @include respond-to-min($bigScreen) {
+                    font-size: rem(20px);
+                    bottom: 30px;
+                }
+
+                @media only screen and (device-width: 1280px) and (device-height: 800px) {
+                    transform: scaleX(0.9);
+                    margin-left: -15px;
+                }
+                
+                @include respond-to-min-max($laptopSize,$midLaptopSize) {
+                        & {
+                            bottom: 20px;
+                        }
+                }
+
+                a:nth-child(2) {
+                    color: #000000;
+                }
+
+                a {
+                    text-decoration: none;
+                    margin-bottom: 5px;
+                    display: block;
+                    font-size: rem(18px);
+                    color: #a1b1bc;
+                    font-family: "robotobold";
+                    letter-spacing: 1px;
+
+                    @include respond-to-min($laptopSize) {
+                        font-size: rem(13px);
+                    }
+
+                    @include respond-to-min($bigScreen) {
+                        font-size: rem(18px);
+                    }
+
+                    i {
+                        color: #a1b1bc;
+                        margin-right: 20px;
+                        width: 25px;
+                        text-align: center;
+                        display: inline-block;
+                        vertical-align: middle;
+                        margin-top: -5px;
+
+                        &.fa-facebook, &.fa-linkedin{
+                            margin-right:15px;
+                        }
+                    }
+
+
+
+                    @include respond-to-min-max($laptopSize,$midLaptopSize) {
+                        i {
+                            width: 10px;
+                        }
+                    }
+
+                    &:hover {
+                        color: #2c3e50;
+
+                        i {
+                            color: #2c3e50;
+                        }
+                    }
+
+                    &.iconMail {
+                        font-family: "robotobold";
+                        display: inline-block;
+                        vertical-align: middle;
+                        font-weight: normal;
+
+                        i {
+                            font-size: rem(19px);
+                        }
+                    }
+
+                    &.iconTel {
+                        i {
+                            font-size: rem(22px);
+                        }
+
+                        font-family: robotolight;
+                        color: #2c3e50;
+
+                        &:hover {
+                            color: #2c3e50;
+
+                            i {
+                                color: #a1b1bc;
+                            }
+                        }
+                    }
+
+                    &.icon-map {
+                        i {
+                            font-size: rem(26px);
+                        }
+                    }
+
+                    &.social-button {
+                        i {
+                            font-size: rem(22px);
+                        }
+                    }
+                }
+            }
+
+            &.social-links .contact-info {
+                a {
+                    margin-top: 10px;
+                    display: block;
+                    color: #a1b1bc;
+
+                    b {
+                        color: #a1b1bc;
+                    }
+
+                    &:hover, &:focus {
+                        text-decoration: none;
+
+                        b {
+                            color: #2c3e50;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include respond-to-min($tabletSize) {
+            font-size: 1rem;
+            display: table;
+
+            .location-image {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+        }
+
+        @include respond-to-min($desktopSize) {
+            display: table;
+
+            .location-image {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+        }
+
+        @include respond-to-min($laptopSize) {
+            display: table;
+
+            .location-image {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                & img {
+                    position: absolute;
+                    top: 20%;
+                    left: 50%;
+                    bottom: auto;
+                    right: auto;
+                    width: auto;
+                }
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+
+            .location-image {
+                margin-bottom: 0;
+                /*img {
+                    max-height: 315px;
+                }*/
+            }
+        }
+
+
+        @include respond-to-min($bigScreen) {
+            display: table;
+
+            .location-image {
+                position: relative;
+                display: table-cell;
+                min-height: 315px;
+
+                &.social-links {
+                    min-height: 315px;
+                }
+            }
+
+            .location-image {
+                margin-bottom: 0;
+
+                img {
+                    max-height: 315px;
+                    position: static;
+                    width: 100%;
+                    top: 0;
+                    left: 0;
+                    transform: none;
+                    @include image-cover-center-center();
+                }
+            }
+        }
+    }
+}

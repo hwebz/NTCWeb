@@ -1,0 +1,81 @@
+﻿@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@model IPageViewModel<CaseStudyPage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<div class="content-container our-works-page" data-require="base/our-works">
+    <div class="our-works-wrapper content-wrapper">
+        <h2 class="all-page__header">Case Study</h2>
+
+
+        <section class="page-introduction-container">
+            <div data-require="base/page-introduction" class="page-introduction-top-block">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.MainImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content" style="margin-top: 0px; opacity: 1;">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <div class="yellow-divider"></div>
+                    <div class="page-introduction-top-block__content__sub-title">
+                        @Html.PropertyFor(x => x.CurrentPage.ShortDescription)
+                    </div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        <section class="section-case-study-detail">
+
+            @if (PageEditing.PageIsInEditMode)
+            {
+                @*@Html.PropertyFor(m => m.MissionItems, new
+                {
+                    Tag = ContentAreaTags.NoWrappersContentArea,
+                })*@
+                @Html.PropertyFor(m => m.CurrentPage.CaseStudyDetailItems)
+            }
+            else
+            {
+                for (int i = 0; i < Model.CurrentPage.CaseStudyDetailItems.Items.Count; i++)
+                {
+                    <div class="case-study-item clearfix">
+                        @{
+                            var titleClass = string.Empty;
+                            var item = Model.CurrentPage.CaseStudyDetailItems.Items[i];
+                            var block = contentLoader.Get<CaseStudyDetailBlock>
+                                (item.ContentLink);
+                            var viewModel = new ItemViewModel<CaseStudyDetailBlock>(block, @i);
+                            Html.RenderPartial("CaseStudyDetailBlockPartial", viewModel);
+                        }
+                    </div>
+                }
+            }
+        </section>
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>
+
+
+
+
+
+ 

@@ -1,0 +1,220 @@
+﻿
+@using EPiServer
+@using EPiServer.ServiceLocation
+@model BlogsListingViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<div class="content-container blog-list-page" data-require="base/common-page-animation">
+    <div class="blog-list-wrapper content-wrapper">
+        @*{{> _social-share}}*@
+        @{
+            Html.RenderPartial("StickySocialSharing", Model.CurrentPage);
+        }
+        @*{{> _news-list-articles news-list.articles}}*@
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading"/>
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">
+                        <p>@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</p>
+                    </div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        @*        {{> blog-list-content}}*@
+@*        @if (Model.ListBlogDetail != null && Model.ListBlogDetail.Any())*@
+@*        {*@
+            <div class="blog-list-content__container">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-7">
+                            @*                            {{> _blog-list-articles blog-list.articles}}*@
+                            <div class="blog-list-articles__container" data-require="base/blog-list-endless-scroll">
+                                <div id="blog-list-articles__content" class="blog-list-articles__content">
+                                    @Html.Partial("_BlogItem", Model)
+                                </div>
+                                    @if (Model.ListBlogDetail != null && Model.ListBlogDetail.Any())
+                                    {
+                                        <div class="loading-area">
+                                            <img src="@Url.ContentUrl(Model.CurrentPage.LoadingImage)" alt="Loading..."/>
+                                            <span class="loading-text">@Html.PropertyFor(x => x.CurrentPage.LoadingText)</span>
+                                        </div>
+                                    }
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-md-offset-1">
+                            @*                            {{> blog-list-sidebar}}*@
+                            <div class="blog-list-sidebar__container">
+                                <div class="blog-list-sidebar__widget blog-list-sidebar__widget_search" data-require="base/search-validation">
+                                    <div class="blog-list-sidebar__widget-title">
+                                        <h2>@Html.PropertyFor(x => x.CurrentPage.SearchTitle)</h2>
+                                        <div class="yellow-divider"></div>
+                                    </div>
+                                    <div class="blog-list-sidebar__widget-content">
+                                        <div class="blog-list-sidebar__widget_search-form">
+                                            <form action="@Url.ContentUrl(Model.CurrentPage.ContentLink)" method="GET">
+                                                <label for="blog-list-sidebar__widget_search-form__input-field" class="hidden">Search</label>
+                                                <input type="text" class="blog-list-sidebar__widget_search-form__input-field" id="blog-list-sidebar__widget_search-form__input-field" title="Search" placeholder="@(!string.IsNullOrEmpty(Request.Unvalidated.QueryString["q"])? Request.Unvalidated.QueryString["q"].ToString() : "Search...")" name="q" />
+                                                <input type="submit" class="blog-list-sidebar__widget_search-form__submit" value="Search" title="Submit" />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="blog-list-sidebar__widget blog-list-sidebar__widget_cate">
+                                    <div class="blog-list-sidebar__widget-title">
+                                        <h2>@Html.PropertyFor(x=>x.CurrentPage.FilterCategoryTitle)</h2>
+                                        <div class="yellow-divider"></div>
+                                    </div>
+                                    <div class="blog-list-sidebar__widget-content">
+                                        <nav class="blog-list-sidebar__widget_cate-nav">
+                                            <ul>
+                                                @foreach (var blogCategory in Model.ListBlogCategory)
+                                                {
+                                                    if (!string.IsNullOrEmpty(Request.QueryString["cat"]) && Request.QueryString["cat"].ToString() == blogCategory.Category)
+                                                    {
+                                                        <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?cat=@blogCategory.Category">@blogCategory.Category<span class="articles-in-category">(@blogCategory.BlogCount)</span></a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?cat=@blogCategory.Category">@blogCategory.Category<span class="articles-in-categories"> (@blogCategory.BlogCount)</span></a></li>
+                                                    }
+                                                }
+                                                @*                                                <li class="active"><a href="#">Episerver <span class="articles-in-category">(94)</span></a></li>*@
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="blog-list-sidebar__widget blog-list-sidebar__widget_cate">
+                                    <div class="blog-list-sidebar__widget-title">
+                                        <h2>@Html.PropertyFor(x=>x.CurrentPage.TopAuthorTitle)</h2>
+                                        <div class="yellow-divider"></div>
+                                    </div>
+                                    <div class="blog-list-sidebar__widget-content">
+                                        <nav class="blog-list-sidebar__widget_cate-nav">
+                                            <ul>
+                                                @foreach (var author in Model.ListAuthors)
+                                                {
+                                                    if (!string.IsNullOrEmpty(Request.QueryString["author"]) && Request.QueryString["author"].ToString() == author.AuthorName)
+                                                    {
+                                                        <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?author=@author.AuthorName">@author.AuthorName <span class="articles-in-category">(@author.BlogCount)</span></a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?author=@author.AuthorName">@author.AuthorName <span class="articles-in-category">(@author.BlogCount)</span></a></li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="blog-list-sidebar__widget blog-list-sidebar__widget_tags">
+                                    <div class="blog-list-sidebar__widget-title">
+                                        <h2>@Html.PropertyFor(x => x.CurrentPage.TopTagTitle)</h2>
+                                        <div class="yellow-divider"></div>
+                                    </div>
+                                    <div class="blog-list-sidebar__widget-content">
+                                        <nav class="blog-list-sidebar__widget_tags-clouds">
+                                            <ul>
+                                                @foreach (var tag in Model.ListTags)
+                                                {
+                                                    if (!string.IsNullOrEmpty(Request.QueryString["tag"]) && Request.QueryString["tag"].ToString() == tag.TagName)
+                                                    {
+                                                        <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?tag=@tag.TagName">@tag.TagName<span class="articles-in-category"> (@tag.BlogCount)</span></a></li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?tag=@tag.TagName">@tag.TagName<span class="articles-in-category"> (@tag.BlogCount)</span></a></li>
+                                                    }
+                                                }
+                                                @*<li><a href="#">configuration <span class="articles-in-category">(27)</span></a></li>
+            <li><a href="#">windows <span class="articles-in-category">(23)</span></a></li>
+            <li class="active"><a href="#">ux design <span class="articles-in-category">(21)</span></a></li>
+            <li><a href="#">ui design <span class="articles-in-category">(17)</span></a></li>
+            <li><a href="#">template foundation <span class="articles-in-category">(13)</span></a></li>*@
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+
+                                <div class="blog-list-sidebar__widget blog-list-sidebar__widget_hiring" id="blog-list-sidebar__widget_hiring" data-require="base/sticky-sidebar">
+                                    <div class="blog-list-sidebar__widget-title">
+                                        <h2>@Html.PropertyFor(x=>x.CurrentPage.WeAreHiringTitle)</h2>
+                                        <div class="yellow-divider"></div>
+                                    </div>
+                                    <div class="blog-list-sidebar__widget-content">
+                                        <div class="blog-list-sidebar__widget_hiring-content">
+                                            <div class="blog-list-sidebar__widget_hiring-content__description">
+                                                @Html.PropertyFor(x=>x.CurrentPage.WeAreHiringDescription)
+                                            </div>
+                                            <nav class="blog-list-sidebar__widget_hiring-content__positions">
+                                                <ul>
+                                                    @foreach (var jobPage in Model.ListJobPage)
+                                                    {
+                                                        <li><a href="@Url.ContentUrl(jobPage.ContentLink)">@jobPage.Name<span class="positions-location"> (@jobPage.WorkLocation)</span></a></li>
+                                                    }
+                                                </ul>
+                                                <a href="@Url.ContentUrl(Model.CurrentPage.JobRoot)" alt="More Jobs" class="blog-list-sidebar__widget__more-link">View All Positions</a>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+@*        }*@
+        @*        {{> news-list-footer}}*@
+        @if (Model.CurrentPage.BottomContentArea != null && Model.CurrentPage.BottomContentArea.Items.Any())
+        {
+            <section class="home-block-row news-list-footer container-zindex-one" data-require="base/click-item">
+                @{
+                    var total = Model.CurrentPage.BottomContentArea.Items.Count > 2 ? 2 : Model.CurrentPage.BottomContentArea.Items.Count;
+                    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                    for (var i = 0; i < total; i++)
+                    {
+                        var item = Model.CurrentPage.BottomContentArea.Items[i];
+                        SitePageData page;
+                        if (contentLoader.TryGet<SitePageData>
+                            (item.ContentLink, out page))
+                        {
+                            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__dark-bg'>", i == 0)
+                            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__bright-bg'>", i == 1)
+                            Html.RenderPartial("SitePageOnBottom", page);
+                            @Html.Html("</div>", true)
+                        }
+                    }
+                }
+            </section>
+        }
+        @*{{> _footer}}*@
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>
+         

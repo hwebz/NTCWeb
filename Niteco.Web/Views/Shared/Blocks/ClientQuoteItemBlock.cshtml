@@ -1,0 +1,18 @@
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.ClientQuoteItemBlock
+
+<div class="quote__text">
+    @Html.PropertyFor(x=>x.Description)
+</div>
+<div class="quote__about">
+    <p>@Html.PropertyFor(x=>x.ClientPersonName)</p>
+    <span>@Html.PropertyFor(x => x.ClientPersonTitle)</span>
+    <p>
+        <picture @Html.EditAttributes(m => m.ImageUrl)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1000">
+            <img src="@Url.ContentUrl(Model.ImageUrl)?preset=800" alt="@Model.ClientPersonName" />
+        </picture>
+    </p>
+</div>

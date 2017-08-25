@@ -1,0 +1,29 @@
+﻿@model Niteco.ContentTypes.Blocks.HeadingBlock
+@*<h1>
+    @Html.PropertyFor(x => x.Heading)
+</h1>
+@Html.PropertyFor(x => x.Description)*@
+
+<section class="parallax-panel">
+    <div class="panel-bg introduce-overflow-hidden">
+        <div class="panel-bg introduce bgzoom">
+            <picture @Html.EditAttributes(m => m.BackgroundUrl)>
+                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.BackgroundUrl)?preset=1900">
+                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.BackgroundUrl)?preset=1300">
+                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.BackgroundUrl)?preset=1000">
+                <img class="panel-bg introduce bgzoom" src="@Url.ContentUrl(Model.BackgroundUrl)?preset=800" alt="heading" />
+            </picture>
+        </div>
+    </div>
+    <img class="panel-logo" src="/img/intro-logo.png" alt="niteco logo" />
+    <div class="container-fluid">
+        <div class="introduce-content">
+            <div class="introduce-content-image">
+                <img src="/img/header-niteco-logo.png" />
+            </div>
+            <div class="introduce-content-text">
+                @Html.PropertyFor(x => x.Description)
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,79 @@
+﻿<input type="hidden" value="" id="countryName" />
+<input type="hidden" value="" id="phoneCode" />
+<input type="hidden" value="" id="listCountry" />
+
+<section class="section-our-contact-form container-zindex-one" data-require="base/contact-form">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h3>Here’s Your Ticket to Tech Bliss. Drop Us a Line: </h3>
+            </div>
+
+            <div class="col-xs-12">
+                <span class="thank-message" id="thank-message"> </span>
+            </div>
+
+            <div class="col-xs-12" id="ct-form">
+                <div class="row" id="contact-box"><!--Contact Box-->
+                    <div class="col-xs-12 col-sm-6 col-md-6 contact-column"><!--Left-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span class="input">
+                                    <span class="input__label--top">Full Name</span>
+                                    <input class="input__field input__field--contact" type="text" name="fullname" id="Name"/>
+                                    <span class="input__label-content input__label-content--contact error-message" id="error-for-Name"></span>
+                                </span>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="input">
+                                    <span class="input__label--top">Email Address</span>
+                                    <input class="input__field input__field--contact" type="text" name="email" id="Email"/>
+                                    <span class="input__label-content input__label-content--contact error-message" id="error-for-Email"></span>
+                                </span>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="input">
+                                    <span class="input__label--top">Phone Number</span>
+                                    <input class="input__field input__field--contact" type="text" name="phone" id="Phone"/>
+                                    <span class="input__label-content input__label-content--contact error-message" id="error-for-Phone"></span>
+                                </span>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="input__label--top">Country</span>
+                                <img class="img-loading" id="imgLoading" alt="Loading icon" style="display: none;position: absolute;top:50%;left:50%;z-index:10;" src="/img/ajax-loader.gif">
+                                <select class="cs-select cs-skin-elastic input" id="Country">
+                                </select>
+                            </div>
+                        </div>
+                    </div><!--Left-->
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 contact-column"><!--Right-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="input">
+                                    <span class="input__label--top">Message</span>
+                                    <textarea class="input__field input__field--contact" name="message" id="message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-12 col-lg-7 recaptra">
+                                        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                                        <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings[" ReCaptchaSiteKey"]"></div>
+                                        <span class="error-message" id="inValidCapcha"></span>
+                                    </div>
+                                    <div class="col-xs-12 col-lg-5 ">
+                                        <button id="btnSubmit" class="contactform-submit" title="Submit Request">
+                                            <span>Submit Request</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--Right-->
+
+                </div><!--Contact Box-->
+            </div>
+        </div>
+    </div>
+</section>

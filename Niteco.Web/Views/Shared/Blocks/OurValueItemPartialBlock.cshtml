@@ -1,0 +1,13 @@
+@using EPiServer.Web.Routing
+    @model Niteco.Web.Models.ViewModels.ItemViewModel<OurValueItemBlock>
+
+<div class="our-value-item col-xs-12 checking-animate inactive fade-in">
+    <div class="row">
+        <div class="value-index col-xs-12 col-sm-2 col-md-1 col-lg-1">@Model.IndexNumber</div>
+        <div class="value-description col-xs-12 col-sm-10 col-md-10 col-lg-11">
+            <h3>@Html.PropertyFor(x => x.CurrentBlock.ItemTitle)</h3>
+           @Html.PropertyFor(x => x.CurrentBlock.ItemContent)
+        </div>
+    </div>
+</div>
+

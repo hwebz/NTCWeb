@@ -1,0 +1,19 @@
+﻿@model JobPage
+<div class="our-value-item">
+    <div class="job-details">
+        <div class="job-thumbnail">
+            <a href="@Url.ContentUrl(Model.ContentLink)"><img src="@Url.ContentUrl(Model.TeaserImage)" alt="@Model.Heading"></a>
+        </div>
+        <a href="@Url.ContentUrl(Model.ContentLink)">
+            <div class="value-description job-descriptions">
+
+                <h3>@Model.Heading<span> (@Model.WorkLocation)</span></h3>
+
+                @Html.Raw(Model.ShortDescription)
+            </div>
+        </a>
+        <div class="arrowGoToDetail hidden-xs">
+            <a href="@Url.ContentUrl(Model.ContentLink)">Click here to read more</a>
+        </div>
+    </div>
+</div>

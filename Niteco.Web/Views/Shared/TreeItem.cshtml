@@ -1,0 +1,10 @@
+﻿@model SitemapItem
+<ul>
+    <li>
+        <a href="@Model.Url">@Model.Title</a>
+        @foreach (var i in Model.Children)
+        {
+            @Html.Partial("TreeItem", i)
+        }
+    </li>
+</ul>

@@ -1,0 +1,119 @@
+
+%button{
+    font-family: 'robotolight';
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 300ms ease-in-out;
+    font-size: 0.8rem;
+    padding: 0.5rem 2.5rem;
+
+    @include respond-to-min($tabletSize) {
+		font-size: 1rem;
+	}
+    @include respond-to-min($desktopSize) {
+        font-size: 1.1rem;
+	}
+    @include respond-to-min($laptopSize) {
+		font-size: 1.2rem;
+	}
+    @include respond-to-min($bigScreen) {
+        font-size: 1.2rem;
+    }
+
+    &:hover,&:visited,&:focus{
+        text-decoration: none;
+    }
+}
+.button-yellow{
+    @extend %button;
+    background-color: #facd1f;
+    color: #282828;
+
+    &:hover{
+        color: #282828;
+    }
+}
+
+.button-yellow-border{
+    @extend %button;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #947e26;
+    font-size: rem(18px);
+    &:visited,&:focus{
+        color: #fff;
+    }
+    &:hover{
+        background: #facd20;
+        border: 2px solid #facd20;
+        color: #282828;
+    }
+}
+
+.niteco-fat-button{
+    display:block;
+    width:200px;
+    height:60px;   
+    text-align:center;      
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;       
+    font: 16px robotoregular;
+    text-transform:uppercase;
+    transition: all 0.5s;
+	line-height: 60px;
+     &:hover{
+        text-decoration: none;
+    }
+      @include respond-to-min($tabletSize) {
+		width: 130px;
+        height: 40px;
+        font: 0.75rem/40px robotoregular;
+	}
+    @include respond-to-min($desktopSize) {
+        width: 160px;
+        height: 45px;
+        font: 0.9rem/43px robotoregular;  
+	}
+    @include respond-to-min($laptopSize) {
+		width:200px;
+        height:60px;
+        font: 0.9375rem/60px robotoregular;
+	}
+}
+
+.btn-red{
+	background: #cf3348;
+	color:#fafafa;		
+	vertical-align: middle;
+     &:hover{
+        color: #fff;
+        background: #000;
+	    text-decoration:none;
+    }
+}
+.btn-white-round{
+    @extend %button;
+
+    font-family: 'robotoregular';
+    color: #fff;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+
+    &:hover{
+        color: #fff;
+    }
+}
+.btn-black{
+    @extend %button;
+    background: #3f474e;
+    color: #fff;
+    border: 2px solid #6d7177;
+    border-radius: 5px;
+    padding: 15px 50px;
+    font-size: rem(15px);
+    float: right;
+}

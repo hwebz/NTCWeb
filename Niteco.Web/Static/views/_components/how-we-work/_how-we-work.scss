@@ -1,0 +1,419 @@
+﻿/*Our-process*/
+.section-our-process {
+    background-color: #fff;
+    padding: 30px 0 0;
+    border-bottom: 1px solid #ECE5E5;
+
+    .our-process-introduce {
+        margin: 0;
+        text-align: center;
+
+        h2 {
+            font-size: rem(44px);
+            font-family: 'robotoblack';
+            color: #282828;
+            line-height: rem(48px);
+            text-transform: capitalize;
+            margin: 0;
+            padding: 20px 0;
+			font-weight : 500;
+        }
+
+        .our-process-sample {
+            color: #2c3e50;
+            font-family: 'robotolight';
+            padding: 45px 0 60px;
+			font-size: rem(18px);
+            @include respond-to-min($tabletSize) {
+                font-size: 1.6rem;
+                line-height: 1.875rem;
+            }
+
+            @include respond-to-min($desktopSize) {
+                font-size: 1.875rem;
+                line-height: 1.875rem;
+            }
+
+            @include respond-to-min($laptopSize) {
+                font-size: 1.875rem;
+                line-height: 1.875rem;
+            }
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+                font-size: 1.6rem;
+            }
+
+            @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: rem(20px);
+            }
+
+            @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: rem(20px);
+            }
+
+            @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+                font-size: rem(20px);
+            }
+
+            @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+                font-size: rem(20px);
+            }
+        }
+    }
+
+    .our-processes-container {
+        .process {
+            @for $i from 1 through 3 {
+                &:nth-child(#{$i}) {
+                    transition-delay: 200ms * ($i - 1);
+                }
+            }
+
+            @for $i from 4 through 6 {
+                &:nth-child(#{$i}) {
+                    transition-delay: 200ms * ($i - 4);
+                }
+            }
+
+            margin-bottom: 30px;
+
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
+
+            .process-contents {
+                background: #2c3e50;
+                transition: background 0.2s ease-in-out;
+                height: 283px;
+                border: solid 1px #ecf0f1;
+                text-align: center;
+                cursor: pointer;
+                padding-bottom: 11px;
+                position: relative;
+
+                .yeallow-border {
+                    height: 10px;
+                    border-top: 1px solid transparent;
+                    background: transparent;
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    z-index: 999;
+                }
+            }
+
+            .circle-white {
+                display: block;
+                width: 122px;
+                height: 122px;
+                background: rgba(0, 0, 0, 0.25);
+                margin: 0 auto;
+                margin-top: 55px;
+                @include border-radius(50%);
+                position: relative;
+
+                img {
+                    position: absolute;
+                    @include align-center-block(50%,50%);
+                }
+            }
+
+            .process-title {
+                text-align: center;
+                font-family: 'robotolight';
+                letter-spacing: 1px;
+                color: #fff;
+                padding-top: 30px;
+                font-size: rem(20px);
+
+                @include respond-to-min($tabletSize) {
+                }
+
+                @include respond-to-min($desktopSize) {
+                }
+
+                @include respond-to-min($laptopSize) {
+                }
+            }
+
+            &:hover {
+                .process-contents {
+                    border-color: #ecf0f1;
+                    background: #fff !important;
+
+                    .yeallow-border {
+                        border-color: #ecf0f1;
+                        background: #facd20;
+                    }
+
+                    .process-detail {
+                        opacity: 1;
+                    }
+
+                    .circle-white {
+                        opacity: 0;
+                    }
+                }
+            }
+
+            .process-detail {
+                width: 80%;
+                position: absolute;
+                z-index: 1;
+                opacity: 0;
+                @include align-center-block(50%,50%);
+                top: 45%;
+
+                h4 {
+                    font-family: 'robotolight';
+                    color: #2c3e50;
+                    margin-bottom: 30px;
+                    font-size: rem(24px);
+                    font-weight: normal;
+                }
+
+                span, p {
+                    font-size: rem(18px);
+                    font-family: 'robotolight';
+                    color: #849098;
+                    word-spacing: 1px;
+                    line-height: 1.7rem;
+                }
+
+                .process-info {
+                    font-family: 'latoregular';
+                    color: #a1b1bc;
+
+                    @include respond-to-min($tabletSize) {
+                        font-size: 1.5rem;
+                        line-height: 3rem;
+                    }
+
+                    @include respond-to-min($desktopSize) {
+                        font-size: 0.875rem;
+                        line-height: 1.5rem;
+                    }
+
+                    @include respond-to-min($laptopSize) {
+                        font-size: 0.875rem;
+                        line-height: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    @include respond-to-min($desktopSize) {
+        & {
+            padding: 105px 0;
+        }
+
+        .our-process-introduce {
+            h2 {
+                font-size: rem(40px);
+            }
+        }
+    }
+
+	@include respond-to-max($tabletSize) {    
+         .our-process-introduce {
+            h2 {
+                font-size: rem(40px);
+            }
+        }
+    }
+    @include respond-to-min($tabletSize) {    
+         .our-process-introduce {
+            h2 {
+                font-size: rem(40px);
+            }
+        }
+    }
+	@include respond-to-min($laptopSize) {    
+         .our-process-introduce {
+            h2 {
+                font-size: rem(56px);
+            }
+        }
+    }
+}
+
+/* Partnership section */
+.how-we-work-partnership {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background: url('/img/how-we-work-partnership-background.jpg');
+    background-size: cover;
+    padding: 60px 0;
+
+	.view-jobs-opening p{
+		font-size : 1.25rem;
+		@media only screen and (min-device-width: 560px) and (max-device-width: 668px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+			/*iphone 5 & 5s*/
+			width : 80%;
+            margin : 0px auto 30px;
+		}
+		@include respond-to-min($laptopSize) {
+				font-size: 1.875rem;
+		}
+	}
+	.view-jobs-opening p strong{
+		display: inline-block;
+		font-size: 1.25rem;	
+		color : 	#facd20;
+		@include respond-to-max($tabletSize + 1) {
+				display: block;
+		}
+		@include respond-to-min($laptopSize) {
+				font-size: 1.875rem;
+		}
+	}
+    h1, .how-we-work__title {
+        font-family: 'robotobold';
+        color: #fff;
+        padding: 0 0;
+        margin: 0 0;
+		font-size : rem(32px);
+		font-weight:500;
+		@include respond-to-min($tabletSize) {
+            font-size:2.25rem;
+        }
+    }
+
+    .how-we-work-partnership_list {
+        padding: 0 10px;
+
+        li {
+            list-style: none;
+            text-align: left;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-left: 45px;
+            background: url('/img/icon-tick.png') no-repeat 20px 22px;
+            font-family: 'robotolight';
+            font-size: rem(16px);
+            line-height: rem(24px);
+            border-top: 1px solid #e9edee;
+        }
+    }
+
+    .how-we-work-partnership_text {
+        font-family: 'robotolight';
+        text-align: left;
+        color: #fff;
+        margin-bottom: 50px;
+		font-size : 1.125rem;
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (device-width: 375px), (orientation: portrait){ 
+			font-size: rem(17.5px);
+		}
+		@include respond-to-max($tabletSize) {
+				margin-bottom: 30px;
+		}
+    }
+
+    .content-models {
+        position: relative;
+        padding: 0 0;
+        margin-top: 75px;
+        position: relative;
+
+        .col-xs-12:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .partnership-models {
+            background: #fff;
+            margin-bottom: 75px;
+			@include respond-to-max($tabletSize + 1) {
+				margin-bottom: 50px;
+			}
+            .partnership-models__title {
+                background-color: #2c3e50;
+                color: #fff;
+                padding: 20px 0;
+                font-family: 'robotoblack';
+                font-size: rem(30px);
+                letter-spacing: 2px;
+            }
+
+            .partnership-models__description {
+                text-align: left;
+                font-family: 'robotolight';
+                font-size: rem(18px);
+                padding: 27px 27px;
+                letter-spacing: 1px;
+                line-height: 30px;
+            }
+
+            .partnership-models__info {
+                text-align: left;
+                border-top: 2px solid #f2f4f5;
+                position: relative;
+                padding: 15px 0 15px 0;
+                margin-left: 15px;
+                width: 95%;
+
+                .icon-tick {
+                    background: url('/img/icon-tick.png') no-repeat;
+                    width: 14px;
+                    height: 11px;
+                    margin: 5px 15px 5px 15px;
+                    float: left;
+                }
+
+                span {
+                    font-family: 'robotolight';
+                    font-size: rem(16px);
+                    line-height: 20px;
+                    padding: 0 0;
+                    margin: 0 0;
+                    position: relative;
+                    display: block;
+                }
+            }
+        }
+    }
+
+    @include respond-to-min($tabletSize) {
+    }
+
+    @include respond-to-min($desktopSize) {
+        & {
+            padding: 110px 0;
+        }
+
+        .partnership-models {
+            height: 600px;
+        }
+
+        h1, .how-we-work__title {
+            font-size: rem(40px);
+        }
+
+        .how-we-work-partnership_text {
+            font-size: 1.275rem;
+        }
+
+        .content-models {
+            .partnership-models {
+                .partnership-models__title {
+                    font-size: rem(30px);
+                }
+            }
+        }
+    }
+
+    @include respond-to-min($laptopSize) {
+        .partnership-models {
+            height: 500px;
+        }
+		.how-we-work-partnership_text {
+            font-size: 1.5rem;
+			letter-spacing: 1px;
+        }
+        h1, .how-we-work__title {
+            font-size: rem(56px);
+        }
+    }
+}

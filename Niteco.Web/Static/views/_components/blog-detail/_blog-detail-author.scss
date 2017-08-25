@@ -1,0 +1,113 @@
+﻿.blog-detail-author__container {
+    margin-bottom: 40px;
+    .blog-detail_author__wrapper {
+        .blog-detail-author__title {
+            margin-bottom: 30px;
+            h2 {
+                font: 2.25rem/3rem "robotobold", Arial, Helvetica, sans-serif;
+                margin: 0 0 10px 0;
+                text-transform: capitalize;
+
+                @include respond-to-max($desktopSize) {
+                    font-size: 2.25rem;
+                    line-height: 3.125rem;
+                }
+            
+                @include respond-to-max($phonePortrait) {
+                    font-size: 2.05rem;
+                    line-height: 3.125rem;
+                }
+            }
+
+            @include respond-to-max($tabletSize) {
+                text-align: center;
+                .yellow-divider {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .blog-detail-author__content {
+            @include respond-to-max($tabletSize) {
+                text-align: center;
+            }
+
+            .author-avatar {
+                max-width: 100%;
+                width: 100%;
+
+                @include respond-to-max($tabletSize) {
+                    width: 100px;
+                    margin-bottom: 25px;
+                }
+            }
+            
+            .author-name {
+                margin: 0;
+                font: 1.5rem/1.5rem "robotobold", Arial, Helvetica, sans-serif;
+            }
+
+            .author-role {
+                margin: 0;
+                font: 1.125rem/1.5rem "robotolight", Arial, Helvetica, sans-serif;
+            }
+
+            .description {
+                text-align: left;
+                font: 0.875rem/1.375rem "robotolight", Arial, Helvetica, sans-serif;
+            }
+
+
+            .social-following {
+                //margin-top: 25px;
+
+                ul {
+                    list-style: none;
+                    margin: 0;
+                    padding: 0;
+                    display: inline-block;
+                    li {
+                        display: inline-block;
+                        margin: 0 8px;
+
+                        &.social-label {
+                            font: 1.125rem/3rem "robotobold", Arial, Helvetica, sans-serif;
+                            margin: 0;
+
+                            @include respond-to-max($tabletSize) {
+                                width: 100%;
+                            }
+                        }
+                        a {
+                            display: block;
+                            height: 20px;
+                            span {
+                                color: #6a7884;
+                                text-decoration: none;
+                                font-size: 1.3rem;
+
+                                &.episerver-icon {
+                                    display: block;
+                                    width: 40px;
+                                    height: 25px;
+                                    background: transparent url(../img/episerver.png) no-repeat bottom left;
+                                }
+                            }
+
+                            &:hover {
+                                span {
+                                    color: #000000;
+
+                                    &.episerver-icon {
+                                        background: transparent url(../img/episerver-hover.png) no-repeat bottom left;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

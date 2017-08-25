@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A679FB5B-C91C-451A-A28A-5DFF85411CF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Niteco.ContentTypes</RootNamespace>
+    <AssemblyName>Niteco.ContentTypes</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\Test\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPiServer, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data.Cache, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Licensing, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Niteco.UI, Version=1.0.6029.7553, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Niteco.UI.1.0.160704.1112\lib\net45\Niteco.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.6.191, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.191\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.6.191, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.191\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web-signed.3.1.6.191\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\CategorySelectionAttribute.cs" />
+    <Compile Include="Blocks\BlogQuoteBlock.cs" />
+    <Compile Include="Blocks\CodeWrapBlock.cs" />
+    <Compile Include="Blocks\IconLinkItemBlock.cs" />
+    <Compile Include="Blocks\NewsQuoteBlock.cs" />
+    <Compile Include="Blocks\StayUpToDateBlock.cs" />
+    <Compile Include="Blocks\CaseStudyDetailBlock.cs" />
+    <Compile Include="Blocks\ApplyCareerBlock.cs" />
+    <Compile Include="Blocks\CareerBenefitBlock.cs" />
+    <Compile Include="Blocks\CareerBenefitContainerBlock.cs" />
+    <Compile Include="Blocks\HomeImageBlock.cs" />
+    <Compile Include="Blocks\TechnologyPartnerItemBlock.cs" />
+    <Compile Include="Blocks\TechnologyPartnerBlock.cs" />
+    <Compile Include="Blocks\CommunityPartnerBlock.cs" />
+    <Compile Include="Blocks\CommunityPartnerItemBlock.cs" />
+    <Compile Include="Blocks\HowWeWorkOurProcessBlock.cs" />
+    <Compile Include="Blocks\HowWeWorkOurProcessItemBlock.cs" />
+    <Compile Include="Blocks\HowWeWorkPartnershipBlock.cs" />
+    <Compile Include="Blocks\HtmlBlock.cs" />
+    <Compile Include="Blocks\MissionBlock.cs" />
+    <Compile Include="Blocks\AboutUsInfoBlock.cs" />
+    <Compile Include="Blocks\MissionItemBlock.cs" />
+    <Compile Include="Blocks\ButtonBlock.cs" />
+    <Compile Include="Blocks\AboutUsOfficeBlock.cs" />
+    <Compile Include="Blocks\ClientQuoteBlock.cs" />
+    <Compile Include="Blocks\AboutUsInfoItemBlock.cs" />
+    <Compile Include="Blocks\NisButtonBlock.cs" />
+    <Compile Include="Blocks\NisServiceItemBlock.cs" />
+    <Compile Include="Blocks\NisServicesBlock.cs" />
+    <Compile Include="Blocks\NisVerifyByEpiServer.cs" />
+    <Compile Include="Blocks\OfficeStayConnectedBlock.cs" />
+    <Compile Include="Blocks\OurValueItemBlock.cs" />
+    <Compile Include="Blocks\HomeVideoBlock.cs" />
+    <Compile Include="Blocks\OurValuesBlock.cs" />
+    <Compile Include="Blocks\PeopleBlock.cs" />
+    <Compile Include="Blocks\ClientQuoteItemBlock.cs" />
+    <Compile Include="Blocks\HeadingBlock.cs" />
+    <Compile Include="Blocks\OfficeBlock.cs" />
+    <Compile Include="Blocks\SocialInfoBlock.cs" />
+    <Compile Include="Blocks\VideoDemoBlock.cs" />
+    <Compile Include="Blocks\VideoDemoBlockItem.cs" />
+    <Compile Include="DynamicData\StayUpToDateData.cs" />
+    <Compile Include="DynamicData\ContactFormData.cs" />
+    <Compile Include="EditorDescriptors\BlogCategoryEditorDescriptor.cs" />
+    <Compile Include="EditorDescriptors\HideCategoryEditorDescriptor.cs" />
+    <Compile Include="EditorDescriptors\ServiceListEditorDescriptor.cs" />
+    <Compile Include="EditorDescriptors\TechnologiesSelectionEditorDescriptor.cs" />
+    <Compile Include="Extension\XhtmlStringExtension.cs" />
+    <Compile Include="Pages\AboutUsPage.cs" />
+    <Compile Include="Pages\AuthorPage.cs" />
+    <Compile Include="Pages\BlogDetailPage.cs" />
+    <Compile Include="Pages\BlogListingPage.cs" />
+    <Compile Include="Pages\CareerPage.cs" />
+    <Compile Include="Pages\CaseStudyPage.cs" />
+    <Compile Include="Pages\ContactUsPage.cs" />
+    <Compile Include="EditorDescriptors\EnumEditorDescriptor.cs" />
+    <Compile Include="Pages\HowWeWorkPage.cs" />
+    <Compile Include="Pages\JobPage.cs" />
+    <Compile Include="Pages\NewsDetailPage.cs" />
+    <Compile Include="Pages\NewsListingPage.cs" />
+    <Compile Include="Pages\NisPage.cs" />
+    <Compile Include="Pages\OurTeamPage.cs" />
+    <Compile Include="Pages\OurWorkPage.cs" />
+    <Compile Include="Pages\ISiteSettings.cs" />
+    <Compile Include="Pages\OurTechnologiesPage.cs" />
+    <Compile Include="Pages\TechnologyPage.cs" />
+    <Compile Include="Pages\ServiceListPage.cs" />
+    <Compile Include="Pages\ServicePage.cs" />
+    <Compile Include="Pages\SettingPageData.cs" />
+    <Compile Include="Pages\SitemapPage.cs" />
+    <Compile Include="Pages\HtmlPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Blocks\SiteBlockData.cs" />
+    <Compile Include="CustomProperties\PropertyStringList.cs" />
+    <Compile Include="EditorDescriptors\StringListEditorDescriptor.cs" />
+    <Compile Include="Media\GenericMedia.cs" />
+    <Compile Include="Media\ImageFile.cs" />
+    <Compile Include="Media\VideoFile.cs" />
+    <Compile Include="Pages\ContainerPage.cs" />
+    <Compile Include="Pages\IContainerPage.cs" />
+    <Compile Include="Pages\IHasRelatedContent.cs" />
+    <Compile Include="Pages\SearchPage.cs" />
+    <Compile Include="Pages\SitePageData.cs" />
+    <Compile Include="Pages\StandardPage.cs" />
+    <Compile Include="Pages\StartPage.cs" />
+    <Compile Include="RestServices\ITechnologiesListStore.cs" />
+    <Compile Include="RestServices\TechnologiesListStore.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="SiteContentType.cs" />
+    <Compile Include="SiteImageUrl.cs" />
+    <Compile Include="SiteSettingsHandler.cs" />
+    <Compile Include="Statistics\Cache\AuthorStatisticServiceDecorate.cs" />
+    <Compile Include="Statistics\Cache\CategoryStatisticServiceDecorate.cs" />
+    <Compile Include="Statistics\Cache\TagStatisticServiceDecorate.cs" />
+    <Compile Include="Statistics\Implementations\AuthorStatisticService.cs" />
+    <Compile Include="Statistics\Implementations\CategoryStatisticService.cs" />
+    <Compile Include="Statistics\Implementations\TagStatisticService.cs" />
+    <Compile Include="Statistics\Initialization\StatisticEnabledContentInitializationModule.cs" />
+    <Compile Include="Statistics\Interfaces\IHaveAuthor.cs" />
+    <Compile Include="Statistics\Interfaces\IHaveCategory.cs" />
+    <Compile Include="Statistics\Interfaces\IHaveTag.cs" />
+    <Compile Include="Statistics\Models\IStatisticItem.cs" />
+    <Compile Include="Statistics\Models\StatisticItem.cs" />
+    <Compile Include="Statistics\Services\IAuthorStatisticService.cs" />
+    <Compile Include="Statistics\Services\ICategoryStatisticService.cs" />
+    <Compile Include="Statistics\Services\ITagStatisticService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Niteco.Common\Niteco.Common.csproj">
+      <Project>{21B26EC2-54A0-43F9-BECD-0990A2B15604}</Project>
+      <Name>Niteco.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="modules\_protected\Niteco.UI\Niteco.UI.zip" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ClientResources\Geta.Tags\styles\jquery.tagit.css" />
+    <Content Include="ClientResources\Geta.Tags\styles\tagit.overrides.css" />
+    <Content Include="ClientResources\Geta.Tags\styles\tagit.ui-zendesk.css" />
+    <Content Include="ClientResources\Geta.Tags\TagsSelection.js" />
+    <Content Include="ClientResources\Geta.Tags\vendor\jquery-2.1.0.min.js" />
+    <Content Include="ClientResources\Geta.Tags\vendor\jquery-ui.min.js" />
+    <Content Include="ClientResources\Geta.Tags\vendor\tag-it.min.js" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

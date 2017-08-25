@@ -1,0 +1,25 @@
+﻿@model HomeVideoBlock
+
+
+<a href="@Url.ContentUrl(Model.ButtonLink)" title="Home Video" data-require="base/click-item">
+    <div class="home-video-container">
+        <div class="home-video-wrapper" style="background-image: url('@Url.ContentUrl(Model.BackgroundImage)');">
+            <video>
+                <source src="@Url.ContentUrl(Model.Mp4VideoUrl)" type='video/mp4'>
+                <source src="@Url.ContentUrl(Model.WebmVideoUrl)" type='video/webm'>
+                <source src="@Url.ContentUrl(Model.OggVideoUrl)" type="video/ogg">
+            </video>
+        </div>
+        <div class="home-video__image-overlay" style="background-image: url('@Url.ContentUrl(Model.LogoImage)');"></div>
+
+        <header class="home-video__content-text" data-require="base/click-item">
+            <span>@Model.Slogan</span>
+            @if (!string.IsNullOrEmpty(Model.ButtonText) && Model.ButtonLink != null)
+            {
+                <div class="button-container">
+                    <div class="button-yellow-border" title="">@Model.ButtonText</div>
+                </div>
+            }
+        </header>
+    </div>
+</a>

@@ -1,0 +1,59 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using Niteco.ContentTypes
+@model OfficeStayConnectedBlock
+   
+@{
+    var settingPage = SiteSettingsHandler.Instance.SiteSettings;
+    ContentArea menuContent = settingPage != null ? settingPage.MenuItemsContent : null;
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+
+
+@if (Model.IsInfoLeft)
+{
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-info social-links">
+        <span class="location-title">@Html.PropertyFor(x => x.OfficeName)</span>
+        <span class="location-address">
+            @Html.PropertyFor(x => x.ShortDescription)
+        </span>
+        <div class="contact-info">
+            <a href="@Url.ContentUrl(settingPage.FacebookLink)"><i class="fa fa-facebook "></i> <b>Like us on Facebook</b></a>
+            @*<a href="@Url.ContentUrl(settingPage.TwitterLink)"><i class="fa fa-twitter"></i> <b>Follow us on Twitter</b></a>*@
+            <a href="@Url.ContentUrl(settingPage.LinkedinLink)"><i class="fa fa-linkedin"></i> <b>Add us on LinkedIn</b></a>
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-image">
+        <picture @Html.EditAttributes(m => m.OfficeImage)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1000">
+            <img src="@Url.ContentUrl(Model.OfficeImage)?preset=800" alt="@Model.OfficeName" />
+        </picture>
+    </div>
+
+}
+else
+{ 
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-image">
+        <picture @Html.EditAttributes(m => m.OfficeImage)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.OfficeImage)?preset=1000">
+            <img src="@Url.ContentUrl(Model.OfficeImage)?preset=800" alt="@Model.OfficeName" />
+        </picture>
+    </div>
+    <div class="col-xs-12 col-sm6 col-md-6 col-lg-2 no-gutter location-info  social-links">
+        <span class="location-title">@Html.PropertyFor(x => x.OfficeName)</span>
+        <span class="location-address">
+            @Html.PropertyFor(x => x.ShortDescription)
+        </span>
+        <div class="contact-info">
+            <a href="@Url.ContentUrl(settingPage.FacebookLink)"><i class="fa fa-facebook "></i> <b>Like us on Facebook</b></a>
+            @*<a href="@Url.ContentUrl(settingPage.TwitterLink)"><i class="fa fa-twitter"></i> <b>Follow us on Twitter</b></a>*@
+            <a href="@Url.ContentUrl(settingPage.LinkedinLink)"><i class="fa fa-linkedin"></i> <b>Add us on LinkedIn</b></a>
+        </div>
+    </div>
+}

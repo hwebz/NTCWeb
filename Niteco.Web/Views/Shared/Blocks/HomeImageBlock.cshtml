@@ -1,0 +1,10 @@
+﻿@model HomeImageBlock
+
+<div class="home-video-container">
+    <a href="@Url.ContentUrl(Model.Link)" class="home-billboard__image-background" style="background-image: url('@Url.ContentUrl(Model.BackgroundImage)');">
+        <div class="home-billboard__content">
+            <img class="home-billboard__image" src="@Url.ContentUrl(Model.BillboardImage)" alt="@Model.LinkText" />
+            <span class="home-billboard__link" href="@Url.ContentUrl(Model.Link)" title="">@Model.LinkText</span>
+        </div>
+    </a>
+</div>

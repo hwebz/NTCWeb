@@ -1,0 +1,48 @@
+﻿@model IPageViewModel<ServicePage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<section class="about-container content-container">
+    <div class="about-content-wrapper content-wrapper">
+        <h2 class="all-page__header">Service</h2>
+
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        @Html.PropertyFor(x => x.CurrentPage.MainContent)
+        <div class="job-details-sections container-zindex-one">
+            <div class="container">
+                @Html.PropertyFor(x => x.CurrentPage.MainBody)
+            </div>
+        </div>
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</section>
+

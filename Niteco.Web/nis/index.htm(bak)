@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="ico/favicon.png">
+
+    <title>Niteco InPrint Studio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom bootstrap styles -->
+    <link href="css/overwrite.css" rel="stylesheet">
+
+	<!-- Font -->
+	<link href="fonts/open-sans/stylesheet.css" rel="stylesheet">
+	
+	<!-- Font icons -->
+	<link href="css/font-awesome.css" rel="stylesheet">
+    <link href="fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" rel="stylesheet">
+	<link href="fonts/pe-icon-7-stroke/css/helper.css" rel="stylesheet">
+	
+	<!-- Animate css -->
+    <link href="css/animate.css" rel="stylesheet">	
+	
+	<!-- prettyPhoto -->	
+	<link href="css/prettyPhoto.css" rel="stylesheet" />
+	
+    <!-- flexslider -->	
+	<link href="css/flexslider.css" rel="stylesheet">
+
+	<!-- Owl carousel -->
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+	
+	<!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+
+	<!-- Theme skin -->
+	<link href="skins/default.css" rel="stylesheet" />
+
+  </head>
+
+  <body>
+	<!-- Start preloading -->	
+	<div id="loading" class="loading-invisible">
+		<i class="pe-7s-refresh pe-spin pe-3x pe-va"></i><br />
+		<p>Please wait...</p>
+	</div>
+	<!-- End preloading -->
+
+<!-- Start header -->
+	<header>
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="http://www.niteco.se"><img src="img/logo.png" alt="" /></a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a id="GoToHome" href="#home" class="selected">Intro</a></li>
+						<li><a id="GoToFeatures" href="#features2">Features</a></li>	
+						<li><a id="GoToDesc" href="#description">Description</a></li>
+						<li><a id="GoToGallery" href="#newpanels">New Panels</a></li>
+						<li><a id="GoToPricing" href="#demo">Demo Videos</a></li>
+				
+						<li><a id="GoToContact" href="#contact2">Contact</a></li>							
+					</ul>
+					
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>	
+	</header>
+	<!-- End header -->
+
+	
+	
+	<!-- End home -->
+	<section id="home" class="home-wrapper parallax image-bg">
+		<div class="home-contain">
+		  <div class="container">
+			  <div class="row text-center wow fadeInUp" data-wow-delay="0.4s">
+					<div class="col-md-10 col-md-offset-1">
+						<h3>Niteco InPrint Studio <span> for EPiServer</span></h3>
+                        <p class="lead">NIS - Niteco InPrint Studio for EPiServer is an add-on for EPiServer including a native plugin for Adobe InDesign. NIS enhances the ability for editors & designers to simultaneously and remotely work with content, from EPiServer web sites to printing channels.</p>
+						<p class="btn-inline">
+							<a href="https://www.youtube.com/embed/U-YbfkKY6-Q" data-pretty="prettyPhoto" class="btn btn-default btn-bordered btn-lg">Take a video tour</a>
+							<a href="#" class="btn btn-primary btn-lg">Download Brochure</a>
+						</p>
+						<div class="home-slider">
+							<div class="slider-wrapper">
+								<div class="imac-device" >
+									<ul class="slides">
+										<li>
+											<div class="video-container">
+												<div class="youTubeEmbed"><iframe width="560" height="315" src="https://www.youtube.com/embed/U-YbfkKY6-Q" frameborder="0" allowfullscreen></iframe></div>
+											</div>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+							<img src="img/imac.png" class="img-responsive" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End home -->
+	
+	<div class="clearfix"></div>
+	
+	<!-- Start features -->
+	<section id="features2" class="contain desc-wrapp gray-bg">
+		<div class="container">
+			
+            <div class="row">
+
+      <div class="title">
+        <h1>THE 4 MAIN FUNCTIONS</h1>
+        <p class="lead">The interactive Niteco InPrint Studio is designed to assist creating printed media, newspapers, brochures, books and flyers based on bidirectional content synchronization between EPiServer and Adobe InDesign.</p>     
+      </div><!-- end title -->
+      <div class="title-hr"></div>
+
+			<!--/// THE FEATURE ICONS ///-->
+			<div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="0.4s">
+				<figure>
+					<div class="feature-icon slide-up"><i class="pe-7s-refresh-2"></i></div>
+          <p class="lead2">Synchronize Data</p>
+					<p class="feature-description">Synchronize data bidirectionally between EPiServer and InDesign.</p>
+				</figure>	
+			</div><!-- end col-lg-3 col-6 -->
+
+			<div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="0.6s">
+				<figure>
+					<div class="feature-icon slide-up"><i class="pe-7s-note"></i></div>
+          <p class="lead2">Edit All Formatting</p>
+					<p class="feature-description">Edit all formatting in InDesign and easily synchronize back to EPiServer.</p>
+				</figure>	
+			</div><!-- end col-lg-3 col-6 -->
+
+			<div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="0.8s">
+				<figure>
+					<div class="feature-icon slide-up"><i class="pe-7s-refresh-cloud"></i></div>
+          <p class="lead2">EPiServer Templates</p>
+					<p class="feature-description">Allow EPiServer templates to be used in InDesign without losing formatting.</p>
+				</figure>	
+			</div><!-- end col-lg-3 col-6 -->
+
+			<div class="col-lg-3 col-6 wow fadeInUp" data-wow-delay="1s">
+				<figure>
+					<div class="feature-icon slide-up"><i class="pe-7s-tools"></i></div>
+          <p class="lead2">Easy Creation</p>
+					<p class="feature-description">Easily create new EPiServer templates based on current page layout.</p>
+				</figure>	
+			</div><!-- end col-lg-3 col-6 -->
+  			
+  	 </div><!-- end row -->
+            
+		</div>
+	</section>
+	<!-- End features -->
+	
+	<div class="clearfix"></div>
+	
+	
+	
+	<div class="clearfix"></div>
+		
+	<!-- Start counter -->
+	<section id="counter-wrapper">
+		<!-- Start description -->
+	<section id="description" class="contain">
+		<div class="container">
+			<div class="row">
+				<p class="lead3 wow fadeInUp" data-wow-delay="0.6s">A strong focus on a great user experience and user interface design.</p>
+               
+				<div class="col-md-5 margintop40 wow fadeInLeft" data-wow-delay="0.8s">
+					<div class="accordion clearfix" id="accordion1">
+						<div class="accordion-group">
+							<div class="accordion-heading">										
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+									<i class="pe-7s-angle-down"></i> Objective
+								</a>
+							</div>
+							<div id="collapse1" class="accordion-body collapse in">
+								<div class="accordion-inner">
+									<p  class="lead">
+									A solution that provides online convenience, design flexibility, synchronized data online and creating printed newspapers, magazines and brochures.</p>
+<p  class="lead"></p>
+<p  class="lead">A plugin available in several versions to meet the needs of any printer, graphic design agency, in-house print service or marketing department.</p>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+									<i class="pe-7s-angle-down"></i> Introduction
+								</a>
+							</div>
+							<div id="collapse2" class="accordion-body collapse">
+								<div class="accordion-inner">
+									<ul>
+                                    <li><p class="lead4">InDesign plugin CS 6/7</p></li>
+                                    <li><p class="lead4">EPiServer addon 7.0 up to 8.x</p></li>
+                                    <li><p class="lead4">Webservice layer: Synchronizes data bidirectionally between EPiServer to InDesign</p></li>
+                                    </ul>
+								</div>
+							</div>
+						</div>
+						<div class="accordion-group">
+							<div class="accordion-heading">
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+									<i class="pe-7s-angle-down"></i> Architecture
+								</a>
+							</div>
+							<div id="collapse3" class="accordion-body collapse">
+								<div class="accordion-inner">
+									
+									<ul>
+                                    <li><p class="lead4">Adobe Plugin connection to EPiServer CMS Web Service</p></li>
+                                    <li><p class="lead4">EPiServer CMS publishing back to InDesign station through plugin</p></li>
+                                    <li><p class="lead4">Defined template for printing on CMS websites</p></li>
+                                    </ul>
+                                    
+									
+								</div>
+							</div>
+						</div>								
+					</div>					
+				</div>
+                <div class="col-md-7 wow fadeInRight" data-wow-delay="0.9s">
+					<img src="img/device.png" class="img-responsive" alt="" />
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End description -->
+	</section>
+	<!-- End counter -->
+	
+	<div class="clearfix"></div>
+	
+	
+	
+	<div class="clearfix"></div>
+		
+	<!-- Start pricing --><section id="newpanels" >
+	<section id="features" class="contain gray-bg">
+		
+		<div class="container">	
+			
+				
+				<div class="row text-center wow fadeInUp" data-wow-delay="0.4s">
+				<div class="col-md-8 col-md-offset-2">
+					<h3 class="heading">6 NEW CUSTOM PANELS<span>Each with a unique and new function:</span></h3>
+				</div>
+			</div>
+				
+					
+				<!-- Features Content Holder -->
+				<div class="row">
+						
+					<!-- Left Side Content -->	
+					<div id="features_left_content" class="col-md-4">
+						
+						<!-- Modern Design -->
+						<div class="feature-box wow fadeInLeft" data-wow-delay="0.6s">	
+							<h4>1. NIS Connector Panel<i class="pe-7s-repeat"></i></h4>
+							<p>Allows synchronized data bidirectionally between EPiServer and InDesign. Allows user to customize the documents. </p>
+						</div>
+								
+						<!-- Powerful Options -->	
+						<div class="feature-box wow fadeInLeft" data-wow-delay="0.8s">		
+							<h4>2. NIS Project Panel <i class="pe-7s-link"></i></h4>
+							<p>Manages and stores all published issues and creates printed versions. Exports to a PDF file and links back to EPiServer. </p>
+						</div>	
+
+						<!-- Bootstrap Grid -->
+						<div class="feature-box wow fadeInLeft" data-wow-delay="1s">		
+							<h4>3. NIS Media Panel <i class="pe-7s-photo"></i></h4>
+							<p>Manages all media content from EPiServer, allows editor to preview media and drag each items to the document. </p>
+						</div>	
+							
+					</div>	 <!-- End Left Side Content -->		
+							
+												
+					<!-- Features Image -->
+					<div id="features_image" class="col-md-4 text-center triggerAnimation animated clearfix" data-animate="bounceIn">	
+						<img class="img-responsive wow fadeInUp" data-wow-delay="0.6s" src="img/panel.png" alt="features_image">
+					</div>
+							
+							
+					<!-- Right Side Content -->							
+					<div id="features_right_content" class="col-md-4">	
+						
+						<!-- jQuery Effects -->
+						<div class="feature-box wow fadeInRight" data-wow-delay="0.6s">	
+							<h4><i class="pe-7s-display2"></i> 4. NIS Template Panel</h4>
+							<p>Enables rapid storing and reuse of templates for pages, documents, and groups of placeholders. Includes all templates from EPiServer. </p>
+						</div>
+							
+						<!-- Easy to Modify -->
+						<div class="feature-box wow fadeInRight" data-wow-delay="0.8s">	
+							<h4><i class="pe-7s-share"></i>5. NIS Mapping Panel</h4>
+							<p>Maps out changes made to the local project files in InDesign compared to the original data in EPiServer. Compare the data between local and source. </p>
+						</div>	
+							
+						<!-- Premium Support -->
+						<div class="feature-box wow fadeInRight" data-wow-delay="1s">	
+							<h4><i class="pe-7s-note2"></i>6. NIS Logging Panel</h4>
+							<p>Synchronizes changes automatically between EPiServer and local working files. The user can verify which changes to synchronize. </p>
+						</div>	
+							
+					</div>	 <!-- End Right Side Content -->	
+												
+				</div>	 <!-- End Features Content Holder -->
+				
+					
+			</div>		<!-- End container -->
+	</section></section>
+	<!-- End pricing -->
+	
+	<div class="clearfix"></div>
+	
+	<!-- Start download -->	
+	<section id="download">
+		<div class="download-wrapper">
+			<div class="container">
+				<div class="row wow fadeInUp" data-wow-delay="0.4s">
+					<div class="col-md-8 col-md-offset-2">
+						<h3>For more info</h3>
+						<p>Download the Niteco InPrint Studio brochure in .PDF format</p>
+						<a href="#" class="btn btn-primary2 btn-lg">Download Brochure</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End download -->
+	
+	<div class="clearfix"></div>
+	
+	<section id="demo"><!-- Start screenshot -->
+	<section id="screenshot" class="contain">
+		<div class="container">
+			<div class="row text-center wow fadeInUp" data-wow-delay="0.4s">
+				<div class="col-md-10 col-md-offset-1 wow fadeInUp" data-wow-delay="0.4s">
+					<h3 class="heading">Watch the demos/video tutorials to learn more </h3>
+				</div>
+			</div>
+		</div>
+		<div id="screenshot-contain" class="wow fadeInDown" data-wow-delay="0.4s">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-10 col-md-offset-1">
+						<div class="screenshot-slider">
+							<div class="screenshot-wrapper">
+								<div class="flexslider text-center">
+									<ul class="slides">
+										<li>
+											<iframe width="100%" height="500" id="youtubevideo" src="http://www.youtube.com/embed/U-YbfkKY6-Q"  frameborder="0"></iframe>
+										</li>
+										<li>
+											<iframe width="100%" height="500" src="https://www.youtube.com/embed/kWULBGD7s_4" frameborder="0" allowfullscreen></iframe>
+										</li>
+										<li>
+											<iframe width="100%" height="500" src="https://www.youtube.com/embed/sbVjDgzwKzk" frameborder="0" allowfullscreen></iframe>
+										</li>
+										<li>
+											<iframe width="100%" height="500" src="https://www.youtube.com/embed/x5BqnnvwMxc" frameborder="0" allowfullscreen></iframe>
+										</li>
+                                        <li>
+											<iframe width="100%" height="500" src="https://www.youtube.com/embed/tgYYeiKXyfA" frameborder="0" allowfullscreen></iframe>
+										</li>
+										
+									</ul>
+								</div>
+							</div>
+							<img src="img/browser.png" class="img-responsive" alt="" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section></section>
+	<!-- End screenshot -->
+	
+	
+	
+	
+	<div class="clearfix"></div>
+		
+	<!-- Start contact -->
+	<section id="contact"><section id="contact2">
+		<div class="contact-contain">
+			<div class="container">
+				<div class="row text-center">
+					<div class="col-md-12 wow fadeInUp" data-wow-delay="0.4s">
+						<h3 class="heading"><span>Contact</span>Get in touch with us</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1 wow fadeInDown" data-wow-delay="0.4s">
+						<form id="contactform" method="post" class="validateform" name="leaveContact">
+							<div class="clearfix"></div>
+							<div id="sendmessage">
+								<div class="alert alert-info marginbot35">
+									<button type="button" class="close" data-dismiss="alert">&times;</button>
+									Your message has been sent. Thank you!
+								</div>							
+							</div>								
+							<ul class="listForm">
+								<li>
+									<i class="pe-7s-users"></i>
+									<input class="form-control input-name" type="text" name="name" data-rule="required" data-msg="Required field" placeholder="Enter your full name" />
+									<div class="validation"></div>
+								</li>
+								<li>
+									<i class="pe-7s-mail"></i>
+									<input class="form-control input-email" type="text" name="email" data-rule="email" data-msg="Please enter a valid email" placeholder="Enter your email address" />	
+									<div class="validation"></div>
+								</li>
+								<li class="push">
+									<i class="pe-7s-paper-plane"></i>
+									<textarea class="form-control input-message" rows="6" name="message" data-rule="required" data-msg="Please write something for us" placeholder="Write something for us"></textarea>
+									<div class="validation"></div>
+								</li>
+								<li class="push text-center">
+									<input type="submit" value="Send message" class="btn btn-primary2 btn-lg" name="Submit" />
+								</li>
+							</ul>
+						</form>
+                         
+					</div>
+				</div>
+			</div>
+		</div>
+       
+	</section></section>
+	<!-- End contact -->
+	
+	<div class="clearfix"></div>
+		
+	<!-- Start footer -->
+	<footer>
+		<div class="container">
+			</div>
+	</footer>
+	<!-- End footer -->	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-easing-1.3.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+	
+	<script type="text/javascript">
+		  document.getElementById("loading").className = "loading-visible";
+		  var hideDiv = function(){document.getElementById("loading").className = "loading-invisible";};
+		  var oldLoad = window.onload;
+		  var newLoad = oldLoad ? function(){hideDiv.call(this);oldLoad.call(this);} : hideDiv;
+		  window.onload = newLoad;
+	</script>
+	
+	<!-- Fixed navigation -->
+	<script src="js/navigation/waypoints.min.js"></script>
+	<script src="js/navigation/jquery.smooth-scroll.js"></script>		
+	<script src="js/navigation/navbar.js"></script>	
+	
+	<!-- Wow -->
+	<script src="js/wow/wow.min.js"></script>
+	<script src="js/wow/setting.js"></script>
+	
+	<!-- Parallax -->
+	<script src="js/parallax/jquery.parallax-1.1.3.js"></script>	
+	<script src="js/parallax/setting.js"></script>
+	
+	<!-- flexslider -->
+	<script src="js/flexslider/jquery.flexslider.js"></script>
+	<script src="js/flexslider/setting.js"></script>
+	
+	<!-- prettyPhoto -->
+	<script src="js/prettyPhoto/jquery.prettyPhoto.js"></script>	
+	<script src="js/prettyPhoto/setting.js"></script>
+	
+	<!-- counters -->
+	<script src="js/counters/jquery.appear.js"></script>
+	<script src="js/counters/stellar.js"></script>
+	<script src="js/counters/setting.js"></script>
+
+	<!-- Owl carousel -->
+	<script src="js/owlcarousel/owl.carousel.js"></script>
+    <script src="js/owlcarousel/setting.js"></script>
+	
+	<!-- Totop -->
+	<script src="js/totop/jquery.ui.totop.js"></script>	
+	<script src="js/totop/setting.js"></script>
+
+	<!-- youtube player -->
+	<script src="js/youtube-player/jquery.swfobject.1-1-1.min.js"></script>
+	<script src="js/youtube-player/youTubeEmbed-jquery.js"></script>
+	<script src="js/youtube-player/setting.js"></script>
+		
+	<!-- Contact validation -->
+	<script src="js/validation.js"></script>
+		
+	<!-- Customn javascript -->
+	<script src="js/custom.js"></script>
+    
+    <script src="http://a.vimeocdn.com/js/froogaloop2.min.js"></script>  
+
+  </body>
+</html>

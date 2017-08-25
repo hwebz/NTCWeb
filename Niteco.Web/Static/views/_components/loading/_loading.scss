@@ -1,0 +1,49 @@
+.loading-container {
+    position: fixed;
+    z-index: 999;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 3px;
+    background: #facd20;
+    transform: translate(-100%,0);
+    opacity: 1;
+
+    &.loading {
+        transition: transform 5s ease-in 0s;
+        transform: translate(-20%,0);
+
+        .loading-mask {
+            display: block;
+        }
+    }
+
+    &.animating {
+        transition: transform 1000ms ease-in 0s;
+        transform: translate(0%,0);
+        .loading-mask {
+            display: block;
+        }
+    }
+
+    &::after {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: 100px;
+        height: 100%;
+        background: #facd20 none repeat scroll 0% 0%;
+        box-shadow: 0px 0px 15px #facd20, 0px 0px 5px #facd20;
+        content: "";
+        transform: rotate(2deg) translateY(-2px);
+    }
+
+    .loading-mask {
+        position: absolute;
+        width: 200%;
+        height: 200px;
+        top: 0px;
+        left: 0px;
+        display: none;
+    }
+}

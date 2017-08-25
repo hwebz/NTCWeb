@@ -1,0 +1,73 @@
+﻿@using System.Activities.Statements
+@using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder
+@using System.Web.Services.Description
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model IPageViewModel<OurTechnologiesPage>
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<div class="content-container partner-page" data-require="base/partners">
+    <div class="service-wrapper content-wrapper">
+
+        @*Our Technologies*@
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+
+        @*Our Technology Partners*@
+        @if (Model.CurrentPage.MainContentArea != null && Model.CurrentPage.MainContentArea.Items.Any())
+        {
+
+            @Html.PropertyFor(x => x.CurrentPage.MainContent)
+            @Html.PropertyFor(x => x.CurrentPage.MainContentArea)
+
+        }
+
+        @*All Technologies*@
+        <div class="service-technology__container" style="background-image: url('/img/big-bg.jpg')" data-id="fullInfo-7">
+            <div class="container">
+                <h2 class="service-technology__title">@Html.Translate("/niteco/servicelistpage/ourtechnologies")</h2>
+                <div class="yellow-divider service-listing__yellow-underline">
+                </div>
+                @if (Model.CurrentPage.XhtmlProp != null)
+                {
+                    @Html.PropertyFor(x => x.CurrentPage.XhtmlProp)
+                }
+            </div>
+        </div>
+
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿{
+    "introduction": {
+        "title": "Our Team",
+        "subTitle": "Swedish, Canadian, New Zealander, French, Pakistani, <br/>Mexican, South African, Australian and Vietnamese"
+    },
+
+    "description": {
+        "title": "Diversity is the new hierarchy",
+        "subTitle": "And talent is the new priority ",
+        "description": "Our team consists of 200+ people from different practices and backgrounds, all with years of experience and certificates of talent. What do we have in common? We are all empowered to make a diffference as individuals, encouraged to drive personal growth, and engaged in the journey with our company and customers."
+    },
+
+    "teams": [
+        {
+            "image": "/img/1-pelle.jpg",
+            "name": "Pelle Niklasson",
+            "title": "Chief Executive Officer",
+            "description": "With 25+ years of experience in the industry, Pelle has worked as Development Manager of EPiServer AB, Business Unit Director of Teleca Sweden East AB, and CEP of Dotify. He also held leadership positions in top companies such as ITT, IBM, and Nokia"
+        },
+        {
+            "image": "/img/2-calvin.jpg",
+            "name": "Calvin Nguyen",
+            "title": "Chief Operating Officer",
+            "description": "Calvin has 18+ years of experience in North America managing large-scale, complex, and strategic initiatives with budgets exceeding $25M and teams of 50+. He is responsible for Niteco's overall business strategy and performance, with a strong focus on employee empowerment and operational excellence."
+        },
+		{
+            "image": "/img/3-hammad.jpg",
+            "name": "Hammad Admad",
+            "title": "Program Manager",
+            "description": "Hammad has led critical large-scale projects during his 15+ years of experience with Microsoft and RFID technologies. He was awarded Microsoft Most Valuable Professional (MVP) in 2011 and 2012 and is also a Certiﬁed Scrum Master, guest speaker, and consultant."
+        },
+		{
+            "image": "/img/4-frederik.jpg",
+            "name": "Fredrik Paulin",
+            "title": "Program Manager",
+            "description": "With 20+ years of experience in technology roles with a cross-cultural emphasis, Fredrik's core responsibilities are customer satisfaction, fostering productive dialogues with clients, and coaching our teams to achieve maximum performance."
+        },
+		{
+            "image": "/img/5-tung.jpg",
+            "name": "Tung Nguyen",
+            "title": "Program Manager",
+            "description": "Tung has many years of experience in .NET development in the banking industry. His education in Vietnam and India gave him an understanding of Asian cultures, and made him an effective communicator and leader. He holds a Master's degree in Business Administration."
+        },
+		{
+            "image": "/img/6-brendan.jpg",
+            "name": "Brendan Millar",
+            "title": "Product & Marketing Manager",
+            "description": "Brendan has worked for over 17 years in CRM, FMCG, and Data Warehousing in Europe, Asia, and Australasia. His passion is to build platforms and solutions that fulﬁll a genuine need, are user-friendly, and inspire people to use them."
+        },
+        {
+            "image": "/img/7-minh.jpg",
+            "name": "Minh Dinh",
+            "title": "Program Manager",
+            "description": "Educated in Germany and Ireland, Minh speaks fluent English and German. He has many years of experience working in Germany, Ireland, Japan and India. At Niteco, he leads the mobile application division."
+        },
+        {
+            "image": "/img/8-trang.jpg",
+            "name": "Trang Nguyen",
+            "title": "QA Lead ",
+            "description": "Trang has 10+ years of experience working as a tester, test leader, and SQA where she gained indepth knowledge of testing techniques, testing process, documentation, defect tracking, and information flow across multiple projects"
+        },
+		{
+            "image": "/img/9-hue.jpg",
+            "name": "Hue Dang",
+            "title": "QA Leader",
+            "description": "Hue is an MCSD-certiﬁed tester with 9+ years of experience in development testing, QA, and automation testing. She has substantial knowledge of SDLC and all testing phases from initial requirements to the ﬁnal product. She is also experienced with QTP, codedUI, Selenium, and manual testing."
+        },
+		{
+            "image": "/img/10-dung.jpg",
+            "name": "Dung Le",
+            "title": "Implementation Consultant",
+            "description": "Based in Stockholm, no one knows EPiServer development better than Dung. He has worked with EPiServer since 2009, and in fact spent 4 years as development manager at EPiServer. He is also experienced in .NET ERP systems and framework, and is a Certiﬁed Microsoft Solutions Web Application developer."
+        },
+        {
+            "image": "/img/11-huong.jpg",
+            "name": "Hoang Tran",
+            "title": "Delivery Service Manager",
+            "description": "Hoang was educated in India and is a veteran here at Niteco. An EPiServer expert with 7 years experience on the platform, he provides technical leadership, training, and education. He leads a team of solution architects to manage delivery processes on client projects at Niteco."
+        },
+		{
+            "image": "/img/12-ross.jpg",
+            "name": "Ross Fenner",
+            "title": "Designer",
+            "description": "With 6+ years of experience in digital design under his belt, Ross is expert at user-centered design. From brainstorming wireframes to creating beautiful interfaces, he has an obsession for detail and a keen eye for pixel perfection"
+        }
+    ]
+}

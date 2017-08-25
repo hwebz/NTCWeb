@@ -1,0 +1,43 @@
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor.TinyMCE.Plugins
+@using EPiServer.ServiceLocation
+@using Niteco.ContentTypes
+@using Niteco.ContentTypes.Media
+@model IPageViewModel<Niteco.ContentTypes.Pages.SitePageData>
+
+@{
+    var settingPage = SiteSettingsHandler.Instance.SiteSettings;
+}
+
+<div class="footer-page" data-require="base/footer">
+    <div class="container">
+        <div class="footer-page__partner-container">
+            @{  var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+              if (Model != null && settingPage.PartnerImages != null && settingPage.PartnerImages.Items.Any())
+              {
+                  var images = settingPage.PartnerImages.Items.Select(contentItem => contentRepository.Get<ImageFile>
+                      (contentItem.ContentLink));
+
+                  foreach (var image in images)
+                  {
+                    <span>
+                        <img src="@Url.ContentUrl(image.ContentLink)" alt="@image.Copyright" />
+                    </span>
+                  }
+              }
+            }
+
+        </div>
+
+        <div class="footer-page__copyright">
+            &copy; @settingPage.FooterCopyright
+        </div>
+        <div class="footer-page__social">
+            <a class="footer-page__social__link footer-page__social__facebook" href="@Url.ContentUrl(settingPage.FacebookLink)" title="" target="_blank">[Skip to Content]</a>
+            <a class="footer-page__social__link footer-page__social__linkin" href="@Url.ContentUrl(settingPage.LinkedinLink)" title="" target="_blank">[Skip to Content]</a>
+        </div>
+        @*<a href="#" class="top fa fa-angle-up"></a>*@
+        
+    </div>
+</div>

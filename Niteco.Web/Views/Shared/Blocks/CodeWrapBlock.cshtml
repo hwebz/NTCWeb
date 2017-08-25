@@ -1,0 +1,21 @@
+﻿@model CodeWrapBlock
+
+
+<form id="code-wrapper">
+    <div class="code-header">
+        <label class="language">@Html.PropertyFor(x => x.Title)</label>
+        <button id="code-expand">
+            Expand <span class="fa fa-expand"></span>
+        </button>
+    </div>
+    <textarea id="code" name="code" rows="5" style="display: none;">
+        
+        @Html.PropertyFor(x => x.Content)
+    
+    </textarea>
+    <div class="CodeMirror">
+        <div style="overflow: hidden; position: relative; width: 1px; height: 0px; top: 0px; left: 0px;">
+            <textarea style="position: absolute; width: 10000px;" wrap="off" autocorrect="off" autocapitalize="off"></textarea>
+        </div>    
+    </div>
+</form>

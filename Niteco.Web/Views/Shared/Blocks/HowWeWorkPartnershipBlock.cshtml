@@ -1,0 +1,23 @@
+﻿@model HowWeWorkPartnershipBlock
+           
+<div class="how-we-work-partnership container-zindex-one">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="how-we-work__title">@Html.PropertyFor(x=>x.Title)</h2>
+                <div class="yellow-divider"></div>
+            </div>
+        </div>
+        <div class="how-we-work-partnership__content">
+            @Html.PropertyFor(x => x.PartnerShipItem, new { CustomTag = "div", CssClass = "row content-models", ChildrenCustomTagName = "div", ChildrenCssClass = "col-xs-12 col-md-6" })
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="how-we-work-partnership_text">
+                        @Html.PropertyFor(x=>x.MainContent)
+                    </div>
+                </div>
+            </div>
+            @Html.PropertyFor(x => x.ContactUs)
+        </div>
+    </div>
+</div>

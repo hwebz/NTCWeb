@@ -1,0 +1,172 @@
+.sticky-container {
+    padding: 0px 0px;
+    margin: 0 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
+    opacity: 0;
+    transition: all 0.7s ease;
+}
+
+.sticky {
+    padding: 0px 0px;
+    margin: 0px 0px;
+    text-align: center;
+    width: 100%;
+    font-size: 0;
+    @include respond-to-max($phonePortrait) {
+        &.fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    
+    a {
+        color: white;
+    }
+
+    li {
+        display: inline-block;
+        list-style-type: none;
+        color: #efefef;
+        height: auto;
+        width: 25%;
+        -webkit-transition: all 0.25s ease-in-out;
+        -moz-transition: all 0.25s ease-in-out;
+        -o-transition: all 0.25s ease-in-out;
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+        text-align: center;
+
+        img {
+            width: 50px;
+            height: auto;
+            z-index: 999;
+        }
+
+        p {
+            padding: 0px;
+            margin: 0px;
+            font-size: 15px;
+            text-transform: uppercase;
+            line-height: 40px;
+        }
+
+        &:hover {
+            -webkit-transform: translatey(-5px);
+            -moz-transform: translatey(-5px);
+            -o-transform: translatey(-5px);
+            -ms-transform: translatey(-5px);
+            transform: translatey(-5px);
+        }
+
+        .no-translate &:hover {
+            -webkit-transform: translate(0px, 0px);
+            -moz-transform: translate(0px, 0px);
+            -o-transform: translate(0px, 0px);
+            -ms-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+        }
+    }
+
+
+
+    li:nth-child(1) {
+        background-color: #3b5998;
+    }
+
+    li:nth-child(2) {
+        background-color: #29c5f6;
+    }
+
+    li:nth-child(3) {
+        background-color: #006dc0;
+    }
+
+    li:nth-child(4) {
+        background-color: #2c3e50;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .sticky-container {
+        padding: 0px;
+        margin: 0px;
+        position: fixed;
+        left: auto;
+        right: -154px;
+        top: 30%;
+        width: 200px;
+        z-index: 999;
+        opacity: 0;
+        transition: all 0.7s ease;
+    }
+
+    .sticky {
+        padding: 0px 0px;
+        margin: 0px 0px;
+        text-align: center;
+        height: 30px;
+        margin-bottom: 25px;
+        width: 100%;
+
+        li {
+            display: block;
+            list-style-type: none;
+            background-color: #BDBDBD;
+            color: #efefef;
+            height: 47px;
+            width: 200px;
+            padding: 0px;
+            margin: 0px 0px 1px 0px;
+            -webkit-transition: all 0.15s ease-in-out;
+            -moz-transition: all 0.15s ease-in-out;
+            -o-transition: all 0.15s ease-in-out;
+            transition: all 0.15s ease-in-out;
+            cursor: pointer;
+
+            img {
+                float: left;
+                margin: 5px 5px;
+                width: 36px;
+                height: 36px;
+                z-index: 99999;
+            }
+
+            p {
+                display: block;
+                padding: 0px;
+                margin: 0px 60px 0px 0px;
+                font-size: 18px;
+                text-transform: capitalize;
+                vertical-align: middle;
+                line-height: 47px;
+                font-family: "latobold";
+                letter-spacing: 1px;
+            }
+
+            &:hover {
+                -webkit-transform: translatex(-110px);
+                -moz-transform: translatex(-110px);
+                -o-transform: translatex(-110px);
+                -ms-transform: translatex(-110px);
+                transform: translatex(-110px);
+
+                img {
+                    transform: translatex(0px);
+                }
+            }
+
+            .no-translate &:hover {
+                -webkit-transform: translate(0px, 0px);
+                -moz-transform: translate(0px, 0px);
+                -o-transform: translate(0px, 0px);
+                -ms-transform: translate(0px, 0px);
+                transform: translate(0px, 0px);
+            }
+        }
+    }
+}

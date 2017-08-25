@@ -1,0 +1,125 @@
+﻿{
+    "joinOurTeam": {
+        "background": "/img/home-careers.jpg",
+        "backgroundHover": "/img/home-careers-hover.jpg",
+        "smallText": "Tell us what you need",
+        "largeText": "Join our team",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/careers.html"
+    },
+    "letWorkTogether": {
+        "background": "",
+        "smallText": "See how we work with clients?",
+        "largeText": "Let's work together",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "#"
+    },
+	"leftOutTeam": {
+        "background": "",
+        "smallText": "Check available positions?",
+        "largeText": "Careers with Us",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/careers.html"
+    },
+	"rightOurTeam": {
+        "background": "/img/careers.jpg",
+        "smallText": "Tell us what you need?",
+        "largeText": "Contact Us",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/contact-us.html"
+    },
+    "meetTheExperts": {
+      "background": "/img/footer-left.jpg",
+      "smallText": "Meet the experts",
+      "largeText": "Our team",
+      "description": "",
+      "url": "/Static/compiled/pages/our-team.html"
+    },
+    "seeWhatWeDo": {
+      "background": "/img/footer-right.jpg",
+      "smallText": "See what we do",
+      "largeText": "Our services",
+      "description": "",
+      "url": "/Static/compiled/pages/services.html"
+    },
+    "services": {
+        "background": "/img/home-services.jpg",
+        "backgroundHover": "/img/home-services-hover.jpg",
+        "smallText": "Our",
+        "largeText": "Services",
+        "text": "Services",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/services.html"
+    },
+    "ourteam": {
+        "background": "",
+        "backgroundHover": "/img/home-services-hover.jpg",
+        "smallText": "Meet the experts",
+        "largeText": "Our Team",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/our-team.html"
+    },
+    "ourservice": {
+        "background": "",
+        "backgroundHover": "/img/home-services-hover.jpg",
+        "smallText": "See what we do",
+        "largeText": "Our Service",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/service.html"
+    },
+    "work": {
+        "background": "/img/home-our-work.jpg",
+		"backgroundHover": "/img/home-our-work-hover.jpg",
+		"text": "Our work",
+        "smallText": "How we",
+        "largeText": "Work",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/our-works.html"
+    },
+    "projects": {
+        "background": "/img/featured-projects.jpg",
+        "smallText": "Featured",
+        "largeText": "Projects",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/our-works.html"
+    },
+    "team": {
+        "background": "/img/home-our-team.jpg",
+        "backgroundHover": "/img/home-our-team-hover.jpg",
+		"text": "Our Team",
+        "smallText": "Our",
+        "largeText": "Team",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/our-team.html"
+    },
+    "contactUs": {
+        "background": "/img/home-contact.jpg",
+		"backgroundHover": "/img/home-contact-hover.jpg",
+		"text": "Contact us",
+        "smallText": "Get in touch",
+        "largeText": "Contact us",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/contact-us.html"
+    },
+    "facebook": {
+        "background": "/img/fb.jpg",
+        "smallText": "Like us on",
+        "largeText": "Facebook",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "#"
+    },
+	"engage": {
+        "background": "/img/home-engagement-models.jpg",
+		"backgroundHover": "/img/home-engagement-models-hover.jpg",
+		"text":"Engagement models",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "/Static/compiled/pages/how-we-work.html"
+    },
+	"charity":{
+		"background": "/img/home-nicef.jpg",
+		"backgroundHover": "/img/home-nicef-hover.jpg",
+		"text":"Niteco Charity",
+        "description": "This text here is just a tool to give you place holder for your own real copy",
+        "url": "http://charity.niteco.se"
+	}
+}

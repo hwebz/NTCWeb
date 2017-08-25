@@ -1,0 +1,43 @@
+﻿
+<div class="page-description__title-container news-list-count-down__container">
+    <div class="container">
+        <h2 class="page-description__title news-list-count-down__title">
+            {{title}}
+        </h2>
+        {{#if subTitle}}
+        <div class="page-description__sub-title news-list-count-down__sub-title">
+            {{subTitle}}
+        </div>
+        {{/if}}
+        <div class="yellow-divider page-description__yellow-underline">
+        </div>
+
+        <div id="page-count-down__section" class="page-count-down__section" data-require="base/news-list-count-down">
+            <div class="page-count-down__box days-box">
+                <p class="box-number days">
+                    {{time.days}}
+                </p>
+                <p class="box-description">Days</p>
+            </div>
+            <div class="page-count-down__box hours-box">
+                <p class="box-number hours">
+                    {{time.hours}}
+                </p>
+                <p class="box-description">Hours</p>
+            </div>
+            <div class="page-count-down__box minutes-box">
+                <p class="box-number minutes">
+                    {{time.minutes}}
+                </p>
+                <p class="box-description">Minutes</p>
+            </div>
+            <div class="page-count-down__box seconds-box">
+                <p class="box-number seconds">
+                    {{time.seconds}}
+                </p>
+                <p class="box-description">Seconds</p>
+            </div>
+        </div>
+        <a class="page-count-down__button" href="#" alt="{{time.buttonText}}">{{time.buttonText}}</a>
+    </div>
+</div>

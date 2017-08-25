@@ -1,0 +1,21 @@
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.MissionItemBlock
+
+<div class="our-mission-container">
+    <div class="content-holder">
+        <h2>@Html.PropertyFor(x => x.MissionHeading)</h2>
+        <div class="yellow-divider"></div>
+        <div class="description">@Html.PropertyFor(x => x.MissionContent)</div>
+    </div>
+    <div class="big-image">
+        <picture  @Html.EditAttributes(m => m.Image)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.Image)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.Image)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.Image)?preset=1000">
+            <img class="checking-animate inactive @(Model.ImageFlyUp ? "rocket-fly" : "slide-in-from-left") " src="@Url.ContentUrl(Model.Image)?preset=800" alt="@Model.MissionHeading" />
+        </picture>
+        
+    </div>
+</div>
+
+

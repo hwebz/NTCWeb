@@ -1,0 +1,10 @@
+@model EPiServer.Core.ContentReference
+@if (Model != null)
+{
+    <picture @Html.EditAttributes(m => m)>
+        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model)?preset=1900">
+        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model)?preset=1300">
+        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model)?preset=1000">
+        <img src="@Url.ContentUrl(Model)?preset=800" alt="Image" />
+    </picture>
+}

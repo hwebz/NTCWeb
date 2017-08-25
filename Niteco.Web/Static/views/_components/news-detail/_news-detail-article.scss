@@ -1,0 +1,170 @@
+﻿.news-detail-article__container {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 100px 0 15px 0;
+
+    @include respond-to-max($desktopSize) {
+        padding-top: 60px;
+    }
+
+    @include respond-to-max($tabletSize) {
+        padding-top: 15px;
+    }
+
+    .news-detail-article__article-title {
+        margin-bottom: 30px;
+        h2 {
+            font: 3rem/3.75rem "robotobold", Arial, Helvetica, sans-serif;
+            margin: 0 0 15px 0;
+            text-transform: capitalize;
+
+            @include respond-to-max($desktopSize) {
+                font-size: 2.25rem;
+                line-height: 3.125rem;
+            }
+            
+            @include respond-to-max($tabletSize) {
+                text-align: center;
+                font-size: 2.125rem;
+                margin-bottom: 30px;
+            }
+        }
+
+        @include respond-to-max($tabletSize) {
+            text-align: center;
+            .yellow-divider {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .news-detail-article__content {
+        font: 1.125rem/2.13rem robotolight,Arial,Helvetica,sans-serif;
+        letter-spacing: -0.3px;
+        color: #6a7885;
+        .news-detail-article__meta {
+            padding: 20px;
+            background-color: #f8cd3b;
+            color: #282828;
+            display: inline-block;
+            top: 38px;
+            z-index: 1;
+            text-align: center;
+            width: 150px;
+            height: 150px;
+            float: left;
+            margin-right: 20px;
+            margin-top: 9px;
+
+            span {
+                display: block;display: block;
+                text-align: center;
+            }
+
+            @include respond-to-max($desktopSize) {
+                padding: 15px;
+                width: 100px;
+                height: 100px;
+            }
+
+            @include respond-to-max($phonePortrait) {
+                padding: 10px;
+                width: 70px;
+                height: 70px;
+            }
+
+            .news-detail-article__meta-date {
+                font-family: "robotobold", Arial, Helvetica, sans-serif;
+                font-size: 5.5rem;
+                line-height: 5rem;
+
+                @include respond-to-max($desktopSize) {
+                    font-size: 3.75rem;
+                    line-height: 3.25rem;
+                }
+
+                @include respond-to-max($phonePortrait) {
+                    font-size: 2.5rem;
+                    line-height: 2.15rem;
+                }
+            }
+
+            .news-detail-article__meta-monthYear {
+                font-family: "robotolight", Arial, Helvetica, sans-serif;
+                font-size: 1.625rem;
+                line-height: 1.45rem;
+                @include respond-to-max($desktopSize) {
+                    font-size: 1rem;
+                    line-height: 1.4rem;
+                }
+
+                @include respond-to-max($phonePortrait) {
+                    font-size: 0.75rem;
+                    line-height: 1rem;
+                }
+            }
+        }
+
+        img {
+            max-width: 100%;
+
+            &.img-left {
+               float: left;
+               clear: left;
+               margin-right: 15px;
+            }
+
+            &.img-right {
+               float: right;
+               clear: right;
+               margin-left: 15px;
+            }
+
+            &.img-full {
+               margin: 15px 0;
+            }
+
+            @include respond-to-max($desktopSize) {
+                width: 100%;
+            }
+        }
+
+        blockquote {
+            font-family: "roboto", Arial, Helvetica, sans-serif;
+            font-size: 1.6875rem;
+            line-height: 2.5rem;
+            margin: 30px;
+            text-align: center;
+            position: relative;
+            color: #282828;
+            font-weight: 300;
+
+            @include respond-to-max($tabletSize) {
+                font-size: 1.4rem;
+                line-height: 1.875rem;
+                margin: 30px 0;
+            }
+
+            &:before, &:after {
+                font-family: FontAwesome;
+                color: #ccc;
+            }
+
+            &:before {
+                content: "\f10d";
+                margin-right: 10px;
+            }
+
+            &:after {
+                content: "\f10e";
+                margin-left: 10px;
+            }
+
+            p {
+                margin-top: 18px;
+            }
+        }
+    }
+}

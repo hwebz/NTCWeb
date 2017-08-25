@@ -1,0 +1,61 @@
+﻿@model SocialInfoBlock
+           
+<div class="about-socially-container container-zindex-one">
+
+    <div class="page-description__title-container">
+        <div class="container">
+            <div class="page-description__title">
+                @Html.PropertyFor(x=>x.Title)
+            </div>
+            <div class="page-description__sub-title">
+                @Html.PropertyFor(x => x.SubTitle)
+            </div>
+            <div class="yellow-divider service-listing__yellow-underline">
+            </div>
+            <div class="page-description__description">
+                @Html.PropertyFor(x => x.ShortDescription)
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="about-socially-image-container">
+            @if (Model.ImageContentArea != null && Model.ImageContentArea.Items.Any())
+            {
+                var leftTotal = Model.ImageContentArea.Items.Count > 4 ? 4 : Model.ImageContentArea.Items.Count;
+                var lastItem = Model.ImageContentArea.Items.Count >= 5 ? Model.ImageContentArea.Items[4].ContentLink : null;
+                <div class="about-socially-image-left checking-animate inactive slide-in-from-left">
+                    @for (int i = 0; i < leftTotal; i++)
+                    {
+                        var item = Model.ImageContentArea.Items[i];
+                        @Html.Html("<div class='about-socially-row'>", i % 2 == 0)
+
+                        <div class="about-socially-image">
+                            <picture>
+                                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(item.ContentLink)?preset=1900">
+                                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(item.ContentLink)?preset=1300">
+                                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(item.ContentLink)?preset=1000">
+                                <img src="@Url.ContentUrl(item.ContentLink)?preset=800" alt="@Model.Title" />
+                            </picture>
+                        </div>
+
+                        @Html.Html("</div>", i % 2 == 1)
+                    }
+                </div>
+
+                <div class="about-socially-image about-socially-image-right checking-animate inactive slide-in-from-right">
+                    <picture>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(lastItem)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(lastItem)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(lastItem)?preset=1000">
+                        <img  src="@Url.ContentUrl(lastItem)?preset=800" alt="@Model.Title" />
+                    </picture>
+                </div>
+                
+            }
+
+        </div>
+        <div class="page-description__description checking-animate inactive slide-in-from-bottom">
+            @Html.PropertyFor(x => x.MainBody)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+@using EPiServer.Editor
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.CaseStudyDetailBlock
+
+
+@{
+    var longImage = Model.LongImage == null ? Model.Image : Model.LongImage;
+}
+
+<div class="case-study-item">
+    <div class="case-study-image">
+        <picture>
+            <source media="(min-width: 1900px)" srcset="@Url.ContentUrl(Model.Image)">
+            <source media="(min-width: 768px)" srcset="@Url.ContentUrl(@longImage)">
+            <img src="@Url.ContentUrl(Model.Image)" alt="@Model.Heading" />
+        </picture>
+    </div>
+    <div class="case-study-content background-white">
+        <div class="case-study-content__title">@Html.PropertyFor(x=>x.Heading)</div>
+        <div class="yellow-divider"></div>
+        <div class="case-study-content__description">
+            @Html.PropertyFor(x=>x.ContentDescription)
+        </div>
+    </div>
+</div>

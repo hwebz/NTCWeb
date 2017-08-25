@@ -1,0 +1,177 @@
+﻿.subscribe-newsletters__container {
+    background: #f0f1f3;
+    position: relative;
+    z-index: 1;
+    padding: 110px 0;
+    text-align: center;
+
+    @include respond-to-max($desktopSize) {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .subscribe-newsletters__title {
+        margin-bottom: 30px;
+        h2 {
+            font: 3rem/3rem "robotobold", Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin: 0;
+
+            @include respond-to-max($desktopSize) {
+                font-size: 2.25rem;
+                line-height: 3.125rem;
+            }
+            
+            @include respond-to-max($phonePortrait) {
+                font-size: 2.05rem;
+                line-height: 3.125rem;
+            }
+        }
+
+        .subscribe-newsletters__description {
+            p {
+                font: 1.875rem/2.5rem "robotolight", Arial, Helvetica, sans-serif;
+                text-transform: capitalize;
+                margin: 15px 0;
+
+                @include respond-to-max($desktopSize) {
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                }
+            
+                @include respond-to-max($phonePortrait) {
+                    font-size: 1.125rem;
+                    line-height: 1.125rem;
+                }
+            }
+        }
+    }
+
+    .subscribe-newsletters__form {
+        .input {
+            display: inline-block;
+            margin-right: 20px;
+            
+            @include respond-to-min-max($tabletSize, $desktopSize) {
+                margin-bottom: 15px;
+            }
+
+            .g-recaptcha {
+                display: none;
+
+                @include respond-to-max($tabletSize) {
+                    margin: 15px 0;
+                }
+            }
+
+            .subscribe-newsletters__form-email-field {
+                padding: 25px;
+                border: 1px solid #e8e6e6;
+                width: 365px;
+                outline: none;
+                height: 76px;
+                font-size: 1.125rem;
+                line-height: 1.125rem;
+                transition: all 0.5s ease;
+                -webkit-transition: all 0.5s ease;
+
+                &:focus{
+                    border: 1px solid #596876;
+                }
+
+                &.error {
+                    border: 1px solid red;
+                }
+            }
+
+            @include respond-to-max($tabletSize) {
+                width: 100%;
+                .subscribe-newsletters__form-email-field {
+                    width: 100%;
+                }
+            }
+        }
+
+        .subscribe-newsletters__form-submit {
+            height: 76px;
+            display: inline-block;
+            text-align: center;
+            border: 0;
+            background: #facc23;
+            color: #282828;
+            font: 1rem "robotolight", Arial, Helvetica, sans-serif;
+            transition: all 0.5s ease;
+            -webkit-transition: all 0.5s ease;
+            margin-left: auto;
+            border-radius: rem(2px);
+            text-transform: uppercase;
+            padding: 0 56px;
+            outline: none;
+
+            &:hover {
+                background: #2c3e50;
+                color: #f8cd3b;
+            }
+
+             @include respond-to-max($tabletSize) {
+                width: 100%;
+            }
+        }
+
+        .thank-you {
+            font: 1.5rem/2.5rem "robotolight", Arial, Helvetica, sans-serif;
+            text-transform: capitalize;
+            margin-bottom: 0;
+
+            @include respond-to-max($desktopSize) {
+                font-size: 1.35em;
+                line-height: 1.35rem;
+            }
+            
+            @include respond-to-max($phonePortrait) {
+                font-size: 1rem;
+                line-height: 1rem;
+            }
+        }
+    }
+
+    input[type=text]::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #a9b2b9;
+        text-transform: uppercase;
+        font: 1.125rem/1.125rem "robotobold", Arial, Helvetica, sans-serif;
+
+        @include respond-to-max($desktopSize) {
+            color: transparent;
+        }
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: #a9b2b9;
+        text-transform: uppercase;
+        font: 1.125rem/1.125rem "robotobold", Arial, Helvetica, sans-serif;
+        @include respond-to-max($desktopSize) {
+            color: transparent;
+        }
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: #a9b2b9;
+        text-transform: uppercase;
+        font: 1.125rem/1.125rem "robotobold", Arial, Helvetica, sans-serif;
+        @include respond-to-max($desktopSize) {
+            color: transparent;
+        }
+    }
+    :-moz-placeholder { /* Firefox 18- */
+        color: #a9b2b9;
+        text-transform: uppercase;
+        font: 1.125rem/1.125rem "robotobold", Arial, Helvetica, sans-serif;
+        @include respond-to-max($desktopSize) {
+            color: transparent;
+        }
+    }
+}

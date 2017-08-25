@@ -1,0 +1,21 @@
+﻿
+<div class="partner-technology-container container-zindex-one" style="background-image: url(/img/testimonial-bg-2.png);">
+    <div class="page-description__title-container">
+        <div class="container">
+            <h2 class="page-description__title">
+                {{partners.description.title}}
+            </h2>
+            <div class="yellow-divider page-description__yellow-underline">
+            </div>
+            <div class="page-description__description">
+                {{partners.description.description}}
+            </div>
+        </div>
+    </div>
+    <div class="container partner-listing-container">
+        {{#each partners.data}}
+        {{> _partner-item this}}
+        {{/each}}
+        {{> _partner-item-text}}
+    </div>
+</div>

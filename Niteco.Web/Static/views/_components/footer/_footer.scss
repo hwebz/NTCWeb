@@ -1,0 +1,104 @@
+.footer-page {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    font-size: 0px;
+    z-index: 0;
+    padding: 40px 0;
+
+    &::after {
+        content: '';
+        width: 100%;
+        display: block;
+        float: left;
+        clear: both;
+    }
+    /*
+    @include respond-to-min($desktopSize) {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        padding: 120px 0 45px;
+    }
+    */
+
+    &.normal-footer {
+        position: relative;
+        padding: 30px 0 10px;
+
+        @include respond-to-min($desktopSize) {
+            position: relative;
+            padding: 30px 0 10px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        display: inline-block;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    &__copyright {
+        float: left;
+        color: #2c3e50;
+        font-family: 'robotobold';
+        font-size: rem(18px);
+        line-height: 40px;
+    }
+
+    &__social {
+        float: right;
+        margin-bottom: 10px;
+
+        a:hover{
+            opacity: 0.8;
+        }
+
+        &__facebook {
+            width: 40px;
+            height: 40px;
+            background: url('/img/icon_facebook.png');
+        }
+
+        &__linkin {
+            width: 40px;
+            height: 40px;
+            background: url('/img/icon_linkin.png');
+            margin: 0 0 0 10px;
+        }
+        .footer-page__social__link {
+            text-indent: -9999px;
+        }
+        @include respond-to-min($desktopSize) {
+            margin-bottom: 0px;
+        }
+    }
+
+    &__partner-container {
+        display: block;
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include respond-to-min($tabletSize) {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        @include respond-to-min($desktopSize) {
+            display: inline-block;
+            margin-bottom: 0px;
+        }
+
+        span {
+            display: inline-block;
+            margin: 10px 10px 10px;
+
+            @include respond-to-min($tabletSize) {
+                margin: 0 10px;
+            }
+        }
+    }
+}

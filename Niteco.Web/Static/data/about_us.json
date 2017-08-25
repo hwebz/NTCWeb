@@ -1,0 +1,18 @@
+﻿{
+    "introduction": {
+        "title": "About Us",
+        "subTitle": "A software development company with a thirst for excellence"
+    },
+
+    "description": {
+        "title": "Diverse minds, creating world-class software",
+        "subTitle": "Our impressive portfolio was built from 200+ kinds of brilliance",
+        "description": "In the technology world, there's no room for tunnel vision. Flawless technology solutions are only crafted when different points of view, cross-functional expertise, and years of experience unite and collaborate. This is exactly what the 200+ minds at Niteco enjoy doing."
+    },
+
+    "socially": { 
+        "title": "Social Responsibilities",
+        "subTitle": "Socially responsible, environmentally aware",
+        "description": "Our Scandinavian roots call out for us to act responsibly towards society and the environment. Our power to bring sustainability to people and communities motivates us to do even better."
+    }
+}

@@ -1,0 +1,14 @@
+﻿@model ServicePage
+           
+@if (!string.IsNullOrEmpty(Model.Technologies))
+{
+    var list = Model.Technologies.Split(',');
+    <span class="service-technology-column__title">@Model.Heading</span>
+    
+    <ul>
+        @foreach (var item in list)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}

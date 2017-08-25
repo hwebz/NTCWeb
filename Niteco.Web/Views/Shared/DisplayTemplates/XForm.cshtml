@@ -1,0 +1,26 @@
+﻿@using EPiServer.HtmlParsing
+@using Niteco.Common.Extensions
+
+@model EPiServer.XForms.XForm
+
+        <div class="row">
+            <div class="xform-container" id="xform_container_@(Model.Id.ToString().Replace("-",string.Empty))">
+                @if (ViewData["XFormActionResult"] is EPiServer.Web.Mvc.XForms.XFormSuccessActionResult)
+                {
+
+                    <strong>Form posted.</strong>
+                }
+                else
+                {
+                    if (Model != null)
+                    {
+
+                        foreach (var fragment in (IEnumerable<HtmlFragment>)ViewData["XFormFragments"] ?? Model.CreateHtmlFragments())
+                        {
+                            @Html.RenderCustomHtmlFragment(fragment, "XForm/" + fragment.GetType().Name)
+                        }
+                    }
+                }
+            </div>
+        </div>
+

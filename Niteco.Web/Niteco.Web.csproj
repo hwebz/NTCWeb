@@ -1,0 +1,1360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F00857F3-4A0E-4050-AD33-ACF6AAF5369A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Niteco.Web</RootNamespace>
+    <AssemblyName>Niteco.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>true</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin, Version=5.14.5506.26196, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxMin.5.14.5506.26202\lib\net40\AjaxMin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="BVNetwork.EPi404, Version=4.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BVN.404Handler.4.1.1\lib\net45\BVNetwork.EPi404.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EcmaScript.NET, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcmaScript.Net.1.0.1.0\lib\net20\EcmaScript.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ApplicationModules, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.ApplicationModules.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Cms.Shell.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.Cms.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Configuration, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Data.Cache, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Data.Cache.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Enterprise, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Enterprise.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Events, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Events.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Framework, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Framework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.GoogleAnalytics, Version=1.9.3.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.GoogleAnalytics.1.9.3.9000\lib\EPiServer.GoogleAnalytics.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.ImageLibrary, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.ImageLibrary.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Licensing, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.LinkAnalyzer, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.LinkAnalyzer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Logging.Log4Net, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Logging.Log4Net.2.0.0\lib\net45\EPiServer.Logging.Log4Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomationIntegration, Version=2.2.2.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.ConnectForMarketingAutomation.2.2.2.9000\lib\EPiServer.MarketingAutomationIntegration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.MarketingAutomationIntegration.Marketo, Version=1.1.0.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.MarketingAutomationIntegration.Marketo.1.1.0.9000\lib\EPiServer.MarketingAutomationIntegration.Marketo.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging, Version=3.2.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.3.2.4\lib\net45\EPiServer.Packaging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging.CmdAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.3.2.4\lib\net45\EPiServer.Packaging.CmdAPI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Packaging.UI, Version=3.2.4.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Packaging.UI.3.2.4\lib\net45\EPiServer.Packaging.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Search.IndexingService, Version=8.0.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Search.8.0.0\lib\net45\EPiServer.Search.IndexingService.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Framework.9.10.1\lib\net45\EPiServer.Shell.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Shell.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.Shell.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Social, Version=2.1.4.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Social.2.1.4.9000\lib\net40\EPiServer.Social.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Social.Configuration, Version=2.1.4.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Social.2.1.4.9000\lib\net40\EPiServer.Social.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Social.Models, Version=2.1.4.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Social.2.1.4.9000\lib\net40\EPiServer.Social.Models.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Social.Providers, Version=2.1.4.9000, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.Social.2.1.4.9000\lib\net40\EPiServer.Social.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.UI, Version=9.7.0.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.UI.Core.9.7.0\lib\net45\EPiServer.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.Web.WebControls, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.Web.WebControls.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EPiServer.XForms, Version=9.10.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPiServer.CMS.Core.9.10.1\lib\net45\EPiServer.XForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="GoogleMaps.LocationServices, Version=0.1.5926.26040, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GoogleMaps.LocationServices.0.9.8.6\lib\net40\GoogleMaps.LocationServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.9.0, Culture=neutral, PublicKeyToken=6583c7c814667745, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.1.9.9\lib\net20\Ionic.Zip.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Niteco.UI, Version=1.0.6029.7553, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Niteco.UI.1.0.160704.1112\lib\net45\Niteco.UI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NuGet.Core, Version=2.5.40416.9020, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NuGet.Core.2.5.0\lib\net40-Client\NuGet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SiteAttentionModule, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SiteAttentionModule.2.4.1.0\lib\SiteAttentionModule.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap, Version=3.1.6.191, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.191\lib\net40\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Net4, Version=3.1.6.191, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap-signed.3.1.6.191\lib\net40\StructureMap.Net4.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMap.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\packages\structuremap.web-signed.3.1.6.191\lib\net40\StructureMap.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.2.0.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.AspNet.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet.Common.2.0.0\lib\net40-client\WebMarkupMin.AspNet.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.AspNet4.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet4.Common.2.0.0\lib\net40\WebMarkupMin.AspNet4.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.AspNet4.Mvc, Version=2.0.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.AspNet4.Mvc.2.0.0\lib\net40\WebMarkupMin.AspNet4.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.Core.2.0.0\lib\net40-client\WebMarkupMin.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.MsAjax, Version=2.0.0.0, Culture=neutral, PublicKeyToken=99472178d266584b, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.MsAjax.2.0.0\lib\net40-client\WebMarkupMin.MsAjax.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WebMarkupMin.Yui, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebMarkupMin.Yui.2.0.0\lib\net40-client\WebMarkupMin.Yui.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor, Version=2.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\YUICompressor.NET.2.7.0.0\lib\NET20\Yahoo.Yui.Compressor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ItemGroup>
+    <Compile Include="Business\Channels\DisplayResolutionBase.cs" />
+    <Compile Include="Business\Channels\DisplayResolutions.cs" />
+    <Compile Include="Business\Channels\MobileChannel.cs" />
+    <Compile Include="Business\Channels\WebChannel.cs" />
+    <Compile Include="Business\ContentLocator.cs" />
+    <Compile Include="Business\ContentProviders\ClonedContentProvider.cs" />
+    <Compile Include="Business\ExpiredContentFilter.cs" />
+    <Compile Include="Business\IModifyLayout.cs" />
+    <Compile Include="Business\Initialization\BundleConfig.cs" />
+    <Compile Include="Business\Initialization\CmsSearchInitialization.cs" />
+    <Compile Include="Business\Initialization\CustomizedRenderingInitialization.cs" />
+    <Compile Include="Business\Initialization\DependencyResolverInitialization.cs" />
+    <Compile Include="Business\Initialization\DisplayModesInitialization.cs" />
+    <Compile Include="Business\Initialization\DisplayRegistryInitialization.cs" />
+    <Compile Include="Business\Initialization\FilterConfig.cs" />
+    <Compile Include="Business\Initialization\PageEntityInitialization.cs" />
+    <Compile Include="Business\PageContextActionFilter.cs" />
+    <Compile Include="Business\PageViewContextFactory.cs" />
+    <Compile Include="Business\Rendering\AlloyContentAreaRenderer.cs" />
+    <Compile Include="Business\Rendering\ErrorHandlingContentRenderer.cs" />
+    <Compile Include="Business\Rendering\ICustomCssInContentArea.cs" />
+    <Compile Include="Business\Rendering\NoWrappersContentAreaRenderer.cs" />
+    <Compile Include="Business\Rendering\SiteViewEngine.cs" />
+    <Compile Include="Business\Rendering\TemplateCoordinator.cs" />
+    <Compile Include="Business\SearchService.cs" />
+    <Compile Include="Business\StructureMapDependencyResolver.cs" />
+    <Compile Include="Business\UIDescriptorRegistration\CodeWrapBlockDescriptor.cs" />
+    <Compile Include="Business\UIDescriptorRegistration\BlogDetailDescriptor.cs" />
+    <Compile Include="Business\UIDescriptors\ContainerPageUIDescriptor.cs" />
+    <Compile Include="Business\WebMarkupMinConfig.cs" />
+    <Compile Include="Capabilities\DeviceDetector.cs" />
+    <Compile Include="Controllers\BlogDetailPageController.cs" />
+    <Compile Include="Controllers\BlogListingPageController.cs" />
+    <Compile Include="Controllers\CareerPageController.cs" />
+    <Compile Include="Controllers\ContactUsPageController.cs" />
+    <Compile Include="Controllers\DefaultPageController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ImageFileController.cs" />
+    <Compile Include="Controllers\NewsDetailPageController.cs" />
+    <Compile Include="Controllers\NewsListingPageController.cs" />
+    <Compile Include="Controllers\PageControllerBase.cs" />
+    <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\SearchPageController.cs" />
+    <Compile Include="Controllers\StartPageController.cs" />
+    <Compile Include="Controllers\VideoFileController.cs" />
+    <Compile Include="Data\ContentTypes.cs" />
+    <Compile Include="Data\Pages\CmsSettingsPageData.cs" />
+    <Compile Include="Extensions\HttpContextExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\UrlExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\CategorizableExtensions.cs" />
+    <Compile Include="Helpers\CategoryHelper.cs" />
+    <Compile Include="Helpers\HtmlHelpers.cs" />
+    <Compile Include="Helpers\LocationHelpers.cs" />
+    <Compile Include="Helpers\SitemapHelpers.cs" />
+    <Compile Include="Helpers\UrlHelpers.cs" />
+    <Compile Include="Models\Shared\SimplePagination.cs" />
+    <Compile Include="Models\ViewModels\BlogDetailViewModel.cs" />
+    <Compile Include="Models\ViewModels\BlogsListingViewModel.cs" />
+    <Compile Include="Models\ViewModels\ContactFormModel.cs" />
+    <Compile Include="Models\ViewModels\CareerPageModel.cs" />
+    <Compile Include="Models\ViewModels\ItemViewModel.cs" />
+    <Compile Include="Models\ViewModels\ContactUsPageModel.cs" />
+    <Compile Include="Models\ViewModels\ContentRenderingErrorModel.cs" />
+    <Compile Include="Models\ViewModels\ImageViewModel.cs" />
+    <Compile Include="Models\ViewModels\IPageViewModel.cs" />
+    <Compile Include="Models\ViewModels\LayoutModel.cs" />
+    <Compile Include="Models\ViewModels\NewsDetailViewModel.cs" />
+    <Compile Include="Models\ViewModels\NewsListingViewModel.cs" />
+    <Compile Include="Models\ViewModels\PageViewModel.cs" />
+    <Compile Include="Models\ViewModels\PreviewModel.cs" />
+    <Compile Include="Models\ViewModels\SearchContentModel.cs" />
+    <Compile Include="Models\ViewModels\VideoViewModel.cs" />
+    <Compile Include="Plugins\CleanUpPage\CleanUpPagePlugin.aspx.cs">
+      <DependentUpon>CleanUpPagePlugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\CleanUpPage\CleanUpPagePlugin.aspx.designer.cs">
+      <DependentUpon>CleanUpPagePlugin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\ContactForm\ExportFormDataTool.aspx.cs">
+      <DependentUpon>ExportFormDataTool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\ContactForm\ExportFormDataTool.aspx.designer.cs">
+      <DependentUpon>ExportFormDataTool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\NewLetters\NewLetterFromCareerPage.aspx.cs">
+      <DependentUpon>NewLetterFromCareerPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\NewLetters\NewLetterFromCareerPage.aspx.designer.cs">
+      <DependentUpon>NewLetterFromCareerPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\SearchReindex\GetIndexingStatus.aspx.cs">
+      <DependentUpon>GetIndexingStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\SearchReindex\GetIndexingStatus.aspx.designer.cs">
+      <DependentUpon>GetIndexingStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\SearchReindex\SearchReindexPlugin.aspx.cs">
+      <DependentUpon>SearchReindexPlugin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\SearchReindex\SearchReindexPlugin.aspx.designer.cs">
+      <DependentUpon>SearchReindexPlugin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Plugins\XmlResourceManager\XmlResourceManager.aspx.cs">
+      <DependentUpon>XmlResourceManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Plugins\XmlResourceManager\XmlResourceManager.aspx.designer.cs">
+      <DependentUpon>XmlResourceManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduledJobs\GenerateSiteMap.cs" />
+    <Compile Include="ScheduledJobs\SiteMapBuilder.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="css\" />
+    <Folder Include="fonts\" />
+    <Folder Include="img\" />
+    <Folder Include="Static\compiled\" />
+    <Folder Include="Static\fonts\" />
+    <Folder Include="Static\scripts\templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ImageResizer.Mvc\ImageResizer.Mvc.csproj">
+      <Project>{4181b9c4-1eaf-4070-8571-2ee25475547e}</Project>
+      <Name>ImageResizer.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageResizer.Plugins\ImageResizer.Plugins.csproj">
+      <Project>{16d6fba2-9cfb-4a95-b245-7a33a9942cc7}</Project>
+      <Name>ImageResizer.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImageResizer\ImageResizer.csproj">
+      <Project>{fa5ef673-a6a4-498d-aa24-c025cc5267af}</Project>
+      <Name>ImageResizer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niteco.Cdn\Niteco.Cdn.csproj">
+      <Project>{415d5e0f-7f53-4722-930d-487963225904}</Project>
+      <Name>Niteco.Cdn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niteco.Common\Niteco.Common.csproj">
+      <Project>{21B26EC2-54A0-43F9-BECD-0990A2B15604}</Project>
+      <Name>Niteco.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niteco.ContentTypes\Niteco.ContentTypes.csproj">
+      <Project>{A679FB5B-C91C-451A-A28A-5DFF85411CF3}</Project>
+      <Name>Niteco.ContentTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niteco.Search.IndexingService\Niteco.Search.IndexingService.csproj">
+      <Project>{52e0a232-1593-480e-ba08-dcd10ffd07a9}</Project>
+      <Name>Niteco.Search.IndexingService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Niteco.Search\Niteco.Search.csproj">
+      <Project>{C0ED596B-53DF-4BFF-9643-C4C5E7626993}</Project>
+      <Name>Niteco.Search</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404NotFound.aspx" />
+    <Content Include="500Error.aspx" />
+    <Content Include="ClientResources\Images\icons\layoutIcons24x24.png" />
+    <Content Include="ClientResources\Scripts\Editors\StringList.js" />
+    <Content Include="ClientResources\Scripts\Editors\TechnologiesSelection.js" />
+    <Content Include="ClientResources\Scripts\Editors\templates\TechnologiesSelectionEditor.html" />
+    <Content Include="ClientResources\Scripts\ModuleInitializer.js" />
+    <Content Include="ClientResources\Scripts\RequireModule.js" />
+    <Content Include="ClientResources\Styles\LayoutIcons.css" />
+    <Content Include="ClientResources\Styles\Styles.css" />
+    <Content Include="IndexingService\IndexingService.svc" />
+    <Content Include="IndexingService\NitecoIndexingService.svc" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\CommandProviders\SiteAttentionCommandProvider.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Components\SiteAttentionWidget.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\Content.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\ClientResources\Scripts\DefaultModule.js" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattention.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\siteattentioninfo.css" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\SpriteTools.png" />
+    <Content Include="modules\_protected\SiteAttentionModule\Resources\ToolButtonBg.gif" />
+    <Content Include="modules\_protected\SiteAttentionModule\SiteAttentionPlugIn.aspx" />
+    <Content Include="nis\css\animate.css" />
+    <Content Include="nis\css\bootstrap.min.css" />
+    <Content Include="nis\css\colorpicker.css" />
+    <Content Include="nis\css\flexslider.css" />
+    <Content Include="nis\css\font-awesome.css" />
+    <Content Include="nis\css\fonts\glyphiconshalflings-regular.svg" />
+    <Content Include="nis\css\fonts\icomoon.svg" />
+    <Content Include="nis\css\icon-fonts.css" />
+    <Content Include="nis\css\overwrite.css" />
+    <Content Include="nis\css\owl.carousel.css" />
+    <Content Include="nis\css\owl.theme.css" />
+    <Content Include="nis\css\owl.transitions.css" />
+    <Content Include="nis\css\prettyPhoto.css" />
+    <Content Include="nis\css\style.css" />
+    <Content Include="nis\css\YTPlayer.css" />
+    <Content Include="nis\fonts\fontawesome\fontawesome-webfont.svg" />
+    <Content Include="nis\fonts\open-sans\generator_config.txt" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-demo.html" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-webfont.svg" />
+    <Content Include="nis\fonts\open-sans\opensans-light-demo.html" />
+    <Content Include="nis\fonts\open-sans\opensans-light-webfont.svg" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-demo.html" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-webfont.svg" />
+    <Content Include="nis\fonts\open-sans\specimen_files\easytabs.js" />
+    <Content Include="nis\fonts\open-sans\specimen_files\grid_12-825-55-15.css" />
+    <Content Include="nis\fonts\open-sans\specimen_files\specimen_stylesheet.css" />
+    <Content Include="nis\fonts\open-sans\stylesheet.css" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\css\helper.css" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\css\pe-icon-7-stroke.css" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.svg" />
+    <Content Include="nis\ico\favicon.png" />
+    <Content Include="nis\img\bg1.jpg" />
+    <Content Include="nis\img\bg3.jpg" />
+    <Content Include="nis\img\bg4.jpg" />
+    <Content Include="nis\img\bg_direction_nav_next.png" />
+    <Content Include="nis\img\bg_direction_nav_prev.png" />
+    <Content Include="nis\img\browser - Copy.png" />
+    <Content Include="nis\img\browser.png" />
+    <Content Include="nis\img\client\logo1-hover.png" />
+    <Content Include="nis\img\client\logo1.png" />
+    <Content Include="nis\img\client\logo10-hover.png" />
+    <Content Include="nis\img\client\logo10.png" />
+    <Content Include="nis\img\client\logo2-hover.png" />
+    <Content Include="nis\img\client\logo2.png" />
+    <Content Include="nis\img\client\logo3-hover.png" />
+    <Content Include="nis\img\client\logo3.png" />
+    <Content Include="nis\img\client\logo4-hover.png" />
+    <Content Include="nis\img\client\logo4.png" />
+    <Content Include="nis\img\client\logo5-hover.png" />
+    <Content Include="nis\img\client\logo5.png" />
+    <Content Include="nis\img\client\logo6-hover.png" />
+    <Content Include="nis\img\client\logo6.png" />
+    <Content Include="nis\img\client\logo7-hover.png" />
+    <Content Include="nis\img\client\logo7.png" />
+    <Content Include="nis\img\client\logo8-hover.png" />
+    <Content Include="nis\img\client\logo8.png" />
+    <Content Include="nis\img\client\logo9-hover.png" />
+    <Content Include="nis\img\client\logo9.png" />
+    <Content Include="nis\img\close.png" />
+    <Content Include="nis\img\device.png" />
+    <Content Include="nis\img\epi_logo.png" />
+    <Content Include="nis\img\imac - Copy.png" />
+    <Content Include="nis\img\imac.png" />
+    <Content Include="nis\img\logo.png" />
+    <Content Include="nis\img\ms_logo.png" />
+    <Content Include="nis\img\owl-controls.png" />
+    <Content Include="nis\img\owl-next.png" />
+    <Content Include="nis\img\owl-prev.png" />
+    <Content Include="nis\img\paly-pause.png" />
+    <Content Include="nis\img\panel.png" />
+    <Content Include="nis\img\pattern.png" />
+    <Content Include="nis\img\polygon.jpg" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="nis\img\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="nis\img\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="nis\img\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="nis\img\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="nis\img\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="nis\img\prettyPhoto\default\default_thumb.png" />
+    <Content Include="nis\img\prettyPhoto\default\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\default\sprite.png" />
+    <Content Include="nis\img\prettyPhoto\default\sprite_next.png" />
+    <Content Include="nis\img\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="nis\img\prettyPhoto\default\sprite_x.png" />
+    <Content Include="nis\img\prettyPhoto\default\sprite_y.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="nis\img\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="nis\img\prettyPhoto\facebook\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\facebook\sprite.png" />
+    <Content Include="nis\img\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="nis\img\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="nis\img\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="nis\img\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="nis\img\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="nis\img\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="nis\img\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="nis\img\prettyPhoto\light_square\loader.gif" />
+    <Content Include="nis\img\prettyPhoto\light_square\sprite.png" />
+    <Content Include="nis\img\pricing-line.png" />
+    <Content Include="nis\img\quote.png" />
+    <Content Include="nis\img\screenshot-bg.png" />
+    <Content Include="nis\img\screenshot\img1.png" />
+    <Content Include="nis\img\screenshot\img2.png" />
+    <Content Include="nis\img\screenshot\img3.png" />
+    <Content Include="nis\img\screenshot\img4.png" />
+    <Content Include="nis\img\screenshot\img5.png" />
+    <Content Include="nis\img\slider\img1.png" />
+    <Content Include="nis\img\slider\img2.png" />
+    <Content Include="nis\img\slider\img3.png" />
+    <Content Include="nis\img\slider\img4.png" />
+    <Content Include="nis\img\sparator-line.png" />
+    <Content Include="nis\img\testimoni-bg.png" />
+    <Content Include="nis\img\testimoni-sparator.png" />
+    <Content Include="nis\img\testimoni\avatar1.png" />
+    <Content Include="nis\img\testimoni\avatar2.png" />
+    <Content Include="nis\img\testimoni\avatar3.png" />
+    <Content Include="nis\img\testimoni\avatar4.png" />
+    <Content Include="nis\img\testimoni\avatar5.png" />
+    <Content Include="nis\img\testimoni\avatar6.png" />
+    <Content Include="nis\img\ui.totop.png" />
+    <Content Include="nis\index.htm" />
+    <Content Include="nis\js\bootstrap.min.js" />
+    <Content Include="nis\js\counters\jquery.appear.js" />
+    <Content Include="nis\js\counters\setting.js" />
+    <Content Include="nis\js\counters\stellar.js" />
+    <Content Include="nis\js\custom.js" />
+    <Content Include="nis\js\flexslider\jquery.flexslider.js" />
+    <Content Include="nis\js\flexslider\setting.js" />
+    <Content Include="nis\js\html5shiv.min.js" />
+    <Content Include="nis\js\ie-emulation-modes-warning.js" />
+    <Content Include="nis\js\ie10-viewport-bug-workaround.js" />
+    <Content Include="nis\js\ie8-responsive-file-warning.js" />
+    <Content Include="nis\js\jcarousellite\jcarousellite_1.0.1c4.js" />
+    <Content Include="nis\js\jcarousellite\setting.js" />
+    <Content Include="nis\js\jquery-easing-1.3.js" />
+    <Content Include="nis\js\jquery.js" />
+    <Content Include="nis\js\navigation\jquery.smooth-scroll.js" />
+    <Content Include="nis\js\navigation\navbar.js" />
+    <Content Include="nis\js\navigation\waypoints.min.js" />
+    <Content Include="nis\js\owlcarousel\owl.carousel.js" />
+    <Content Include="nis\js\owlcarousel\setting.js" />
+    <Content Include="nis\js\parallax\jquery.parallax-1.1.3.js" />
+    <Content Include="nis\js\parallax\setting.js" />
+    <Content Include="nis\js\prettyPhoto\jquery.prettyPhoto.js" />
+    <Content Include="nis\js\prettyPhoto\setting.js" />
+    <Content Include="nis\js\respond.min.js" />
+    <Content Include="nis\js\theme-option\colorpicker.js" />
+    <Content Include="nis\js\theme-option\optionspanel.js" />
+    <Content Include="nis\js\totop\jquery.ui.totop.js" />
+    <Content Include="nis\js\totop\setting.js" />
+    <Content Include="nis\js\validation.js" />
+    <Content Include="nis\js\wow\setting.js" />
+    <Content Include="nis\js\wow\wow.min.js" />
+    <Content Include="nis\js\youtube-player\jquery.swfobject.1-1-1.min.js" />
+    <Content Include="nis\js\youtube-player\setting.js" />
+    <Content Include="nis\js\youtube-player\youTubeEmbed-jquery.js" />
+    <Content Include="nis\js\yt-player\jquery.mb.YTPlayer.js" />
+    <Content Include="nis\js\yt-player\setting.js" />
+    <Content Include="nis\skins\default.css" />
+    <Content Include="nis\validation.js" />
+    <Content Include="NotFound.aspx" />
+    <Content Include="Plugins\CleanUpPage\CleanUpPagePlugin.aspx" />
+    <Content Include="Plugins\ContactForm\ExportFormDataTool.aspx" />
+    <Content Include="Plugins\NewLetters\NewLetterFromCareerPage.aspx" />
+    <Content Include="Plugins\SearchReindex\GetIndexingStatus.aspx" />
+    <Content Include="Plugins\SearchReindex\SearchReindexPlugin.aspx" />
+    <Content Include="Plugins\XmlResourceManager\XmlResourceManager.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="modules\_protected\Niteco.UI\Niteco.UI.zip" />
+    <None Include="Scripts\jquery-2.2.3.intellisense.js" />
+    <Content Include="Scripts\jquery-2.2.3.js" />
+    <Content Include="Scripts\jquery-2.2.3.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Static\css\Editor.css" />
+    <Content Include="Static\images\1.di.jpg" />
+    <Content Include="Static\images\12.addition.jpg" />
+    <Content Include="Static\images\13.rx.jpg" />
+    <Content Include="Static\images\2.dn.se.jpg" />
+    <Content Include="Static\images\about-us-background.jpg" />
+    <Content Include="Static\images\about-us-business-bottom-background.jpg" />
+    <Content Include="Static\images\about-us-business-top-background.jpg" />
+    <Content Include="Static\images\about-us-community-background.png" />
+    <Content Include="Static\images\about-us-community-emw.jpg" />
+    <Content Include="Static\images\about-us-header-bg.jpg" />
+    <Content Include="Static\images\about-us-offices.jpg" />
+    <Content Include="Static\images\about-us-our-mission.jpg" />
+    <Content Include="Static\images\about-us-our-vision.jpg" />
+    <Content Include="Static\images\about-us-socially-img-1.jpg" />
+    <Content Include="Static\images\about-us-socially-img-2.jpg" />
+    <Content Include="Static\images\about-us-socially-img-3.jpg" />
+    <Content Include="Static\images\about-us-socially-img-4.jpg" />
+    <Content Include="Static\images\about-us-socially-img-nicef.jpg" />
+    <Content Include="Static\images\arrow_down.png" />
+    <Content Include="Static\images\arrow_left_carousel.png" />
+    <Content Include="Static\images\arrow_left_carousel_active.png" />
+    <Content Include="Static\images\arrow_left_video_carousel_active.png" />
+    <Content Include="Static\images\arrow_right_carousel.png" />
+    <Content Include="Static\images\arrow_right_carousel_active.png" />
+    <Content Include="Static\images\arrow_right_video_carousel_active.png" />
+    <Content Include="Static\images\bgOur-Work-Introduction-768.jpg" />
+    <Content Include="Static\images\bgOur-Work-Introduction-992.jpg" />
+    <Content Include="Static\images\bgOur-Work-Introduction.png" />
+    <Content Include="Static\images\bg_howtoapply.jpg" />
+    <Content Include="Static\images\Brendan.png" />
+    <Content Include="Static\images\CalvinNguyen.png" />
+    <Content Include="Static\images\careers.jpg" />
+    <Content Include="Static\images\cd-icon-controller.svg" />
+    <Content Include="Static\images\cd-icon-location.png" />
+    <Content Include="Static\images\cd-icon-location.svg" />
+    <Content Include="Static\images\commerce-integration.png" />
+    <Content Include="Static\images\contact.jpg" />
+    <Content Include="Static\images\DaoDinh.png" />
+    <Content Include="Static\images\dkny800x6001.jpg" />
+    <Content Include="Static\images\DungLe.png" />
+    <Content Include="Static\images\DungNguyen.png" />
+    <Content Include="Static\images\episerver-hover.png" />
+    <Content Include="Static\images\episerver-logo.png" />
+    <Content Include="Static\images\episerver.png" />
+    <Content Include="Static\images\fb.jpg" />
+    <Content Include="Static\images\fb1.png" />
+    <Content Include="Static\images\featured-projects.jpg" />
+    <Content Include="Static\images\Fedrick.png" />
+    <Content Include="Static\images\Hamas.png" />
+    <Content Include="Static\images\HoangTran.png" />
+    <Content Include="Static\images\homepage_img.jpg" />
+    <Content Include="Static\images\how-we-work.jpg" />
+    <Content Include="Static\images\icon-email2.png" />
+    <Content Include="Static\images\icon-zoom-white.png" />
+    <Content Include="Static\images\iconArrowJobOpening.png" />
+    <Content Include="Static\images\iconFB.png" />
+    <Content Include="Static\images\iconLinkedIn.png" />
+    <Content Include="Static\images\iconMail.png" />
+    <Content Include="Static\images\iconMarker.png" />
+    <Content Include="Static\images\iconProcess1.jpg" />
+    <Content Include="Static\images\iconTeewter.png" />
+    <Content Include="Static\images\iconTel.png" />
+    <Content Include="Static\images\icon_coding.png" />
+    <Content Include="Static\images\icon_network.png" />
+    <Content Include="Static\images\icon_pencil.png" />
+    <Content Include="Static\images\img1.jpg" />
+    <Content Include="Static\images\iPad.png" />
+    <Content Include="Static\images\job-bg.jpg" />
+    <Content Include="Static\images\li1.png" />
+    <Content Include="Static\images\linus.jpg" />
+    <Content Include="Static\images\Listing-Thumbnail_800x600.jpg" />
+    <Content Include="Static\images\Listing-Thumbnail_800x600_01.jpg" />
+    <Content Include="Static\images\location_icon.png" />
+    <Content Include="Static\images\logo.png" />
+    <Content Include="Static\images\MinhDinh.png" />
+    <Content Include="Static\images\news-list-article-thumbnail-1-1200.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-1-992.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-1.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-2-1200.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-2-992.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-2.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-3-1200.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-3-992.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-3.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-4-1200.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-4-992.jpg" />
+    <Content Include="Static\images\news-list-article-thumbnail-4.jpg" />
+    <Content Include="Static\images\nis-background-video.png" />
+    <Content Include="Static\images\nis-introduce.png" />
+    <Content Include="Static\images\nis-img1.png" />
+    <Content Include="Static\images\nis-img2.png" />
+    <Content Include="Static\images\nis-img3.png" />
+    <Content Include="Static\images\nis-video-1.png" />
+    <Content Include="Static\images\our-team.jpg" />
+    <Content Include="Static\images\our-value-bg.jpg" />
+    <Content Include="Static\images\pele.png" />
+    <Content Include="Static\images\PhuongVu.png" />
+    <Content Include="Static\images\quote.jpg" />
+    <Content Include="Static\images\Ross.jpg" />
+    <Content Include="Static\images\search-big-icon.png" />
+    <Content Include="Static\images\search_icon.png" />
+    <Content Include="Static\images\service-item-image-small1.png" />
+    <Content Include="Static\images\service-item-image-small2.png" />
+    <Content Include="Static\images\service-item-image1.png" />
+    <Content Include="Static\images\service-item-image2.png" />
+    <Content Include="Static\images\service-tech-bg.png" />
+    <Content Include="Static\images\services.jpg" />
+    <Content Include="Static\images\service_check_icon.png" />
+    <Content Include="Static\images\service_contact_bg.png" />
+    <Content Include="Static\images\service_header_bg.jpg" />
+    <Content Include="Static\images\spinifex-logo.png" />
+    <Content Include="Static\images\testimonial-bg-1.png" />
+    <Content Include="Static\images\testimonial-bg-2-logo.png" />
+    <Content Include="Static\images\testimonial-bg-2.png" />
+    <Content Include="Static\images\testimonial-bg.jpg" />
+    <Content Include="Static\images\Thumbnail_800x600-v4.jpg" />
+    <Content Include="Static\images\Thumbnail_800x6001.jpg" />
+    <Content Include="Static\images\Thumbnail_800x600_O2.jpg" />
+    <Content Include="Static\images\TrungNguyen.png" />
+    <Content Include="Static\images\TuanTruong.png" />
+    <Content Include="Static\images\tw1.png" />
+    <Content Include="Static\images\verify-ep-background-2.png" />
+    <Content Include="Static\images\verify-ep-background.png" />
+    <Content Include="Static\images\verify-ep.png" />
+    <Content Include="Static\images\video-overlay.png" />
+    <Content Include="Static\images\wavyLines_red.svg" />
+    <Content Include="Static\images\youtube-button.png" />
+    <Content Include="Static\scripts\picturefill.js" />
+    <Content Include="Static\scripts\src\bg-cover.js" />
+    <Content Include="Static\scripts\src\blog-list-endless-scroll.js" />
+    <Content Include="Static\scripts\src\code-highlighter.js" />
+    <Content Include="Static\scripts\src\fastclick.js" />
+    <Content Include="Static\scripts\src\career-page.js" />
+    <Content Include="Static\scripts\src\about-us-page.js" />
+    <Content Include="Static\scripts\src\common-page-animation.js" />
+    <Content Include="Static\scripts\src\contact-form.js" />
+    <Content Include="Static\scripts\src\contact-us-page.js" />
+    <Content Include="Static\scripts\src\count-up.js" />
+    <Content Include="Static\scripts\src\click-item.js" />
+    <Content Include="Static\scripts\src\modules\codemirror.js" />
+    <Content Include="Static\scripts\src\modules\picturefill.min.js" />
+    <Content Include="Static\scripts\src\news-detail-introduction.js" />
+    <Content Include="Static\scripts\src\news-list-count-down.js" />
+    <Content Include="Static\scripts\src\news-list-endless-scroll.js" />
+    <Content Include="Static\scripts\src\newsletter-form.js" />
+    <Content Include="Static\scripts\src\nis-page.js" />
+    <Content Include="Static\scripts\src\our-team-page.js" />
+    <Content Include="Static\scripts\src\carousel-slider.js" />
+    <Content Include="Static\scripts\src\modules\handlebars-extension.js" />
+    <Content Include="Static\scripts\src\list-our-team-expand.js" />
+    <Content Include="Static\scripts\src\our-works.js" />
+    <Content Include="Static\scripts\src\page-introduction.js" />
+    <Content Include="Static\scripts\src\page-scroll-animation.js" />
+    <Content Include="Static\scripts\src\page-scroll.js" />
+    <Content Include="Static\scripts\src\related-autoscale-thumbnail.js" />
+    <Content Include="Static\scripts\src\request-page.js" />
+    <Content Include="Static\scripts\src\footer.js" />
+    <Content Include="Static\scripts\src\scroll-to-top.js" />
+    <Content Include="Static\scripts\src\partners.js" />
+    <Content Include="Static\scripts\src\search-validation.js" />
+    <Content Include="Static\scripts\src\services.js" />
+    <Content Include="Static\scripts\src\search.js" />
+    <Content Include="Static\scripts\src\social-share.js" />
+    <Content Include="Static\scripts\src\sticky-sidebar.js" />
+    <Content Include="Static\scripts\src\top-navigator.js" />
+    <Content Include="Static\scripts\src\loading.js" />
+    <Content Include="Static\scripts\src\home.js" />
+    <Content Include="Static\images\favicon.ico" />
+    <Content Include="Static\scripts\src\modules\jitRequire.js" />
+    <Content Include="Static\scripts\src\video_youtube.js" />
+    <Content Include="Static\scripts\src\modules\video_youtube_module.js" />
+    <Content Include="Static\scripts\src\zoom-block.js" />
+    <Content Include="modules\_protected\Shell\web.config" />
+    <Content Include="modules\_protected\Shell\Shell.zip" />
+    <Content Include="modules\_protected\CMS\web.config" />
+    <Content Include="modules\_protected\CMS\CMS.zip" />
+    <Content Include="App_Data\GeoLiteCity.dat" />
+    <Content Include="Scripts\jquery-2.2.3.min.map" />
+    <None Include="Static\styles\components\_component_codemirror.scss" />
+    <Content Include="Static\styles\_partials.scss" />
+    <Content Include="Static\styles\settings\_setting_fonts.scss" />
+    <Content Include="Static\styles\settings\_setting_sizes.scss" />
+    <Content Include="Static\styles\components\_components_carousel.scss" />
+    <Content Include="Static\styles\mixins\_mixins_media.scss" />
+    <Content Include="Static\styles\components\_components_video_js.scss" />
+    <Content Include="Static\styles\mixins\_mixins_transition.scss" />
+    <Content Include="Static\data\home.json" />
+    <Content Include="Static\styles\components\_components_button.scss" />
+    <Content Include="Static\data\search.json" />
+    <Content Include="Static\data\our_work.json" />
+    <Content Include="Static\data\about_us.json" />
+    <Content Include="Static\data\careers.json" />
+    <Content Include="Static\data\our_team.json" />
+    <Content Include="Static\data\how-we-work.json" />
+    <Content Include="Static\data\view_more_block.json" />
+    <Content Include="Static\data\contact-us.json" />
+    <Content Include="Static\data\job_details.json" />
+    <Content Include="nis\contact\config.php" />
+    <Content Include="nis\contact\contact.php" />
+    <Content Include="nis\css\fonts\Descr.WD3" />
+    <Content Include="nis\css\fonts\glyphiconshalflings-regular.eot" />
+    <Content Include="nis\css\fonts\glyphiconshalflings-regular.eot%40" />
+    <Content Include="nis\css\fonts\glyphiconshalflings-regular.ttf" />
+    <Content Include="nis\css\fonts\glyphiconshalflings-regular.woff" />
+    <Content Include="nis\css\fonts\icomoon.eot" />
+    <Content Include="nis\css\fonts\icomoon.eot%40" />
+    <Content Include="nis\css\fonts\icomoon.ttf" />
+    <Content Include="nis\css\fonts\icomoon.woff" />
+    <Content Include="nis\fonts\fontawesome\fontawesome-webfont.eot" />
+    <Content Include="nis\fonts\fontawesome\fontawesome-webfont.ttf" />
+    <Content Include="nis\fonts\fontawesome\fontawesome-webfont.woff" />
+    <Content Include="nis\fonts\fontawesome\FontAwesome.otf" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-webfont.eot" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-webfont.ttf" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-webfont.woff" />
+    <Content Include="nis\fonts\open-sans\opensans-bold-webfont.woff2" />
+    <Content Include="nis\fonts\open-sans\opensans-light-webfont.eot" />
+    <Content Include="nis\fonts\open-sans\opensans-light-webfont.ttf" />
+    <Content Include="nis\fonts\open-sans\opensans-light-webfont.woff" />
+    <Content Include="nis\fonts\open-sans\opensans-light-webfont.woff2" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-webfont.eot" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-webfont.ttf" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-webfont.woff" />
+    <Content Include="nis\fonts\open-sans\opensans-regular-webfont.woff2" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
+    <Content Include="nis\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="nis\img\NIS_Brochure.pdf" />
+    <Content Include="nis\index.htm%28bak%29" />
+    <Content Include="nis\Niteco InPrint Studio - One Page Website.zip" />
+    <Content Include="Static\data\nis.json" />
+    <Content Include="connectionStrings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Static\data\partners.json" />
+    <Content Include="modules\_protected\SiteAttentionModule\module.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\Views\Web.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\module.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServerGoogleAnalytics.config" />
+    <Content Include="modules\_protected\EPiServer.GoogleAnalytics\EPiServer.GoogleAnalytics.zip" />
+    <Content Include="modules\_protected\EPiServer.Social\web.config" />
+    <Content Include="modules\_protected\EPiServer.Social\Views\Web.config" />
+    <Content Include="modules\_protected\EPiServer.Social\module.config" />
+    <Content Include="modules\_protected\EPiServer.Social\EPiServerSocial.config" />
+    <Content Include="modules\_protected\EPiServer.Social\EPiServer.Social.zip" />
+    <Content Include="modules\_protected\BVNetwork.404Handler\BVNetwork.404Handler.zip" />
+    <Content Include="modules\_protected\EPiServer.Packaging.UI\web.config" />
+    <Content Include="modules\_protected\EPiServer.Packaging.UI\EPiServer.Packaging.UI.zip" />
+    <Content Include="Static\data\blog-detail.json" />
+    <Content Include="Static\data\blog-list.json" />
+    <Content Include="Static\data\news-detail.json" />
+    <Content Include="Static\data\news-list.json" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation\module.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation\EPiServer.ConnectForMarketingAutomation.zip" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\module.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\EPiServer.MAI.Marketo.config" />
+    <Content Include="modules\_protected\EPiServer.ConnectForMarketingAutomation.Marketo\EPiServer.ConnectForMarketingAutomation.Marketo.zip" />
+    <None Include="Static\data\services.json" />
+    <Content Include="Static\styles\mixins\_mixins_utils.scss" />
+    <Content Include="Static\styles\components\_components_animations.scss" />
+    <Content Include="Static\styles\font-awesome.scss" />
+    <Content Include="Static\styles\components\_components_print.scss" />
+    <Content Include="Static\styles\components\_component_prettyPhoto.scss" />
+    <Content Include="Static\images\career_img.svg" />
+    <None Include="Static\styles\_bootstrap.scss" />
+    <Content Include="favicon.ico" />
+    <Content Include="Gruntfile.js" />
+    <Content Include="Grunthelpers.js" />
+    <Content Include="Gruntproject.js" />
+    <Content Include="Resources\LanguageFiles\ContentTypeNames.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\LanguageFiles\Display.xml" />
+    <Content Include="Resources\LanguageFiles\EditorHints.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\LanguageFiles\GroupNames.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\LanguageFiles\PropertyNames.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\LanguageFiles\Views.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\LanguageFiles\_ReadMe.txt" />
+    <Content Include="Static\scripts\main-async.js" />
+    <Content Include="Static\scripts\main.js" />
+    <Content Include="Static\scripts\require-config.js" />
+    <Content Include="Static\scripts\src\modules\animate.js" />
+    <Content Include="Static\views\job-details.hbs" />
+    <Content Include="Static\views\_components\contact-us\contact-form.hbs" />
+    <Content Include="Static\views\_components\contact-us\contact-form.scss" />
+    <Content Include="Static\views\_components\about-us\about-community-columns.hbs" />
+    <Content Include="Static\views\nis.hbs" />
+    <Content Include="Static\views\partners.hbs" />
+    <Content Include="Static\views\_components\careers\careers-stay-up-to-date.hbs" />
+    <Content Include="Static\views\_components\blog-list\blog-list-content.hbs" />
+    <Content Include="Static\views\_components\blog-list\blog-list-content.scss" />
+    <Content Include="Static\views\_components\blog-list\blog-list-sidebar.hbs" />
+    <Content Include="Static\views\_components\blog-list\blog-list-sidebar.scss" />
+    <Content Include="Static\views\_components\blog-list\_blog-list-articles.hbs" />
+    <Content Include="Static\views\_components\blog-list\_blog-list-articles.scss" />
+    <Content Include="Static\views\blog-detail.hbs" />
+    <Content Include="Static\views\blog-list.hbs" />
+    <Content Include="Static\views\news-detail.hbs" />
+    <Content Include="Static\views\news-list.hbs" />
+    <Content Include="Static\views\_components\blog-detail\blog-detail-content.hbs" />
+    <Content Include="Static\views\_components\blog-detail\_blog-detail-article.hbs" />
+    <Content Include="Static\views\_components\blog-detail\_blog-detail-author.hbs" />
+    <Content Include="Static\views\_components\blog-detail\blog-detail-discuss.hbs" />
+    <Content Include="Static\views\_components\blog-detail\_related-blog-articles.hbs" />
+    <Content Include="Static\views\_components\blog-detail\blog-detail-content.scss" />
+    <Content Include="Static\views\_components\blog-detail\_related-blog-articles.scss" />
+    <Content Include="Static\views\_components\blog-detail\_blog-detail-article.scss" />
+    <Content Include="Static\views\_components\blog-detail\_blog-detail-author.scss" />
+    <None Include="Static\views\_components\contact-us\our-location.hbs" />
+    <Content Include="Static\images\nis-intro.png" />
+    <Content Include="Static\views\_components\nis\nis-item-indesign.hbs" />
+    <Content Include="Static\views\_components\nis\nis-item.hbs" />
+    <Content Include="Static\views\_components\nis\nis-listing.hbs" />
+    <Content Include="Static\views\_components\nis\nis-demo.hbs" />
+    <Content Include="Static\views\_components\nis\nis-item-footer.hbs" />
+    <Content Include="Static\views\_components\nis\nis-video-demo.hbs" />
+    <Content Include="Static\views\_components\nis\product-features.hbs" />
+    <Content Include="Static\views\_components\news-detail\_news-detail-article.hbs" />
+    <Content Include="Static\views\_components\news-detail\_news-detail-article.scss" />
+    <Content Include="Static\views\_components\news-detail\_news-detail-introduction.hbs" />
+    <Content Include="Static\views\_components\news-detail\_news-detail-introduction.scss" />
+    <Content Include="Static\views\_components\news-detail\_related-articles.hbs" />
+    <Content Include="Static\views\_components\news-detail\_related-articles.scss" />
+    <Content Include="Static\views\_components\news-detail\_subscribe-newsletters.hbs" />
+    <Content Include="Static\views\_components\news-detail\_subscribe-newsletters.scss" />
+    <Content Include="Static\views\_components\news-list\news-list-footer.hbs" />
+    <Content Include="Static\views\_components\news-list\_news-list-articles.hbs" />
+    <Content Include="Static\views\_components\news-list\_news-list-articles.scss" />
+    <Content Include="Static\views\_components\news-list\_news-list-count-down.hbs" />
+    <Content Include="Static\views\_components\news-list\_news-list-count-down.scss" />
+    <Content Include="Static\views\_components\news-list\news-list-footer.scss" />
+    <None Include="Static\views\_components\nis\verify-by-episerver.hbs">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Views\Web.config" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_Data\DefaultSiteContent.episerverdata" />
+    <Content Include="bower.json" />
+    <None Include="EPiServerLog.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\VideoFile\Index.cshtml" />
+    <Content Include="Views\StartPage\Index.cshtml" />
+    <Content Include="Views\StandardPage\Index.cshtml" />
+    <Content Include="Views\Shared\TemplateHint.cshtml" />
+    <Content Include="Views\Shared\TemplateError.cshtml" />
+    <Content Include="Views\Shared\SubNavigation.cshtml" />
+    <Content Include="Views\Shared\Layouts\_TwoPlusOne.cshtml" />
+    <Content Include="Views\Shared\Layouts\_Root.cshtml" />
+    <Content Include="Views\Shared\Layouts\_LeftNavigation.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\StringList.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Image.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\Breadcrumbs.cshtml" />
+    <Content Include="Views\Shared\Blocks\NoRenderer.cshtml" />
+    <Content Include="Views\SearchPage\Index.cshtml" />
+    <Content Include="Views\Preview\Index.cshtml" />
+    <Content Include="Views\ImageFile\Index.cshtml" />
+    <Content Include="Views\_viewstart.cshtml" />
+    <Content Include="module.config" />
+    <Content Include="package.json" />
+    <Content Include="Views\ServiceListPage\Index.cshtml" />
+    <Content Include="Views\ServicePage\Index.cshtml" />
+    <Content Include="Views\Shared\PagePartials\SmallServicePagePartial.cshtml" />
+    <Content Include="Views\Shared\PagePartials\WideServicePagePartial.cshtml" />
+    <Content Include="Static\index.hbs" />
+    <Content Include="Views\Shared\Blocks\ClientQuoteBlock.cshtml" />
+    <Content Include="Static\styles\components\_components.scss" />
+    <Content Include="Static\styles\helpers\_helpers.scss" />
+    <Content Include="Static\styles\mixins\_mixins.scss" />
+    <Content Include="Static\styles\print.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Static\styles\screen.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <IgnoreWarnings>True</IgnoreWarnings>
+      <IgnoreErrors>True</IgnoreErrors>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
+    <Content Include="Static\styles\settings\_settings.scss" />
+    <Content Include="Static\views\home.hbs" />
+    <Content Include="Static\views\_layouts\component.hbs" />
+    <Content Include="Static\views\_layouts\static.hbs" />
+    <Content Include="Static\views\_layouts\view.hbs" />
+    <Content Include="Static\data\views.json" />
+    <Content Include="Static\data\components.json" />
+    <Content Include="Views\ContactUsPage\Index.cshtml" />
+    <Content Include="Views\Shared\PagePartials\ContactUsItemPage.cshtml" />
+    <Content Include="Static\styles\components\_components_layout.scss" />
+    <Content Include="Views\Shared\PagePartials\ContactUsPage.cshtml" />
+    <Content Include="Views\Shared\PagePartials\StandardPagePartial.cshtml" />
+    <Content Include="Views\Shared\Blocks\PeopleBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\OfficeBlock.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\InputFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\Select1AsRadiobuttonFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\Select1tAsDropdownListFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\SelectFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\SubmitFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\TextareaFragment.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\XForm\TextFragment.cshtml" />
+    <Content Include="Views\Shared\PagePartials\AboutUsPagePartial.cshtml" />
+    <Content Include="Views\AboutUsPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\HeadingBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\ClientQuoteItemBlock.cshtml" />
+    <Content Include="Static\views\_components\home\_home.scss" />
+    <Content Include="Static\views\_components\home\_home_left.hbs" />
+    <Content Include="Static\views\_components\home\_home_right.hbs" />
+    <Content Include="Static\views\_components\top_navigator\_top_navigator.scss" />
+    <Content Include="Static\views\_components\top_navigator\top_navigator.hbs" />
+    <Content Include="Static\views\_components\home\_our_services.hbs" />
+    <Content Include="Static\views\_components\home\_our_services.scss" />
+    <Content Include="Static\views\_components\home\_how_we_work.hbs" />
+    <Content Include="Static\views\_components\home\_home_block_item.hbs" />
+    <Content Include="Static\views\about-us.hbs" />
+    <Content Include="Static\views\_components\about-us\_about.scss" />
+    <Content Include="Static\views\_components\loading\_loading.scss" />
+    <Content Include="Static\views\_components\loading\_loading.hbs" />
+    <Content Include="Static\views\our-works.hbs" />
+    <Content Include="Static\views\_components\our-work\_our_work.scss" />
+    <Content Include="Views\Shared\PagePartials\SitePageOnLeft.cshtml" />
+    <Content Include="Views\Shared\PagePartials\SitePageOnRight.cshtml" />
+    <Content Include="Views\Shared\Blocks\HomeVideoBlock.cshtml" />
+    <Content Include="Static\views\_components\our-work\gallery.hbs" />
+    <Content Include="Static\views\_components\our-work\our-works-testimonial.hbs" />
+    <Content Include="Static\views\_components\our-work\_testimonial.scss" />
+    <Content Include="Static\views\_components\our-work\our-works-footer.hbs" />
+    <Content Include="Static\views\_components\our-work\_our_work_footer.scss" />
+    <Content Include="Static\views\_components\our-team\our-team.scss" />
+    <Content Include="Static\views\_components\our-team\list-our-team.hbs" />
+    <Content Include="Static\views\our-team.hbs" />
+    <Content Include="Static\views\_components\search\_search.hbs" />
+    <Content Include="Static\views\_components\search\_search.scss" />
+    <Content Include="Static\views\_components\search\precompile\search_result.hbs" />
+    <Content Include="Views\OurWorkPage\Index.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ContentArea.cshtml" />
+    <Content Include="Views\CaseStudyPage\Index.cshtml" />
+    <Content Include="Views\Shared\PagePartials\CaseStudyPagePartial.cshtml" />
+    <Content Include="Views\Shared\PagePartials\SitePageOnBottom.cshtml" />
+    <Content Include="Static\views\contact-us.hbs" />
+    <Content Include="Static\views\_components\contact-us\map.hbs" />
+    <Content Include="Static\views\_components\contact-us\contact-us.scss" />
+    <Content Include="Views\Shared\Search.cshtml" />
+    <Content Include="Static\views\services.hbs" />
+    <Content Include="Static\views\_components\services\service-listing.hbs" />
+    <Content Include="Static\views\_components\about-us\about-business.hbs" />
+    <Content Include="Static\views\_components\about-us\_about-business.scss" />
+    <Content Include="Static\views\_components\services\_services.scss" />
+    <Content Include="Static\views\_components\services\service-listing-detail.hbs" />
+    <Content Include="Static\views\_components\services\_service-item.hbs" />
+    <Content Include="Static\views\_components\services\_service-item-detail.hbs" />
+    <Content Include="Static\views\_components\services\service-contact.hbs" />
+    <Content Include="Static\views\_components\services\service-technology.hbs" />
+    <Content Include="Static\views\_components\services\_service-technology-column.hbs" />
+    <Content Include="Static\views\_components\about-us\our-values.hbs" />
+    <Content Include="Static\views\_components\about-us\our-vision-mission.hbs" />
+    <Content Include="Views\Shared\MainMenu.cshtml" />
+    <Content Include="Views\Shared\Blocks\AboutUsOfficeBlock.cshtml" />
+    <Content Include="Static\views\_components\page\_page_introduction.scss" />
+    <Content Include="Static\views\_components\page\_page-introduction.hbs" />
+    <Content Include="Static\views\_components\careers\careers-benefit.hbs" />
+    <Content Include="Static\views\_components\careers\careers-how-to-apply-step.hbs" />
+    <Content Include="Static\views\_components\careers\_careers.scss" />
+    <Content Include="Static\views\careers.hbs" />
+    <Content Include="Static\views\_components\page\_page-description.hbs" />
+    <Content Include="Static\views\_components\page\_page_description.scss" />
+    <Content Include="Static\views\_components\careers\careers-job-openings.hbs" />
+    <Content Include="Views\Shared\Blocks\OurValueItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\OurValuesBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\ButtonBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\OurValueItemPartialBlock.cshtml" />
+    <Content Include="Views\Shared\PagePartials\TechnologiesPartial.cshtml" />
+    <Content Include="Views\Shared\Blocks\AboutUsInfoItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\AboutUsInfoBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\MissionItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\MissionBlock.cshtml" />
+    <Content Include="Static\views\_components\about-us\about-certified.hbs" />
+    <Content Include="Static\views\_components\about-us\about-offices.hbs" />
+    <Content Include="Static\views\how-we-work.hbs" />
+    <Content Include="Static\views\_components\how-we-work\_how-we-work.scss" />
+    <Content Include="Static\views\_components\how-we-work\our-process.hbs" />
+    <Content Include="Static\views\_components\about-us\about-community.hbs" />
+    <Content Include="Static\views\_components\about-us\about-socially.hbs" />
+    <Content Include="Views\Shared\Blocks\HtmlBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\ApplyCareerBlock.cshtml" />
+    <Content Include="Views\CareerPage\Index.cshtml" />
+    <Content Include="Static\views\_components\how-we-work\how-we-work-partnership.hbs" />
+    <Content Include="Static\views\_components\page\_view-more-block.hbs" />
+    <Content Include="Static\views\_components\page\_view_more_block.scss" />
+    <Content Include="Static\views\_components\job-details\_job-details.hbs" />
+    <Content Include="Static\views\_components\job-details\_job_details.scss" />
+    <Content Include="Static\views\_components\page\_sharing_block.hbs" />
+    <Content Include="Static\views\_components\page\_sharing_block.scss" />
+    <Content Include="Views\Shared\Blocks\CareerBenefitBlock.cshtml" />
+    <Content Include="Views\OurTeamPage\Index.cshtml" />
+    <Content Include="Views\JobPage\Index.cshtml" />
+    <Content Include="Views\Shared\PagePartials\JobPagePartial.cshtml" />
+    <Content Include="Views\HowWeWorkPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\HowWeWorkOurProcessItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\CommunityPartnerItemBlock.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Static\views\case-study-detail.hbs" />
+    <Content Include="Views\Shared\Blocks\HowWeWorkPartnershipItemBlock.cshtml" />
+    <Content Include="Views\SitemapPage\Index.cshtml" />
+    <Content Include="Views\Shared\TreeItem.cshtml" />
+    <Content Include="Static\views\_components\our-team\_our_team_item.hbs" />
+    <Content Include="Static\views\_components\our-team\_our_team_item_description.hbs" />
+    <Content Include="Static\views\_components\footer\_footer.hbs" />
+    <Content Include="Static\views\_components\footer\_footer.scss" />
+    <Content Include="Static\views\_components\home\_home_block_career.hbs" />
+    <Content Include="Static\views\_components\home\_home-color.scss" />
+    <Content Include="Static\views\_components\home\_home_block_service.hbs" />
+    <Content Include="Views\Shared\Blocks\SocialInfoBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\HowWeWorkPartnershipBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\HowWeWorkOurProcessBlock.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\Blocks\CommunityPartnerBlock.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Shared\SocialSharing.cshtml" />
+    <Content Include="Views\Shared\PagePartials\PeopleBlockPartial.cshtml" />
+    <Content Include="Views\Shared\BottomNavigation.cshtml" />
+    <Content Include="Static\views\_components\home\_home_block_charity.hbs" />
+    <Content Include="Static\views\_components\home\_home_block_contact_us.hbs" />
+    <Content Include="Static\views\_components\home\_home_block_engage_model.hbs" />
+    <Content Include="Static\views\_components\home\_home_block_our_team.hbs" />
+    <Content Include="Static\views\_components\home\_home_block_our_work.hbs" />
+    <Content Include="Views\Shared\Blocks\MissiontemPartial.cshtml" />
+    <Content Include="Views\Shared\Blocks\CareerBenefitContainerBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\OfficeStayConnectedBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\CaseStudyDetailBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\CaseStudyDetailBlockPartial.cshtml" />
+    <Content Include="Static\views\_components\social-share\_social-share.hbs" />
+    <Content Include="Static\views\_components\social-share\_social-share.scss" />
+    <Content Include="Views\Shared\Blocks\OfficeBlockPartial.cshtml" />
+    <Content Include="Views\HtmlPage\Index.cshtml" />
+    <Content Include="Static\views\_components\nis\_view_more_2_button_block.hbs" />
+    <Content Include="Static\views\_components\nis\who-use-it.hbs" />
+    <Content Include="Static\views\_components\nis\nis-listing.hbs" />
+    <Content Include="Static\views\_components\nis\nis-item.hbs" />
+    <Content Include="Static\views\_components\nis\nis-item-indesign.hbs" />
+    <Content Include="Static\views\_components\nis\nis-item-footer.hbs" />
+    <Content Include="Static\views\_components\nis\_nis.scss" />
+    <Content Include="Static\views\_components\nis\nis-video-demo.hbs" />
+    <None Include="Static\views\_components\nis\_view_more_2_button_block.scss" />
+    <Content Include="Views\Shared\StickySocialSharing.cshtml" />
+    <Content Include="Views\NisPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\NisButtonBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\NisVerifyByEpiServer.cshtml" />
+    <Content Include="Views\Shared\Blocks\NisServicesBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\NisServiceItemBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\VideoDemoBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\VideoDemoBlockItem.cshtml" />
+    <Content Include="Views\OurTechnologiesPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\TechnologyPartnerBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\TechnologyPartnerItemBlock.cshtml" />
+    <Content Include="Static\views\_components\partners\partner-technology.hbs" />
+    <Content Include="Static\views\_components\partners\_partners.scss" />
+    <Content Include="Static\views\_components\partners\_partner-item.hbs" />
+    <Content Include="Static\views\_components\partners\_partner-item-text.hbs" />
+    <Content Include="Views\Shared\Blocks\HomeImageBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\StayUpToDateBlock.cshtml" />
+    <Content Include="Views\NewsDetailPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\NewsQuoteBlock.cshtml" />
+    <Content Include="Views\NewsListingPage\Index.cshtml" />
+    <Content Include="Views\NewsListingPage\_NewsItems.cshtml" />
+    <Content Include="Views\BlogListingPage\Index.cshtml" />
+    <Content Include="Views\BlogListingPage\_BlogItem.cshtml" />
+    <Content Include="Static\views\_components\our-team\our-team-footer.hbs" />
+    <Content Include="Views\BlogDetailPage\Index.cshtml" />
+    <Content Include="Views\Shared\Blocks\BlogQuoteBlock.cshtml" />
+    <Content Include="Views\Shared\Blocks\CodeWrapBlock.cshtml" />
+    <Content Include="Views\AuthorPage\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Test.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:52520/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

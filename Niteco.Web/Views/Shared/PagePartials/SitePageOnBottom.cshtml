@@ -1,0 +1,27 @@
+﻿@using Niteco.Common.Extensions
+@model SitePageData
+@{
+    var background = Model.TeaserBackgroundImage ?? Model.BackgroundImage;
+}
+<a title="@Model.TeaserTitle" href="@Model.ToPublicUrl()">
+    <span class="home-block-item__background">
+        @if (background != null)
+        {
+            <picture>
+                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(background)?preset=1900">
+                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(background)?preset=1300">
+                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(background)?preset=1000">
+                <img class="home-block-item__background" src="@Url.ContentUrl(background)?preset=800" alt="@Model.TeaserTitle" />
+            </picture>
+        }
+    </span>
+    <div class="home-block-item__content-container">
+        <span class="home-block-item__content">
+            <span class="home-block-item__small-text">@Model.TeaserTitle</span>
+            <span class="home-block-item__big-text">@Model.TeaserSubTitle</span>
+        </span>
+        <div class="home-block-item__content-second">
+            @Model.ShortDescription
+        </div>
+    </div>
+</a>

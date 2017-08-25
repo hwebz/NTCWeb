@@ -1,0 +1,18 @@
+﻿---
+title: 'Service List'
+---
+
+{{> _page-description services.description}}
+
+<div class="service-listing">
+    <div class="container">
+        <div class="service-listing__container">
+            <div class="row">
+                {{#each services.data}}
+                {{> _service-item this}}
+                {{/each}}
+                {{> _service-item services.viewall}}
+            </div>
+        </div>
+    </div>
+</div>

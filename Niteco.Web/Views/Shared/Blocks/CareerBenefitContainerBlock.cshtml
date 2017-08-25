@@ -1,0 +1,26 @@
+﻿@model CareerBenefitContainerBlock
+<div class="page-description__title-container page-description__big-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="page-description__title">
+                    @Html.PropertyFor(x=>x.Title)
+                </div>
+                <div class="page-description__sub-title">
+
+                </div>
+                <div class="yellow-divider service-listing__yellow-underline">
+                </div>
+                <div class="page-description__description">
+                    @Html.PropertyFor(x=>x.ShortDescription)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="careers-benefit-block careers-block">
+    <div class="container-fluid">
+        @Html.PropertyFor(x => x.CareerBenefits, new { CustomTag = "div", CssClass = "row careers-benefit-row", ChildrenCustomTagName = "div", ChildrenCssClass = "col-xs-12 col-sm-6 col-md-6 col-lg-3 no-gutter" })
+    </div>
+</div>

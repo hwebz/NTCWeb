@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  
+  <language name="Sweden" id="sv">
+    <niteco>
+      <error>
+        <missingsettingpage>
+          Please select setting page for Home page.
+        </missingsettingpage>
+      </error>
+      <contactuspage>
+        <thankyou>Tack för ditt meddelande!</thankyou>
+        <invalidcaptcha>ReCAPTCHA är inte giltig</invalidcaptcha>
+      </contactuspage>
+      <casestudypage>
+        <viewcasestudy>Se fallstudie</viewcasestudy>
+      </casestudypage>
+      <servicelistpage>
+        <ourtechnologies>
+          Vår teknik
+        </ourtechnologies>
+      </servicelistpage>
+      <careerpage>
+        <jobopeningstitle>Aktuella lediga jobb</jobopeningstitle>
+        <jobopeningsdescription>Nedan arbetar positioner på spel. Vi kommer att bjuda in dig till en intervju om din ansökan uppfyller våra krav.</jobopeningsdescription>
+      </careerpage>
+      <ourworkpage>
+        <whatclientssay>
+          Vad våra kunder säger
+        </whatclientssay>
+      </ourworkpage>
+      <menu>Meny</menu>
+      <socialsharing>
+        <description>Dela med dig av karriärmöjlighet med dina vänner!</description>
+      </socialsharing>
+      <emailtemplate>
+        <subject>
+          Få kontakt {FullName}
+        </subject>
+        <body>
+          Hej,
+          {FullName} har kontaktat dig med info nedan
+          Email: {Email}
+          Telefon: {Phone}
+          Land: {Country}
+          Meddelande: {Message}
+
+          Vänligen kontakta med kunden ASAP.
+          Med vänliga hälsningar,
+          Niteco Web Team
+        </body>
+        <fromname>Användare från niteco webben</fromname>
+      </emailtemplate>
+    </niteco>
+    <contact>
+      <email>E-mail</email>
+      <phone>Telefon</phone>
+      <noneselected>Ingen kontakt valts</noneselected>
+    </contact>
+    
+    <footer>
+      <company>Företaget</company>
+      <customerzone>Kundzon</customerzone>
+      <login>Logga in</login>
+      <logout>
+        Logga ut
+      </logout>
+      <news>Nyheter &amp; Händelser</news>
+      <products>Produkter</products>
+    </footer>
+
+    <mainnavigation>
+      <search>Sök</search>
+    </mainnavigation>
+
+    <newspagetemplate>
+      <latestnews>Senaste nytt</latestnews>
+      <listrootempty>
+        Nyheter listan tom, eftersom ingen lista rot har satts
+      </listrootempty>
+    </newspagetemplate>
+
+    <searchpagetemplate>
+      <zero>Nej</zero>
+      <result>Sökresultat</result>
+      <searchbutton>Sök</searchbutton>
+      <searchfor>Din sökning efter</searchfor>
+      <resultedin>resulterade i</resultedin>
+      <hits>träffar</hits>
+      <disabled>
+        EPiServer Search är inte konfigurerad eller inte är aktiv för denna webbplats.
+      </disabled>
+      <officelocation>Office Plats</officelocation>
+      <jobopenning>Lediga jobb</jobopenning>
+      <Aboutthecompany>Om Niteco</Aboutthecompany>
+    </searchpagetemplate>
+    
+
+    <form>
+        <postedmessage>Tack för ditt inlägg!</postedmessage>
+    </form>
+
+  </language>
+  
+</languages>

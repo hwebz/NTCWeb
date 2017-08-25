@@ -1,0 +1,37 @@
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.MissionBlock
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+
+<section class="about-group__content-container">
+    <div class="container">
+        
+        
+        @if (PageEditing.PageIsInEditMode)
+        {
+                @*@Html.PropertyFor(m => m.MissionItems, new
+                {
+                    Tag = ContentAreaTags.NoWrappersContentArea,
+                })*@
+            @Html.PropertyFor(m => m.MissionItems)
+        }
+        else
+        {
+            for (int i = 0; i < Model.MissionItems.Items.Count; i++)
+            {
+                var titleClass = string.Empty;
+                var item = Model.MissionItems.Items[i];
+                var block = contentLoader.Get<MissionItemBlock>(item.ContentLink);
+                var viewModel = new ItemViewModel<MissionItemBlock>(block, @i);
+                Html.RenderPartial("MissiontemPartial", viewModel);
+            }
+        }
+  
+    </div>
+</section>

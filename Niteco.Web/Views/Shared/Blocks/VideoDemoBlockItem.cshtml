@@ -1,0 +1,15 @@
+﻿@model VideoDemoBlockItem
+
+@if (!string.IsNullOrEmpty(Model.UrlImage) || !string.IsNullOrEmpty(Model.UrlVideo))
+{
+    <div class="testimonial-panel">
+        <div class="nis-video__container">
+            <div class="container nis-video__frame" data-require="base/video_youtube">
+                <img src="@Html.PropertyFor(x => x.UrlImage)" alt="@Html.PropertyFor(x=>x.AlternateText)" />
+                <a class="nis-detail-video-play-button" href="@Html.PropertyFor(x => x.UrlVideo)" title="@Html.PropertyFor(x=>x.TitleVideo)" data-youtube-button="">Youtube play Button
+                    <span class="video-play-arrow"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+}

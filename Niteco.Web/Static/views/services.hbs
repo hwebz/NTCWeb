@@ -1,0 +1,18 @@
+﻿---
+title: "Our work page"
+---
+{{> _loading }}
+{{> top_navigator }}
+<div class="page-wrapper">
+    <div class="content-container service-page" data-require="base/services">
+        <div class="service-wrapper content-wrapper">
+            {{> _social-share}}
+            {{> _page-introduction services.introduction}}
+            {{> service-listing}}
+            {{> service-contact}}
+            {{> service-listing-detail}}
+            {{> service-technology}}
+            {{> _footer}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Data
+@model ApplyCareerBlock
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+
+<div class="career-steps__container" @(Model.ApplyCareerBackgroundImage != null ? "style=background:url(" + Url.ContentUrl(Model.ApplyCareerBackgroundImage) + ")" : "")>
+    @if (!string.IsNullOrEmpty(Model.ApplyContent.Title) || !string.IsNullOrEmpty(Model.ApplyContent.SubTitle))
+    {
+        <div class="page-description__title-container">
+            <div class="container">
+                <div class="page-description__title">
+                    @Html.PropertyFor(x => x.ApplyContent.Title)
+                </div>
+                <div class="page-description__sub-title">
+                    @Html.PropertyFor(x => x.ApplyContent.SubTitle)
+                </div>
+
+                <div class="yellow-divider service-listing__yellow-underline">
+                </div>
+                <div class="page-description__description">
+                    @Html.PropertyFor(x => x.ApplyContent.Description)
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        if (!string.IsNullOrEmpty(Model.ApplyContent.RawDescription))
+        {
+            @Html.Raw(Model.ApplyContent.RawDescription)
+        }
+        else
+        {
+            @Html.PropertyFor(x => x.ApplyContent.Description)
+        }
+    }
+
+    <div class="careers-middle-block careers-block">
+        <div class="container">
+
+            <div class="row careers-apply-step">
+                @if (Model.Steps != null && Model.Steps.Items.Any())
+                {
+                    for (int i = 0; i < Model.Steps.Items.Count; i++)
+                    {
+                        var item = Model.Steps.Items[i];
+                        var htmlBlock = contentLoader.Get<HtmlBlock>(item.ContentLink);
+                        <div class="col-xs-12 col-sm-4 checking-animate inactive slide-in-from-bottom">
+                            <div class="careers-step-detail">
+                                <div class="step-content">
+                                    <h3 class="step-name">@htmlBlock.Title</h3>
+                                    @Html.Raw(htmlBlock.Description)
+                                </div>
+                                <div class="step-number">@(i + 1)</div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="row view-jobs-opening checking-animate inactive fade-in">
+                <div class="col-xs-12 col-sm-9 col-md-10">
+                    @Html.PropertyFor(x => x.Description)
+                </div>
+                <div class="col-xs-12 col-sm-3  col-md-2 clear">
+                    <a href="@Url.ContentUrl(Model.ButtonLink)" class="pull-right view-more-jobs view-more">@Html.PropertyFor(x => x.ButtonText)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

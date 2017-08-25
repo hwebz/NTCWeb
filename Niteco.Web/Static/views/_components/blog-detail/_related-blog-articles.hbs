@@ -1,0 +1,58 @@
+﻿<div class="news-detail-related-articles__container blog-detail-related-articles__container" data-require="base/related-autoscale-thumbnail">
+    <div class="news-detail-related-articles__title">
+        <h2>{{{title}}}</h2>
+        <div class="yellow-divider"></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 news-related-articles__article">
+            <div class="row">
+                <div class="news-detail-releated-articles__article-thumbnail col-xs-12 col-sm-3 col-md-12">
+                    <a href="#">
+                        <img src="{{first.image}}" alt="{{first.title}}" />
+                    </a>
+                    <div class="news-detail-article__meta">
+                        <span class="news-detail-article__meta-date">{{first.date.day}}</span>
+                        <span class="news-detail-article__meta-monthYear">{{first.date.month}}.{{first.date.year}}</span>
+                    </div>
+                </div>
+                <div class="news-detail-related-articles__article-title col-xs-12 col-sm-9 col-md-12">
+                    <h2><a href="#">{{first.title}}</a></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 news-related-articles__article">
+            <div class="row">
+                <div class="news-detail-releated-articles__article-thumbnail col-xs-12 col-sm-3 col-md-12">
+                    <a href="#">
+                        <img src="{{second.image}}" alt="{{second.title}}" />
+                    </a>
+                    <div class="news-detail-article__meta">
+                        <span class="news-detail-article__meta-date">{{second.date.day}}</span>
+                        <span class="news-detail-article__meta-monthYear">{{second.date.month}}.{{second.date.year}}</span>
+                    </div>
+                </div>
+                <div class="news-detail-related-articles__article-title col-xs-12 col-sm-9 col-md-12">
+                    <h2><a href="#">{{second.title}}</a></h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-4 news-related-articles__article">
+            <div class="row">
+                <div class="news-detail-releated-articles__article-thumbnail col-xs-12 col-sm-3 col-md-12">
+                    <a href="#">
+                        <img src="{{third.image}}" alt="{{third.title}}" />
+                    </a>
+                    <div class="news-detail-article__meta">
+                        <span class="news-detail-article__meta-date">{{third.date.day}}</span>
+                        <span class="news-detail-article__meta-monthYear">{{third.date.month}}.{{third.date.year}}</span>
+                    </div>
+                </div>
+                <div class="news-detail-related-articles__article-title col-xs-12 col-sm-9 col-md-12">
+                    <h2><a href="#">{{third.title}}</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

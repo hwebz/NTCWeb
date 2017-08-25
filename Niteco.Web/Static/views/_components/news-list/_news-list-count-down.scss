@@ -1,0 +1,62 @@
+﻿$main-color: #f8cd3b;
+$box-number-color: #595a5a;
+$box-description-color: #77838f;
+$box-border: 1px solid $main-color;
+$box-width-height: 190px;
+$box-margin: 0 10px;
+
+.news-list-count-down__container {
+    font-size: 1rem;
+    padding-bottom: 17px;
+
+    .news-list-count-down__title {
+        font-size: 3rem;
+        font-family: "robotoblack", Arial, Helvetica, sans-serif;
+    }
+
+    .news-list-count-down__sub-title {
+        text-transform: initial;
+    }
+
+    .page-count-down__section {
+        .page-count-down__box {
+            font-family: "robotolight", Arial, Helvetica, sans-serif;
+            color: $box-number-color;
+            border: $box-border;
+            display: inline-block;
+            width: $box-width-height;
+            height: $box-width-height;
+            margin: $box-margin;
+
+            p {
+                padding: 0;
+                margin: 0;
+            }
+
+            .box-number {
+                font-size: 5.625rem;
+            }
+
+            .box-description {
+                font-size: 1.5rem;
+                color: $box-description-color;
+            }
+        }
+    }
+    .page-count-down__button {
+        color: $box-number-color;
+        background-color: $main-color;
+        padding: 1.25rem 6.5rem;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 1.75rem 0;
+        transition: all 0.5s ease;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.1);
+            color: $main-color;
+        }
+    }
+}

@@ -1,0 +1,69 @@
+@using EPiServer.Editor
+@using EPiServer.Security
+@model SearchContentModel
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+}
+<div class="search_page startSec">
+    <div class="container">
+        <div class="bigTitle">
+            <h1>@Model.CurrentPage.DisplayName</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="search-bound">
+                    <form id="quickSearchMobile" action="@Model.SearchPageUrl" method="@(PageEditing.PageIsInEditMode ? FormMethod.Post : FormMethod.Get)">
+                        <div class="form-group mrg-btm-widget">
+                            <div class="input-group input-group-lg search-control-group">
+                                <input class="form-control txtSearch" title="Search" id="searchInputPage" type="text" placeholder="@Html.Translate("/mainnavigation/search")" name="keyword" value="@(string.IsNullOrEmpty( Model.Keyword)?Model.Tags:Model.Keyword)">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default btnSearch" type="submit" title="Submit"><i class="fa fa-search"></i>&nbsp;<span>@Html.Translate("/search/ButtonSearch")</span> </button>
+                                </span>
+                            </div>
+                            @if (Model.TotalItems <= 0)
+                            {
+                                <div>@string.Format(Html.Translate("/search/noresult"), (string.IsNullOrEmpty(Model.Keyword) ? Model.Tags : Model.Keyword))</div>
+                            }
+                            else
+                            {
+                                <div><span class="resultText">@Html.Translate("/search/resultText")</span> @string.Format(Html.Translate("/search/result"), Model.TotalItems)</div>
+                            }
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach (var i in Model.Items)
+            {
+                <div class="col-md-12 mrg-btm">
+                    <div class="postInfo">
+                        <a class="highLightKeywords" href="@i.LinkUrl" title="@i.Title"><h6>@i.Title</h6></a>
+                        @if (!string.IsNullOrEmpty(i.ShortDescription))
+                        {
+                            <div>
+                                <span class="highLightKeywords">@i.ShortDescription</span>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-12 mrg-btm">
+                <div class="horizontal-dotted">&nbsp;</div>
+                @if (Model.Items.PageCount > 1)
+                {
+                    @*@Html.Partial("SimplePagination", Model.Pagination)*@
+                }
+            </div>
+        </div>
+
+        @*<div class="col-md-3">
+                @Html.PropertyFor(x => x.CurrentPage.RightContentArea)
+            </div>*@
+    </div>
+</div>

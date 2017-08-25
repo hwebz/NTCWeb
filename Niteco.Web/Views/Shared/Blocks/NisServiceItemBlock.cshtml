@@ -1,0 +1,8 @@
+﻿@model NisServiceItemBlock
+
+<div class="service-item-detail__container">
+    <img class="service-item-detail__image checking-animate slide-in-from-left hidden-xs hidden-sm" src="@Url.ContentUrl(Model.MainImage)" alt="Service detail image" />
+    <div class="container">
+        @Html.PropertyFor(x => x.MainBody)
+    </div>
+</div>

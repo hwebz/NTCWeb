@@ -1,0 +1,22 @@
+﻿@using Niteco.Common.Extensions
+@using EPiServer.Web
+
+@model SitePageData
+<div class="row sharing-block">
+    <div class="col-xs-12">
+        <h4>@Html.Translate("/niteco/socialsharing/description")</h4>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 haft-gutter hidden-xs">
+        <a class="social_button fa-button skip_contents" href="javascript:void(0);" onclick="@("javascript:window.open('https://www.facebook.com/sharer.php?s=100&p[title]=" + Model.Heading + "&p[url]=" + Model.GetExternalUrl() +
+            "&p[images][0]=//" + SiteDefinition.Current.SiteUrl.Host + "/img/niteco-sharing-horizontal.jpg')")">Facebook</a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 haft-gutter hidden-xs">
+        <a class="social_button linkedin-button skip_contents" href="javascript:void(0);" onclick="@("javascript:window.open('http://www.linkedin.com/shareArticle?mini=true&url=" + Model.GetExternalUrl() + "')")">Linked In</a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 haft-gutter hidden-xs">
+        <a class="social_button tw-button skip_contents" href="javascript:void(0);" onclick="@("javascript:window.open('https://twitter.com/share?url=" + Model.GetExternalUrl() + "')")">Twitter</a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3 haft-gutter hidden-xs">
+        <a class="social_button email-button skip_contents" href="@("mailto:?subject=" + HttpUtility.HtmlEncode(System.Uri.EscapeDataString(Model.Heading)) + "&body=" + Model.GetExternalUrl() )">Email</a>
+    </div>
+</div>

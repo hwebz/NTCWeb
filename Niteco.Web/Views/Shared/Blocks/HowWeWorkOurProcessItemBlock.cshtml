@@ -1,0 +1,22 @@
+﻿@model HowWeWorkOurProcessItemBlock
+
+<div class="col-xs-12 col-sm-6 col-md-4 process">
+    <div class="process-contents" style="background-image: url('@Url.ContentUrl(Model.ImageBackground)')">
+        <div class="circle-white">
+            <picture @Html.EditAttributes(m => m.ImageIcon)>
+                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.ImageIcon)?preset=1900">
+                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.ImageIcon)?preset=1300">
+                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.ImageIcon)?preset=1000">
+                <img src="@Url.ContentUrl(Model.ImageIcon)?preset=800" alt="@Model.Title" />
+            </picture>
+        </div>
+        <div class="process-title">
+            @Html.PropertyFor(x => x.Title)
+        </div>
+        <div class="process-detail">
+            <h4>@Html.PropertyFor(x => x.Title)</h4>
+            @Html.PropertyFor(x => x.Description)
+        </div>
+        <div class="yeallow-border"></div>
+    </div>
+</div>

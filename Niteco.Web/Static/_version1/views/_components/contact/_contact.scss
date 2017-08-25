@@ -1,0 +1,161 @@
+.contact-header{
+}
+
+.contact-option-item{
+    text-decoration: none;
+
+    &:hover{
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &:nth-child(1):hover{
+        background-color: #2fb8ac;
+        color: #fff;
+    }
+    &:nth-child(2):hover{
+        background-color: #cedae1;
+        color: #282828;
+    }
+    &:nth-child(3):hover{
+        background-color: #3b5998;
+        color: #fff;
+    }
+
+    .contact-option-icon{
+        opacity: 0.2;
+    }
+    .contact-option-desc{
+        font-family: "robotoregular";
+    }
+
+    .certificate-item-number{
+        border-bottom: 0px;
+        margin-bottom: 5px;
+        &::after{
+            content:" ";
+            display: block;
+            margin: 10px auto 0;
+            width: 46px;
+            height: 1px;
+            background-color: #282828;
+            opacity: 0.3;
+        }
+    }
+
+    &:nth-child(2n){
+        .certificate-item-number{
+            border-bottom: 0px;
+            &::after{
+                background-color: #f7f7f7;
+                opacity: 0.3;
+            }
+        }
+    }
+}
+
+.contact-location-container{
+    @include respond-to-min($desktopSize) {
+        padding: 0 20px 20px 40px;		
+	}
+    @include respond-to-min($laptopSize) {
+       padding: 0 20px 20px 40px;		
+	}
+}
+.contact-location-item{
+
+    &:nth-child(n+2){
+        background: url('/img/dot_border.png') 0 0 repeat-y;
+    }
+
+    @include respond-to-min($tabletSize) {
+        padding: 0 10px 20px;
+	}
+    @include respond-to-min($desktopSize) {
+        padding: 0 20px 20px;
+
+		&:nth-child(n+3){
+            padding: 0 20px 20px;
+        }
+	}
+    @include respond-to-min($laptopSize) {
+        padding: 0 30px 20px;
+
+		&:nth-child(n+3){
+            padding: 0 40px 20px;
+        }        
+	}
+    @include respond-to-min($bigScreen) {
+        padding: 0 20px 20px;
+
+		&:nth-child(n+3){
+            padding: 0 82px 20px;
+        }
+        &:nth-child(n+5){
+            padding: 0 80px 20px;
+        }
+	}
+
+    h4{
+        text-transform: uppercase;
+        font-family: 'robotoblack';
+        font-weight: bold;
+        color: #2c3e50;
+
+        @include respond-to-min($tabletSize) {
+            font-size: 0.9rem;
+            margin: 5px 0;
+	    }
+        @include respond-to-min($desktopSize) {
+            font-size: 1rem;
+	    }
+        @include respond-to-min($laptopSize) {
+            margin: 5px 0;
+	    }
+    }
+    .contact-location-item-address-container{
+        @include respond-to-min($tabletSize) {
+            height: 130px;
+	    }
+        @include respond-to-min($desktopSize) {
+            height: 120px;
+	    }
+        @include respond-to-min($laptopSize) {
+            height: 100px;
+	    }
+        @include respond-to-min($bigScreen) {
+            height: 80px;
+	    }
+    }
+    .contact-location-item-address{
+        font-family: 'robotoregular';
+        font-size: 0.85rem;
+        color: #a1b1bc;
+    }
+    .contact-location-item-country{
+        font-family: 'robotoregular';
+        font-size: 0.85rem;
+        color: #a1b1bc;
+    }
+    .contact-location-item-tel{
+        font-family: 'robotoregular';
+        font-size: 0.85rem;
+
+        a{
+            color: #101011;
+            text-decoration: none;
+        }
+    }
+    .contact-location-item-mail{
+        font-family: 'robotoregular';
+        font-size: 0.85rem;
+        
+        a{
+            color: #1abc9c;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

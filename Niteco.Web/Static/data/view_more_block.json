@@ -1,0 +1,26 @@
+﻿{
+    "careers_job_opening_view_more": {
+        "hightlight_text": "What career are you looking to build?",
+        "normal_text": "Grow with us",
+        "button_text": "View job openings",
+        "button_url": "#"
+    },
+    "careers_view_more_contact_us": {
+        "hightlight_text": "Don’t see the position you’re looking for?",
+        "normal_text": "Tell us more",
+        "button_text": "Contact Us",
+        "button_url": "#"
+    },
+    "how_we_work_view_more": {
+        "hightlight_text": "Looking for a smooth-running partnership?",
+        "normal_text": " Look no further.",
+        "button_text": "Contact Us",
+        "button_url": "#"
+    },
+    "services_view_more": {
+        "hightlight_text": "Have a Project in Mind?",
+        "normal_text": " Let's see how we can help you",
+        "button_text": "Contact Us Now",
+        "button_url": "#"
+    }
+}

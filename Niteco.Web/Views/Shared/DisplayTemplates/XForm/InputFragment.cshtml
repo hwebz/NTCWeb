@@ -1,0 +1,21 @@
+﻿@model EPiServer.XForms.Parsing.InputFragment
+
+<div class="col-xs-12 col-sm-6 col-md-6">
+    <span class="input input--minoru">
+
+        @if (Model.Required)
+        {
+            
+            @Html.TextBox(Model.Reference, Server.HtmlDecode(Model.Value) ?? string.Empty, new { @class = "input__field input__field--contact", size = Model.Size, required = "required", placeholder = @String.IsNullOrEmpty(Model.Label) ? Model.Title + " (*)" : Model.Label  +" (*)", maxlength = "50" })           
+        }
+        else
+        {
+            @Html.TextBox(Model.Reference, Server.HtmlDecode(Model.Value) ?? string.Empty, new { @class = "input__field input__field--contact", size = Model.Size, placeholder = @String.IsNullOrEmpty(Model.Label) ? Model.Title : Model.Label, maxlength = "50" })
+        }
+        <label class="input__label input__label--contact" for="input-16">
+            <span class="input__label-content input__label-content--contact error-message" id="error-for-@Model.Reference"></span>
+        </label>
+    </span>
+
+
+</div>

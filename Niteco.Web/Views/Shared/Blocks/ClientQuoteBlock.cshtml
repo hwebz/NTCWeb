@@ -1,0 +1,12 @@
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.ClientQuoteBlock
+
+<section id="testimonialContainer" class="testimonial-container" data-require="base/carousel-slider">
+    @if (!PageEditing.PageIsInEditMode)
+    {
+        @Html.PropertyFor(m => m.ClientQuoteItems, new { CssClass = "testimonial-carousel-container", ChildrenCssClass = "testimonial-panel" })
+    }
+</section>

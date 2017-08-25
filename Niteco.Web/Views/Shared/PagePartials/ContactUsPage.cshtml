@@ -1,0 +1,34 @@
+@model  Niteco.ContentTypes.Pages.ContactUsPage
+<section class="parallax-panel">
+    <div class="panel-content what-we-do-container">
+        <img class="panel-logo" src="/img/niteco_logo_what_we_do.png" alt="niteco logo" />
+        <div class="block-header-contain header-center">
+            <h2>
+                <span class="bold-text">@Model.DisplayName</span>
+            </h2>
+            <div class="header-underline">
+                <span class="header-underline-content"></span>
+            </div>
+        </div>
+
+        <div class="container-fluid certificate-container">
+            <div class="row">
+               @if (Model.ContactUsItems != null && Model.ContactUsItems.Items.Any())
+                {
+                    var contentLoader = EPiServer.ServiceLocation.ServiceLocator.Current.GetInstance<EPiServer.IContentLoader>();
+                    for (int i = 0; i < Model.ContactUsItems.Items.Count; i++)
+                    {
+                        var item = Model.ContactUsItems.Items[i];
+                        var itemData = contentLoader.Get<ContactUsItemPage>(item.ContentLink);
+                        var colorClass = i % 2 == 0 ? "certificate-item-orange" : "certificate-item-black";
+                        <div class="col-xs-12 col-sm-4 certificate-item @colorClass contact-option-item">
+                            @{Html.RenderPartial("ContactUsItemPage", itemData);}
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+       

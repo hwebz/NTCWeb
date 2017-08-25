@@ -1,0 +1,72 @@
+﻿@mixin backgroundZoom($from,$to){
+     -webkit-animation: bgzoom 10s .5s linear infinite alternate;
+    -moz-animation: bgzoom 10s .5s linear infinite alternate;
+    -o-animation: bgzoom 10s .5s linear infinite alternate;
+    animation: bgzoom 10s .5s linear infinite alternate;
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    animation-play-state: running;
+    -o-animation-play-state: running;
+
+    @keyframes bgzoom {
+    from {
+        transform: scale($from);
+    }
+
+    to {
+        transform: scale($to);
+    }
+}
+
+    @-webkit-keyframes bgzoom {
+        from {
+            -webkit-transform: scale($from); /* Safari and Chrome */
+        }
+
+        to {
+            -webkit-transform: scale($to); /* Safari and Chrome */
+        }
+    }
+
+    @-moz-keyframes bgzoom {
+        from {
+            -moz-transform: scale($from); /* Firefox */
+        }
+
+        to {
+            -moz-transform: scale($to); /* Firefox */
+        }
+    }
+
+}
+
+@mixin backgroundOpacity($opacity,$time){
+        opacity: $opacity;     
+        -webkit-transition: opacity $time ease-in-out;
+        -moz-transition: opacity $time ease-in-out;
+        -o-transition: opacity $time ease-in-out;
+        transition: opacity $time ease-in-out;
+    
+    /*&:hover{
+         opacity: 1;   
+         -webkit-transition: opacity $time ease-in-out;
+        -moz-transition: opacity $time ease-in-out;
+        -o-transition: opacity $time ease-in-out;
+        transition: opacity $time ease-in-out;      
+    }*/
+}
+
+
+@mixin align-center-block($x,$y){
+        top:$x; left:$y;
+        transform: translateX(-$x) translateY(-$y);
+        -webkit-transform: translateX(-$x) translateY(-$y);
+        -moz-transform: translateX(-$x) translateY(-$y);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

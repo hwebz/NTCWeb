@@ -1,0 +1,30 @@
+﻿@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@model CaseStudyPage
+         
+@{
+    var serviceTypeName = string.Join("\\", Model.ListServicePage.Select(x => x.DisplayName));
+}  
+
+<picture @Html.EditAttributes(m => m.MainImage)>
+    <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.MainImage)?preset=1900">
+    <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.MainImage)?preset=1300">
+    <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.MainImage)?preset=1000">
+    <img src="@Url.ContentUrl(Model.MainImage)?preset=800" alt="@serviceTypeName" />
+</picture>
+<div class="project-holder-content">
+    <div class="project-holder">
+        <div class="text">
+            <div class="title">@Model.Heading</div>
+            <div class="wave_hover">
+                <span class="yellow-divider"></span>
+            </div>
+            <div class="h_main">@serviceTypeName</div>
+            <div class="subtitle">@Model.ShortDescription</div>
+            <div class="button-container">
+                <a href="@Url.ContentUrl(Model.ContentLink)" class="button-yellow-border" title="">@Html.Translate("/niteco/casestudypage/viewcasestudy")</a>
+            </div>
+        </div>
+    </div>
+</div>

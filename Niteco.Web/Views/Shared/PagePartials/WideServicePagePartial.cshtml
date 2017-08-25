@@ -1,0 +1,59 @@
+﻿@model ServicePage
+
+@{
+    var titleClass = string.Empty;
+    switch (Model.TeaserOrder)
+    {
+        case 0:
+        case 4:
+            titleClass = "slide-in-from-top";
+            break;
+        case 1:
+        case 3:
+            titleClass = "slide-in-from-bottom";
+            break;
+
+        case 2:
+        case 5:
+            titleClass = "expand-from-center";
+            break;
+        case 6:
+            titleClass = "fade-in";
+            break;
+
+        case 7:
+            titleClass = "slide-in-from-bottom";
+            break;
+    }
+}
+
+
+@if (Model.MainBody != null)
+{
+    <div class="service-item-detail__container" data-id="fullInfo-@Model.TeaserOrder">
+        <picture @Html.EditAttributes(m => m.LargeImage)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1000">
+            <img class="service-item-detail__image checking-animate inactive @titleClass hidden-xs hidden-sm" src="@Url.ContentUrl(Model.LargeImage)" alt="Service Item Detail Image" />
+        </picture>
+
+        <div class="container">
+            <div class="service-item-detail__content">
+                <div class="service-item-detail__title">@Model.Heading</div>
+                <div class="orange-divider service-listing__yellow-underline">
+                </div>
+                <picture @Html.EditAttributes(m => m.LargeImage)>
+                    <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1900">
+                    <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1300">
+                    <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.LargeImage)?preset=1000">
+                    <img class="service-item-detail__image-mobile hidden-md hidden-lg" src="@Url.ContentUrl(Model.LargeImage)" alt="Service Item Detail Image" />
+                </picture>
+                <div class="service-item-detail__description">
+                    @Html.Raw(Model.MainBody)
+                </div>
+            </div>
+        </div>
+        
+    </div>
+}

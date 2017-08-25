@@ -1,0 +1,73 @@
+﻿.blog-detail-related-articles__container {
+
+	@include respond-to-max($tabletSize) {
+		.news-detail-related-articles__title {
+			text-align: center;
+			.yellow-divider {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+	
+    .news-related-articles__article {
+        padding: 0 30px;
+
+        @include respond-to-min-max($tabletSize, $desktopSize) {
+            margin-bottom: 15px;
+        }
+        .news-detail-releated-articles__article-thumbnail {
+            padding: 0;
+            height: 150px;
+
+            @include respond-to-max($desktopSize) {
+                height: 80px;
+            }
+
+            @include respond-to-max($tabletSize) {
+                height: inherit;
+            }
+            .news-detail-article__meta {
+                padding: 10px;
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    padding: 5px;
+                }
+
+                .news-detail-article__meta-date {
+                    font-family: "robotobold", Arial, Helvetica, sans-serif;
+                    font-size: 2.75rem;
+                    line-height: 2.25rem;
+
+                     @include respond-to-min-max($tabletSize, $desktopSize) {
+                        font-size: 1.8rem;
+                        line-height: 1.8rem;
+                    }
+
+                }
+
+                .news-detail-article__meta-monthYear {
+                    font-family: "robotoregular", Arial, Helvetica, sans-serif;
+                    font-size: 0.875rem;
+                    line-height: 1.25rem;
+
+                     @include respond-to-min-max($tabletSize, $desktopSize) {
+                        font-size: 0.5em;
+                        line-height: 0.5rem;
+                    }
+                }
+            }
+        }
+
+        .news-detail-related-articles__article-title {
+            padding: 0;
+            h2 {
+                font: 1.125rem/1.5rem 'robotomedium', Helvetica, sans-serif;
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    margin: 0 0 0 30px;
+                }
+            }
+        }
+    }
+}

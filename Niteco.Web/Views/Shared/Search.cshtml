@@ -1,0 +1,95 @@
+﻿@using System.Activities.Expressions
+@using System.Threading
+@using EPiServer
+@using EPiServer.ServiceLocation
+@using Niteco.Web.Extensions
+@model Niteco.ContentTypes.Pages.SearchPage
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var limitItem = 5;
+}
+
+
+<div class="search-container" data-require="base/search" data-action-search="/SearchPage/GetSearchResult">
+    
+    <div class="close-button"></div>
+    <div class="search-form">
+        <label for="searchBox" class="hidden">Search</label>
+        <input type="text" id="searchBox" class="search-box" placeholder="@Html.Translate("/mainnavigation/search")..." title="Search" />
+        <img class="img-loading" src="/img/ajax-loader.gif" alt="Loading icon" />
+    </div>
+    <div class="container-fluid search-result">
+    </div>
+    <div class="container-fluid search-default">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>@Html.Translate("/searchpagetemplate/Aboutthecompany")</h3>
+                @{
+                    if (Model.AboutTheCompanyPages != null)
+                    {
+                        var count = 0;
+                        foreach (var page in Model.AboutTheCompanyPages.Items)
+                        {
+                            var pageItem = contentLoader.Get<SitePageData>(page.ContentLink);
+                            if (count <= 4)
+                            {
+                                <a class="search-default__item search-default__location" href="@Url.ContentUrl(pageItem.ContentLink)" title="@pageItem.Heading">
+                                    @pageItem.Heading
+                                </a>
+                            }
+
+                            count++;
+                        }
+                        
+                    }
+                }
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>@Html.Translate("/searchpagetemplate/officelocation")</h3>
+                @{
+                    var contactUsPage = contentLoader.Get<ContactUsPage>(Model.ContactUsPageLink);
+                    if (contactUsPage != null)
+                    {
+                        var count = 0;
+                        foreach (var office in contactUsPage.OfficeItems.Items)
+                        {
+                            var officeItem = contentLoader.Get<OfficeBlock>(office.ContentLink);
+                            
+                            if ((count <= 4)&&!(officeItem is OfficeStayConnectedBlock))
+                            {
+                                
+                                <a class="search-default__item search-default__location" href="@Url.ContentUrl(Model.ContactUsPageLink)" title="@officeItem.OfficeName">
+                                    @officeItem.OfficeName
+                                </a>
+                            }
+                            count++;
+                        }
+                    }
+                }
+            </div>
+          
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>@Html.Translate("/searchpagetemplate/jobopenning")</h3>
+                @{
+                    var careerPage = contentLoader.Get<CareerPage>(Model.CareerPageLink);
+                    if (careerPage != null)
+                    {
+                        var count = 0;
+                        foreach (var job in careerPage.JobOpenings.Items)
+                        {
+                            var jobItem = contentLoader.Get<JobPage>(job.ContentLink);
+                            if (count <= 4)
+                            {
+                                <a class="search-default__item search-default__location" href="@Url.ContentUrl(job.ContentLink)" title="@jobItem.Heading">
+                                    @jobItem.Heading
+                                </a>
+                            }
+                            count++;
+                        }
+                    }
+
+                }
+            </div>
+        </div>
+    </div>
+</div>

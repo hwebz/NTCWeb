@@ -1,0 +1,20 @@
+﻿@model EPiServer.XForms.Parsing.Select1Fragment
+
+<div class="col-xs-12 col-sm-6 col-md-6">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+                    <label for="@Model.Reference" class="control-label">@Model.Label</label>
+    }
+    @if (Model.Required)
+    {
+           @Html.DropDownList(Model.Reference, Model.Options.Select(o => new SelectListItem() { Text = Server.HtmlDecode(o.Text), Value = Server.HtmlDecode(o.Value), Selected = o.SelectedItem }), new { @class = "cs-select cs-skin-elastic input input--minoru", @title = Model.Title, @required = "required" })
+    }
+    else
+    {
+           @Html.DropDownList(Model.Reference, Model.Options.Select(o => new SelectListItem() { Text = Server.HtmlDecode(o.Text), Value = Server.HtmlDecode(o.Value), Selected = o.SelectedItem }), new { @class = "cs-select cs-skin-elastic input input--minoru", @title = Model.Title })
+    }
+    @Html.ValidationMessage(Model.Reference, Model.Title, new { @class = "error" })
+</div>
+
+
+

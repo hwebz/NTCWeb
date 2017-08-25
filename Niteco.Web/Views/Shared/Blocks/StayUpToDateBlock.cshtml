@@ -1,0 +1,62 @@
+﻿@model StayUpToDateBlock
+
+<div class="page-description__title-container career-up-to-date__wrapper">
+    <div class="container">
+        <img class="career-up-to-date__top-image" src="@Url.ContentUrl(Model.StayUpToDateImage)" alt="@Model.StayUpToDateHeader" />
+
+        <h2 class="page-description__title career-up-to-date__title">
+            @Model.StayUpToDateHeader
+        </h2>
+        <div class="page-description__sub-title career-up-to-date__sub-title">
+            @Html.PropertyFor(x => x.StayUpToDateContent)
+        </div>
+        <div class="yellow-divider page-description__yellow-underline">
+        </div>
+        <div class="page-description__description career-up-to-date__description">
+            <p>
+                @Html.PropertyFor(x => x.StayUpToDateVourcher)
+            </p>
+        </div>
+        <div class="row">
+            <form id="careerSignupForm" action="@Url.Action("Submit", "CareerPage")">
+                <div class="col-xs-12 col-md-4">
+                    <input class="career-input" type="text" id="submission-name" name="name" placeholder="YOUR NAME" title="Your name"/>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <input class="career-input" type="email" id="submission-email" name="email" placeholder="YOUR EMAIL" title="YOUR EMAIL"/>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <button class="career-button" title="submit" type="submit">@Model.StayUpToDateButtonText</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="careerSignupDialog" class="career-up-to-date__success-dialog__container">
+        <div class="career-up-to-date__success-dialog__content">
+            <img class="career-up-to-date__success-dialog__icon" alt="Sign-up successful!" src="/img/career_tick_icon.png"/>
+            <h3 class="career-up-to-date__success-dialog__title">Sign-up successful!</h3>
+            <div class="career-up-to-date__success-dialog__description">
+                <p>
+                    You will be the first to know about our job postings. Also, you now stand a chance to win a 1.000.000VND voucher.<br/>
+                    For more information on the job alerts, the prize and the past winners, please see <a href="https://www.facebook.com/Niteco">Our Facebook page</a>.
+                </p>
+            </div>
+            <span id="careerSignupCloseButton" class="career-up-to-date__success-dialog__button-close">Close</span>
+        </div>
+    </div>
+
+    <div id="careerSignupDialogEmail" class="career-up-to-date__success-dialog__container">
+        <div class="career-up-to-date__success-dialog__content">
+            <img class="career-up-to-date__success-dialog__icon" alt="Your email address is already signed up!" src="/img/career_smile_icon.png" />
+            <h3 class="career-up-to-date__success-dialog__title">Your email address is already signed up!</h3>
+            <div class="career-up-to-date__success-dialog__description career-up-to-date__success-dialog__description-duplicated-email">
+                <p>
+                    We'll keep you updated with our latest job postings.<br />
+                    For more information on the job alerts, the prize and the past winners, please see <a href="https://www.facebook.com/Niteco">Our Facebook page</a>.
+                </p>
+            </div>
+            <span id="careerSignupCloseButtonEmail" class="career-up-to-date__success-dialog__button-close">Close</span>
+        </div>
+    </div>
+</div>

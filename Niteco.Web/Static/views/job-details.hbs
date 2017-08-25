@@ -1,0 +1,16 @@
+---
+title: "Job Details page"
+---
+{{> _loading }}
+{{> top_navigator }}
+
+<div class="page-wrapper">
+    <section class="about-container content-container">
+        <div class="about-content-wrapper content-wrapper">
+            {{> _page-introduction job_details.introduction}}
+            {{> _page-description job_details.description}}
+            {{> _job-details}}
+            {{> _footer}}
+        </div>
+    </section>
+</div>

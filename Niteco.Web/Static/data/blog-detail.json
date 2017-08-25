@@ -1,0 +1,55 @@
+﻿{
+  "introduction": {
+    "title": "Blog",
+    "description": "<a href='#'><span class='fa fa-angle-left'></span>View all</a>" 
+  },
+  "article": {
+    "title": "A nice title will be here",
+    "category": "Episerver",
+    "author": "Linus Ekstrom",
+    "comment": "2",
+    "image": "/img/blog-list-articles-1.jpg",
+    "date": {
+      "day": "28",
+      "month": "Apr",
+      "year": "2016"
+    }
+  },
+  "author": {
+    "title": "About the Author",
+    "name": "Linus Ekstrom",
+    "role": "Solution Architect",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor",
+    "avatar": "/img/linus.jpg"
+  },
+  "relatedArticles": {
+    "title": "Related Articles",
+    "first": {
+      "title": "Lorem Ipsum Dolor Sit Amet, Consectetur",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "28",
+        "month": "Apr",
+        "year": "2016"
+      }
+    },
+    "second": {
+      "title": "Lorem Ipsum Dolor Sit Amet, Consectetur ",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "17",
+        "month": "Apr",
+        "year": "2016"
+      }
+    },
+    "third": {
+      "title": "Lorem Ipsum Dolor Sit Amet, Consectetur ",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "03",
+        "month": "Apr",
+        "year": "2016"
+      }
+    }
+  }
+}

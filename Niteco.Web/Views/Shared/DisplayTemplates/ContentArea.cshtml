@@ -1,0 +1,16 @@
+﻿@using Niteco.Common.Consts
+@model EPiServer.Core.ContentArea
+
+@if (Model != null)
+{
+    var tag = Html.ViewContext.ViewData["tag"] as string;
+    switch (tag)
+    {
+        case ContentAreaTags.NoWrappersContentArea:
+            Html.RenderNoWrappersContentArea(Model);
+            break;
+        default:
+            Html.RenderContentArea(Model);
+            break;
+    }
+}

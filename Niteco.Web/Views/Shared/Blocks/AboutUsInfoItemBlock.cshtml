@@ -1,0 +1,23 @@
+@using EPiServer.Editor
+@using EPiServer.Web.Routing
+@model Niteco.ContentTypes.Blocks.AboutUsInfoItemBlock
+
+<div class="about-us-info">
+    <div class="about-us-icon">
+        <picture @Html.EditAttributes(m => m.InfoIcon)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.InfoIcon)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.InfoIcon)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.InfoIcon)?preset=1000">
+            <img class="about-us-icon" src="@Url.ContentUrl(Model.InfoIcon)?preset=800" alt="about us" />
+        </picture>
+    </div>
+    @if (PageEditing.PageIsInEditMode)
+    {
+        <span class="statistic-number" data-id="about-us-employees" >@Html.PropertyFor(x=>x.InfoNumber)</span>
+    }
+    else
+    {
+        <span class="statistic-number" data-id="about-us-employees" data-count="@Html.PropertyFor(x => x.InfoNumber)">0</span>
+    }
+    <p>@Html.PropertyFor(x => x.InfoTitle)</p>
+</div>

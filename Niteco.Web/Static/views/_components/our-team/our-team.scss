@@ -1,0 +1,437 @@
+﻿.awards-section {
+
+    &::after {
+        content: '';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.awards {
+    width: 100%;
+    float: left;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+
+    .__award-logo-container {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.award-group, .award-subgroup {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.award-group:after, .award-subgroup:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.__group {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .__subgroup {
+        float: left;
+        width: 100%;
+
+        @include respond-to-min($desktopSize) {
+            width: 50%;
+        }
+
+        .__award {
+            width: 100%;
+            float: left;
+
+            @include respond-to-min($tabletSize) {
+                width: 50%;
+            }
+        }
+    }
+}
+
+@include respond-to-min($desktopSize) {
+    .award-group .__subgroup {
+        width: 50%;
+        float: left;
+    }
+}
+
+
+@include respond-to-min($tabletSize) {
+    .award-subgroup .__award {
+        width: 50%;
+        float: left;
+    }
+}
+
+@include respond-to-max($tabletSize) {
+    .award-list--top .__group--active ~ .__group .award {
+        display: none;
+    }
+
+    .award-list--top .__subgroup--active + .__subgroup .__award {
+        display: none;
+    }
+
+    .award-list--top .__subgroup--active .__award--selected + .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__group--active ~ .__group .award {
+        display: table;
+    }
+
+    .award-list--bottom .__subgroup--active .__award--selected + .__award {
+        display: table;
+    }
+
+    .award-list--bottom .__subgroup--active + .__subgroup .__award {
+        display: table;
+    }
+}
+
+@include respond-to-min-max($tabletSize,$desktopSize) {
+    .award-list--top .__group--active ~ .__group .__award {
+        display: none;
+    }
+
+    .award-list--top .__subgroup--active + .__subgroup .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__group--active ~ .__group .award {
+        display: table;
+    }
+
+    .award-list--bottom .__subgroup--active + .__subgroup .__award {
+        display: table;
+    }
+}
+
+@include respond-to-min($desktopSize) {
+    .award-list--top .__group--active ~ .__group .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__award {
+        display: none;
+    }
+
+    .award-list--bottom .__group--active ~ .__group .award {
+        display: table;
+    }
+}
+
+.award {
+    border-bottom: solid 15px #f0f1f3;
+    position: relative;
+    cursor: pointer;
+    height: auto;
+    overflow: hidden;
+    // Image need to the same height.
+    /*@include respond-to-min($tabletSize) {
+        height: 395px;
+    }
+    @include respond-to-ipad($portraitMode,2){
+        height:337px;
+    }
+    @include respond-to-ipad($landscapeMode,2){
+        height:260px;
+    }*/
+    
+    .__award-logo {
+        background-size: cover;
+        background-position: center top;
+        opacity: 0.8;
+        position: relative;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+
+        /*img {
+            width: 100%;
+            height: auto;
+            position: static;
+
+            @include respond-to-min($tabletSize) {
+                width: auto;
+                @include image-cover-center-center();
+            }
+        }*/
+        img{
+			position: static;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transform: none;
+            @include respond-to-min($tabletSize) {
+			    //@include image-cover-center-center();
+			}
+
+			@include respond-to-min($desktopSize) {
+				//@include image-cover-center-center();
+			}
+		}
+        // Image need to the same height.
+        /*@include respond-to-min($tabletSize) {
+            height: 298px;
+        }
+
+        @include respond-to-ipad($landscapeMode,2){
+            height:163px;
+        }
+        @include respond-to-ipad($portraitMode,2){
+            height:240px;
+        }*/
+    }
+
+    .__award-category {
+        font-family: 'robotothin';
+        position: relative;
+        bottom: 0px;
+        width: 100%;
+        right: 0;
+        height: 100px;
+        font-weight: bold;
+        color: #a1b1bc;
+        text-align: left;
+        padding-left: 25px;
+        border-right: solid 1px #f0f1f3;
+        display: block;
+
+        @include respond-to-min($tabletSize) {
+            font-size:rem(14px);
+            line-height: 1rem;
+            height: 82px;
+        }
+
+        @include respond-to-min($desktopSize) {
+            font-size:rem(14px);
+            line-height: 1rem;
+        }
+
+        @include respond-to-min($laptopSize) {
+            font-size: rem(16px);
+            line-height: 1.5rem;
+        }
+
+        @include respond-to-min($bigScreen) {
+            font-size:rem(16px);
+            line-height: 1.5rem;
+        }
+        .__award-category__contents {
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+        b {
+            color: #2c3e50;
+            display: inline-block;
+            font-family: 'robotomedium';
+            font-size: rem(20px);
+            font-weight:500;
+            padding-bottom: 1px;
+            @include respond-to-min($tabletSize) {
+                font-size: 1.125rem;
+                line-height: 1rem;
+            }
+
+            @include respond-to-min($desktopSize) {
+                font-size: 1.25rem;
+                line-height: 1rem;
+            }
+
+            @include respond-to-min($laptopSize) {
+                font-size: 1.25rem;
+                line-height: 1.5rem;
+            }
+
+            @include respond-to-min($bigScreen) {
+                font-size: 1.25rem;
+                line-height: 1.5rem;
+            }
+        }
+
+        span {
+            display: block;
+            font-size: rem(16px);
+            font-family: 'robotoregular';
+            color: #a1b1bc;
+            font-weight: normal;
+            
+        }
+
+        i.arrow-icon {
+            width: 17px;
+            height: 19px;
+            background: url('/img/right-arrow.png') no-repeat;
+            position: absolute;
+            top: 32px;
+            right: 23px;
+            display: block;
+        }
+    }
+
+    .__award-btn {
+        height: 16px;
+        position: absolute;
+        top: 20px;
+        right: 23px;
+        width: 16px;
+        -webkit-transition: all 0.2s;
+        transition: all 0.2s;
+		opacity : 0.3;
+        path {
+            -webkit-transition: all 0.2s;
+            transition: all 0.2s;
+        }
+    }
+
+    &.__award--selected {
+        border-bottom-color: #facd20;
+		
+
+        .__award-logo {
+            opacity: 1;
+
+            img {
+                opacity: 1;
+            }
+        }
+
+        .__award-btn {
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+			opacity : 0.8;
+			font-size : 19px;
+        }
+
+        .__award-btn #Rectangle-51 {
+            fill: #D8262C;
+        }
+
+        &:hover {
+            .__award-btn #Rectangle-51 {
+                fill: #D8262C;
+            }
+        }
+    }
+
+    &:hover {
+        border-bottom-color: #facd20;
+
+        .__award-logo {
+            opacity: 1;
+            img {
+                opacity: 1;
+            }
+        }
+
+        .__award-btn #Rectangle-51 {
+            fill: #2c3e50;
+        }
+
+        i.arrow-icon {
+            background-position: 0 -19px;
+        }
+    }
+}
+
+ward-info {
+    border-bottom: 1px solid #E9E9E9;
+    border-top: 1px solid #E9E9E9;
+    transition: all 0.5s ease;
+    width: 100%;
+}
+
+.award-details {
+    display: none;
+
+    .__desc {
+        font-family: 'robotolight';
+        color: #6a7885;
+        margin-top: 10px;
+        font-size: 20px;
+        line-height: 1.5;
+    }
+
+
+    .__title {
+        font-size: 1.5rem;
+        margin: 10px 0;
+    }
+
+    .__container {
+        max-width: 820px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 60px 15px;
+
+        &:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+    }
+}
+
+@include respond-to-max($tabletSize) {
+    .award-details .__container {
+        padding: 20px 15px;
+
+        &:after {
+            content: " ";
+            display: block;
+            clear: both;
+        }
+    }
+}
+
+
+.award-details--active {
+    transition: all 0.5s ease;
+}
+
+.award .__award-logo, .award .__award-btn {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.award-list--top .__group--active ~ .__group .__award {
+    display: none;
+}
+
+.award-list--bottom .__award {
+    display: none;
+}
+
+.award-list--bottom .__group--active ~ .__group .award {
+    display: block;
+}
+
+@media (max-width: 767px) {
+    .award .__award-btn {
+        bottom: 15px;
+        width: 18px;
+    }
+}

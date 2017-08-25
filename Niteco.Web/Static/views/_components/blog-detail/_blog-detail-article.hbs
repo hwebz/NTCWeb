@@ -1,0 +1,75 @@
+﻿<div class="blog-list-articles__container blog-detail-article__container" data-require="base/code-highlighter">
+    <div class="blog-list-articles__article">
+        <div class="blog-list-articles__article-title">
+            <h2>
+                <a href="#">{{{title}}}</a>
+            </h2>
+            <div class="yellow-divider"></div>
+            <div class="blog-list-articles__article-meta">
+                <a class="blog-list-articles__article-meta__category" href="#"><span class="fa fa-folder"></span>{{category}}</a>
+                <a class="blog-list-articles__article-meta__author" href="#"><span class="fa fa-user"></span>{{author}}</a>
+                <a class="blog-list-articles__article-meta__comment" href="#"><span class="fa fa-comments"></span>{{comment}}<span class="comment-text"> comments</span></a>
+            </div>
+        </div>
+        <div class="blog-list-articles__article-thumbnail">
+            <a href="#">
+                <img src="{{image}}" alt="{{title}}" />
+            </a>
+            <div class="blog-list-articles__article-date">
+                <span class="blog-list-articles__article-date__day">{{date.day}}</span>
+                <span class="blog-list-articles__article-date__monthYear">{{date.month}}.{{date.year}}</span>
+            </div>
+        </div>
+        <div class="blog-list-articles__article-content">
+            <div class="blog-list-articles__article-content__description">
+                <p>We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be flexible, transparent, agile, and responsive to a project's every need...</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p>
+
+                <form id="code-wrapper">
+                    <div class="code-header">
+                        <label class="language">JavaScript</label>
+                        <button id="code-expand">
+                            Expand <span class="fa fa-expand"></span>
+                        </button>
+                    </div>
+                    <textarea id="code" name="code" rows="5">
+package org.example.dummy {
+	import org.dummy.*;
+	
+	/*define package inline interface*/
+	public interface IFooBarzable {
+		public function foo(... pairs):Array;
+	}
+	
+	public class FooBar implements IFooBarzable {
+		static private var cnt:uint = 0;
+		private var bar:String;
+		
+		//constructor
+		public function TestBar(bar:string):void {
+			bar = bar;
+			++cnt;
+		}
+		
+		public function foo(... pairs):Array {
+			pairs.push(bar);
+			return pairs;
+		}
+	}
+}</textarea>
+                </form>
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo</p>
+                <blockquote>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat</blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+            <nav class="blog-detail-article__article-content__tags">
+                <ul>
+                    <li><a href="#">Episerver</a></li>
+                    <li class="active"><a href="#">ux design <span class="articles-in-category">(21)</span></a></li>
+                    <li><a href="#">template foundation <span class="articles-in-category">(13)</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

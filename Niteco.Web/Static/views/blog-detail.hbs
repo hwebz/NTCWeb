@@ -1,0 +1,17 @@
+﻿---
+title: "Blog Detail"
+---
+{{> _loading }}
+{{> top_navigator }}
+<div class="page-wrapper">
+    <div class="content-container blog-detail-page" data-require="base/common-page-animation">
+        <div class="blog-detail-wrapper content-wrapper">
+            {{> _social-share}}
+            {{>  _news-detail-introduction blog-detail.introduction}}
+            {{> blog-detail-content }}
+            {{> _subscribe-newsletters news-detail.subscribe}}
+            {{> news-list-footer}}
+            {{> _footer}}
+        </div>
+    </div>
+</div>

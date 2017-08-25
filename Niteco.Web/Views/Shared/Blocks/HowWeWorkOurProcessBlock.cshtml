@@ -1,0 +1,16 @@
+﻿@model HowWeWorkOurProcessBlock
+
+<section class="section-our-process container-zindex-one">
+    <div class="container">
+        <div class="our-process-introduce">
+            <h2>@Html.PropertyFor(x => x.Title)</h2>
+            <span class="yellow-divider"></span>
+            <div class="our-process-sample">
+                @Html.PropertyFor(x => x.Description)
+            </div>
+        </div>
+        <div class="row our-processes-container">
+            @Html.PropertyFor(x => x.OurProcessItem)
+        </div>
+    </div>
+</section>

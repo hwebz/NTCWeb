@@ -1,0 +1,60 @@
+﻿@using System.Text
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.DataAbstraction
+@using EPiServer.ServiceLocation
+@using EPiServer.Shell.Navigation
+@using EPiServer.UI.Admin
+@using Niteco.Common.Extensions
+@using Niteco.ContentTypes
+@model IPageViewModel<SitePageData>
+@{
+    var settingPage = SiteSettingsHandler.Instance.SiteSettings;
+    ContentArea menuContent = settingPage != null ? settingPage.MenuItemsContent : null;
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+
+}
+<section class="top-navigator-container" data-require="base/top-navigator">
+    <a class="top-navigotar__link" href="@Url.ContentUrl(ContentReference.StartPage)" title="">
+        <img class="top-navigator__logo" src="@Url.ContentUrl(settingPage.LogoImage)" alt="@settingPage.Slogan" />
+    </a>
+    <div class="hamburger-menu__container">
+        <span class="hamburger-menu__button">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong class="hamburger-menu__text">@Html.Translate("/niteco/menu")</strong>
+        </span>
+    </div>
+    <div class="top-navigator__menu-container">
+        <div class="top-navigator__menu-container__wrapper">
+            <ul>
+                @if (menuContent != null && menuContent.Items.Any())
+                {
+                    foreach (var item in menuContent.Items)
+                    {
+                        var page = contentLoader.Get<SitePageData>(item.ContentLink);
+                        var selectedClass = Model.CurrentPage.ContentLink.ID.Equals(item.ContentLink.ID) ? "selected-item" : string.Empty;
+                        <li>
+                            <a href="@Url.ContentUrl(page.ContentLink)" class="@selectedClass">@page.DisplayName</a>
+                        </li>
+                    }
+                }
+            </ul>
+            <div class="top-navigator__search-container">
+                <label for="top-navigator__search-input" class="hidden">Search</label>
+                <input class="top-navigator__search-input" id="top-navigator__search-input" title="Search Input" placeholder="@Html.Translate("/mainnavigation/search")..." />
+            </div>
+
+            <div class="top-navigator__social-container">
+                <a class="top-navigator__social_link top-navigator__facebook" href="@Url.ContentUrl(settingPage.FacebookLink)" title="">[Skip to Content]</a>
+                <a class="top-navigator__social_link top-navigator__linkin" href="@Url.ContentUrl(settingPage.LinkedinLink)" title="">[Skip to Content]</a>
+                <a class="top-navigator__mail" href="mailto:@settingPage.Email">@settingPage.Email</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+

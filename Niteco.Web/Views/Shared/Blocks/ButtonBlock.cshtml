@@ -1,0 +1,9 @@
+﻿@model ButtonBlock
+    <div class="row view-jobs-opening">
+        <div class="col-xs-12 col-sm-9">
+            @Html.PropertyFor(x => x.Description)
+        </div>
+        <div class="col-xs-12 col-sm-3 clear" data-require="base/click-item">
+            <a class="pull-right view-more-jobs" href="@Url.ContentUrl(@Model.ButtonLink)"><span class="mask"></span>@Html.PropertyFor(x => x.ButtonText)</a>
+        </div>
+    </div>

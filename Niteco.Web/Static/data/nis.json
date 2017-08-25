@@ -1,0 +1,23 @@
+﻿{
+    "introduction": {
+        "title": "Products",
+        "subTitle": "Simplify creation of your Adobe InDesign online and print marketing content"
+    },
+
+    "description": {
+        "title": "Niteco InPrint Studio",
+        "subTitle": "For EPiServer",
+        "description": "Easily adapt your existin EPiServer CMS, Commerce, and ImageVault content - then instanly automate, synchronize & print future content and changes."
+    },
+
+    "socially": {
+        "title": "Social Responsibilities",
+        "subTitle": "Socially responsible, environmentally aware",
+        "description": "Our Scandinavian roots call out for us to act responsibly towards society and the environment. Our power to bring sustainability to people and communities motivates us to do even better."
+    },
+    "indesign": { 
+        "title": "InDesign Tool Set",
+        "subTitle": "A Set Of Tools Integrated Into InDesign panels",
+        "description": "These allow you to connect to the EPiServer instance, manage printing content in projects, view and manage libraries of assets (including ImageVault integration), create and manage template and content libraries, and map & track changes made to synchronized content."
+    }
+}

@@ -1,0 +1,267 @@
+.search-container {
+    position: fixed;
+    width: 0px;
+    height: 0px;
+    z-index: 9999;
+    cursor: text;
+    right: -100%;
+    background-color: #f0f2f3;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: none;
+    opacity: 0;
+
+    &.expanding {
+        background: #2c3e50;
+    }
+
+    .seach-box__placeholder {
+        position: absolute;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        padding: 0 10px;
+        color: #4c525c;
+        font-family: 'robotolight';
+        opacity: 0.4;
+        font-size: rem(20px);
+        line-height: 60px;
+    }
+
+    &.active {
+        cursor: default;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        .close-button {
+            pointer-events: auto;
+            transform-origin: 0 50%;
+            opacity: 1;
+            transform: scale3d(1, 1, 1);
+            transition-property: opacity, transform;
+            transition-duration: 0.3s, 0.3s;
+            transition-timing-function: ease, ease;
+        }
+
+        .search-form {
+            margin: 60px auto 30px;
+            opacity: 1;
+            transition-property: opacity;
+            transition-duration: 0.3s;
+            transition-timing-function: ease;
+            width: 95%;
+
+            @include respond-to-min($tabletSize) {
+                width: 80%;
+            }
+        }
+    }
+
+    .close-button {
+        opacity: 0;
+        transform: scale3d(0, 0, 1);
+        pointer-events: none;
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        cursor: pointer;
+        width: 36px;
+        height: 36px;
+
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            width: 2px;
+            height: 100%;
+            top: 0px;
+            left: 50%;
+            border-radius: 3px;
+            opacity: 0.2;
+            background: #000 none repeat scroll 0% 0%;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+        }
+
+        &:hover {
+            &::before, &::after {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    .search-form {
+        opacity: 0;
+        margin: 0px auto;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        height: 35px;
+
+        @include respond-to-min($tabletSize) {
+            height: 100px;
+        }
+
+        .search-box {
+            border: none;
+            width: 97%;
+            height: 60px;
+            font-family: 'robotobold';
+            color: #9ea6af;
+            background: url('../img/search-big-icon.png') no-repeat 100% center;
+            background-size: auto 50%;
+            padding: 0 35px 0 10px;
+            font-size: 1.5rem;
+
+            @include respond-to-min($tabletSize) {
+				 width: 100%;
+				 height: 105%;
+                padding: 0 100px 0 10px;
+				font-size: 2rem;
+				background-size: auto 50%;
+            }
+             @include respond-to-min($desktopSize) {
+				width: 100%;
+                height: 105%;
+                background-size: auto 80%;
+				 font-size: 5rem;
+            }
+        }
+
+        .img-loading {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            margin-top: -5px;
+            width: 32px;
+            z-index: 1;
+            display: none;
+        }
+
+        &.searching {
+            .search-box {
+                background: none;
+            }
+
+            .img-loading {
+                display: block;
+            }
+        }
+    }
+
+    .search-result {
+        margin: 30px auto 0;
+        @include respond-to-min($tabletSize) {
+            width: 80%;
+        }
+        @include respond-to-min($desktopSize) {
+            width: 80%;
+        }
+        .search-result__item {
+            opacity: 0;
+
+            a {
+                span {
+                    display: block;
+                }
+
+                .search-result__title {
+                    font-family: 'robotomedium';
+                    font-size: 1rem;
+                }
+
+                .search-result__description {
+                    font-family: 'robotothin';
+                    font-size: 1rem;
+                }
+
+                background-color: rgba(118,117,128,0.1);
+                padding: 20px 20px;
+                min-height: 90px;
+                margin: 0 0 5px;
+                text-decoration: none;
+                color: #fff;
+                display: block;
+
+                &:hover {
+                    background-color: rgba(118,117,128,0.5);
+                }
+            }
+        }
+
+        &__message {
+            color: #fff;
+            text-align: center;
+            font-size: rem(24px);
+            font-family: 'robotomedium';
+			padding-top: 70px;
+        }
+    }
+
+    .search-default {
+        display: none;
+        margin: 0px auto;
+        @include respond-to-min($desktopSize) {
+            width: 90%;
+        }
+        @include respond-to-min($tabletSize) {
+            width: 80%;
+        }
+
+        .search-default__column {
+            h3 {
+                font-family: 'robotobold';
+                font-size: rem(24px);
+                color: #e6b94c;
+            }
+
+            .search-default__item {
+                &.search-default__location {
+                    background: url('/img/search_item_search.png') no-repeat 95% center;
+                    background-color: rgba(118,117,128,0.1);
+                    padding: 20px 40px 20px 40px;
+
+                    @include respond-to-min($desktopSize) {
+                        padding: 40px 40px 40px 40px;
+                    }
+                }
+
+                &:hover {
+                    background-color: rgba(118,117,128,0.5);
+                }
+
+                font-family: 'robotolight';
+                font-size: rem(18px);
+                background-color: rgba(118,117,128,0.1);
+                padding: 10px 20px;
+                margin: 0 0 5px;
+                text-decoration: none;
+                color: #fff;
+                display: block;
+                transition: 0.25s ease;
+            }
+        }
+    }
+
+    .search-showmore-container {
+        text-align: center;
+        display: none;
+
+        span {
+            cursor: pointer;
+            display: inline-block;
+            font-family: "robotomedium";
+            padding: 5px 10px;
+            margin: 30px 0;
+            color: #fff;
+        }
+    }
+}

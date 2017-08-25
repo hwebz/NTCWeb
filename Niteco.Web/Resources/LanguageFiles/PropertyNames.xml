@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<languages>
+  <language name="English" id="en">
+    <contenttypes>
+      <icontentdata>
+        <properties>
+          <!-- SitePageData -->
+          <MediumBackgroundUrl>
+            <caption>Medium Background Url</caption>
+          </MediumBackgroundUrl>
+          <SmallBackgroundUrl>
+            <caption>Small Background Url</caption>
+          </SmallBackgroundUrl>
+          <teasertitle>
+            <caption>Teaser title</caption>
+          </teasertitle>
+          <teasersubtitle>
+            <caption>Teaser sub title</caption>
+          </teasersubtitle>
+          <maincontentarea>
+            <caption>Main content area</caption>
+          </maincontentarea>
+          <bottomcontentarea>
+            <caption>Bottom navigation</caption>
+          </bottomcontentarea>
+          <heading>
+            <caption>Heading</caption>
+          </heading>
+          <subheading>
+            <caption>Sub heading</caption>
+          </subheading>
+          <shortdescription>
+            <caption>Short description</caption>
+          </shortdescription>
+          <backgroundimage>
+            <caption>Background image</caption>
+          </backgroundimage>
+          <teaserbackgroundimage>
+            <caption>Teaser background image</caption>
+          </teaserbackgroundimage>
+          <hoverimage>
+            <caption>Teaser hover image</caption>
+          </hoverimage>
+          <maincontent>
+            <caption>Main content</caption>
+          </maincontent>
+          <disableindexing>
+            <caption>Disable indexing</caption>
+            <help>Prevents the page from being indexed by search engines</help>
+          </disableindexing>
+          <metadescription>
+            <caption>Page description</caption>
+            <help>Used as the meta description and commonly as an ingress</help>
+          </metadescription>
+          <metakeywords>
+            <caption>Keywords</caption>
+          </metakeywords>
+          <metatitle>
+            <caption>Title</caption>
+          </metatitle>
+          <pageheading>
+            <caption>Page heading</caption>
+          </pageheading>
+          <menuitemscontent>
+            <caption>Menu items</caption>
+          </menuitemscontent>
+          <facebooklink>
+            <caption>Facebook link</caption>
+          </facebooklink>
+          <linkedinlink>
+            <caption>LinkedIn link</caption>
+          </linkedinlink>
+          <footeritemscontent>
+            <caption>Footer items</caption>
+          </footeritemscontent>
+          <!-- Common properties-->
+          <mainbody>
+            <caption>Main body</caption>
+            <help>Main editorial content of the page</help>
+          </mainbody>
+          <maincontentarea>
+            <caption>Large content area</caption>
+          </maincontentarea>
+        </properties>
+      </icontentdata>
+      <!--setting page-->
+      <settingpagedata>
+        <properties>
+          <logoimage>
+            <caption>Logo image</caption>
+          </logoimage>
+          <searchpagelink>
+            <caption>Search page link</caption>
+          </searchpagelink>
+          <servicelistroot>
+            <caption>Service list root</caption>
+          </servicelistroot>
+        <FooterCopyright>
+          <caption>Copyright</caption>
+        </FooterCopyright>
+        <PartnerImages>
+          <caption>
+            Partner Logos
+          </caption>
+        </PartnerImages>
+        </properties>
+      </settingpagedata>
+      <!-- StartPage -->
+      <startpage>
+        <properties>
+          <leftcontentarea>
+            <caption>Left content area</caption>
+          </leftcontentarea>
+          <leftcontentareaforvietnam>
+            <caption>Left content area for Viet Nam</caption>
+          </leftcontentareaforvietnam>
+          <rightcontentarea>
+            <caption>Right content area</caption>
+          </rightcontentarea>
+        </properties>
+      </startpage>
+      <!-- ImageFile -->
+      <imagefile>
+        <properties>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+        </properties>
+      </imagefile>
+      <!-- VideoFile -->
+      <videofile>
+        <properties>
+          <copyright>
+            <caption>Copyright</caption>
+          </copyright>
+          <previewimageurl>
+            <caption>Preview image</caption>
+          </previewimageurl>
+        </properties>
+      </videofile>
+      <servicelistpage>
+        <properties>
+          <serviceitems>
+            <caption>Service items</caption>
+          </serviceitems>
+          <xhtmlprop>
+            <caption>
+               HTML Raw Technologies
+            </caption>
+          </xhtmlprop>
+          <contactus>
+            <caption>Contact us</caption>
+          </contactus>
+        </properties>
+      </servicelistpage>
+      <servicepage>
+        <properties>
+          <mainimage>
+            <caption>Small image</caption>
+          </mainimage>
+          <largeimage>
+            <caption>Large image</caption>
+          </largeimage>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+          <technologies>
+            <caption>Technologies</caption>
+          </technologies>
+        </properties>
+      </servicepage>
+      <headingblock>
+        <properties>
+          <heading>
+            <caption>Heading</caption>
+          </heading>
+          <description>
+            <caption>Description</caption>
+          </description>
+          <backgroundurl>
+            <caption>Background Image URL</caption>
+          </backgroundurl>
+        </properties>
+      </headingblock>
+      <clientquoteitemblock>
+        <properties>
+          <description>
+            <caption>Description</caption>
+          </description>
+          <imageurl>
+            <caption>Client logo</caption>
+          </imageurl>
+          <clientpersonname>
+            <caption>Client Person Name</caption>
+          </clientpersonname>
+          <clientpersontitle>
+            <caption>Client Person Title</caption>
+          </clientpersontitle>
+        </properties>
+      </clientquoteitemblock>
+      <contactuspage>
+        <properties>
+          <officeitems>
+            <caption>Office items</caption>
+          </officeitems>
+        </properties>
+      </contactuspage>
+      <ourvaluepage>
+        <properties>
+          <KeyValueArea>
+            <caption>Key value Area</caption>
+          </KeyValueArea>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+          <ValueItemArea>
+            <caption>Value Item Page</caption>
+          </ValueItemArea>
+        </properties>
+      </ourvaluepage>
+      <keyvaluepage>
+        <properties>
+          <numberitem>
+            <caption>Number Item</caption>
+          </numberitem>
+          <contentitem>
+            <caption>Content Item</caption>
+          </contentitem>
+          <imageitemurl>
+            <caption>Image Item Url</caption>
+          </imageitemurl>
+      </properties>
+      </keyvaluepage>
+      <valueitempage>
+        <properties>
+          <itemcontent>
+            <caption>Item Content</caption>
+          </itemcontent>
+          <imageitemurl>
+            <caption>Image Item Url</caption>
+          </imageitemurl>
+       </properties>
+      </valueitempage>
+      <aboutusitempage>
+        <properties>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+        </properties>
+      </aboutusitempage>
+      <aboutuspage>
+        <properties>
+          <maincontentarea>
+            <caption>Main content area</caption>
+          </maincontentarea>
+        </properties>
+      </aboutuspage>
+      <menuitemblock>
+        <properties>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <menulink>
+            <caption>Menu link</caption>
+          </menulink>
+          <secondarymenuitems>
+            <caption>Sub menu items</caption>
+          </secondarymenuitems>
+        </properties>
+      </menuitemblock>
+      <peopleblock>
+        <properties>
+          <personname>
+            <caption>
+              Person Name
+            </caption>
+          </personname>
+          <stafftitle>
+            <caption>
+              Staff Title
+            </caption>
+          </stafftitle>
+          <personimage>
+            <caption>Image</caption>
+          </personimage>
+          <description>
+            <caption>Description</caption>
+          </description>
+        </properties>
+      </peopleblock>
+      <officeblock>
+        <properties>
+          <officename>
+            <caption>Office name</caption>
+          </officename>
+          <address>
+            <caption>Address</caption>
+          </address>
+          <Latitude>
+            <caption>Latitude</caption>
+          </Latitude>
+          <Longitude>
+            <caption>Longitude</caption>
+          </Longitude>
+          <phone>
+            <caption>Phone</caption>
+          </phone>
+          <email>
+            <caption>Email</caption>
+          </email>
+          <officeimage>
+            <caption>Office image</caption>
+          </officeimage>
+        </properties>
+      </officeblock>
+      <clientquoteblock>
+        <properties>
+          <clientquoteitems>
+            <caption>
+              Client quote items
+            </caption>
+          </clientquoteitems>
+        </properties>
+      </clientquoteblock>
+      <!--Home video block-->
+      <homevideoblock>
+        <properties>
+          <logoimage>
+            <caption>Logo image</caption>
+          </logoimage>
+          <slogan>
+            <caption>Slogan</caption>
+          </slogan>
+          <buttontext>
+            <caption>Button text</caption>
+          </buttontext>
+          <buttonlink>
+            <caption>Button link</caption>
+          </buttonlink>
+          <backgroundimage>
+            <caption>Background image</caption>
+          </backgroundimage>
+          <mp4videourl>
+            <caption>Mp4 video url</caption>
+          </mp4videourl>
+          <webmvideourl>
+            <caption>Webm video url</caption>
+          </webmvideourl>
+          <oggvideourl>
+            <caption>Ogg video url</caption>
+          </oggvideourl>
+          <sloganforvietnam>
+            <caption>Slogan for Viet Nam</caption>
+          </sloganforvietnam>
+          <backgroundimageforvietnam>
+            <caption>Background image for Viet Nam</caption>
+          </backgroundimageforvietnam>
+          <billboardimageforvietnam>
+            <caption>Billboard image for Viet Nam</caption>
+          </billboardimageforvietnam>
+          <linktextforvietnam>
+            <caption>Link text for Viet Nam</caption>
+          </linktextforvietnam>
+          <linkforvietnam>
+            <caption>Link for Viet Nam</caption>
+          </linkforvietnam>
+        </properties>
+      </homevideoblock>
+      <!-- HomeImageBlock -->
+      <homeimageblock>
+        <properties>
+          <billboardimage>
+            <caption>Billboard image</caption>
+          </billboardimage>
+          <linktext>
+            <caption>Link text</caption>
+          </linktext>
+        </properties>
+      </homeimageblock>
+      <ourworkpage>
+        <properties>
+          <projectscontentarea>
+            <caption>Project list</caption>
+          </projectscontentarea>
+          <clientquotescontentarea>
+            <caption>Client quotes</caption>
+          </clientquotescontentarea>
+        </properties>
+      </ourworkpage>
+      <htmlblock>
+        <properties>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <subtitle>
+            <caption>Sub title</caption>
+          </subtitle>
+          <description>
+            <caption>Description</caption>
+          </description>
+        </properties>
+      </htmlblock>
+      <buttonblock>
+        <properties>
+          <description>
+            <caption>Description</caption>
+          </description>
+          <buttontext>
+            <caption>Button text</caption>
+          </buttontext>
+          <buttonlink>
+            <caption>Button link</caption>
+          </buttonlink>
+        </properties>
+      </buttonblock>
+      <AboutUsInfoBlock>
+        <properties>
+          <aboutusinfoitems>
+            <caption>About Us Info Items</caption>
+          </aboutusinfoitems>
+        </properties>
+      </AboutUsInfoBlock>
+      <AboutUsInfoItemBlock>
+      <properties>
+        <infotitle>
+          <caption>Information Title</caption>
+        </infotitle>
+      <infonumber>
+          <caption>Information Number</caption>
+        </infonumber>
+      <infoicon>
+          <caption>Information Icon</caption>
+        </infoicon>
+      </properties>
+    </AboutUsInfoItemBlock>
+      <MissionItemBlock>
+      <properties>
+        <MissionHeading>
+          <caption>Mission Heading</caption>
+        </MissionHeading>
+        <MissionContent>
+          <caption>Mission Content</caption>
+        </MissionContent>
+      </properties>
+    </MissionItemBlock>
+      <MissionBlock>
+      <properties>
+        <MissionItems>
+          <caption>Mission Items</caption>
+        </MissionItems>
+      </properties>
+    </MissionBlock>
+      <OurValuesBlock>
+        <properties>
+          <ValueItems>
+            <caption>Value Items</caption>
+          </ValueItems>
+        </properties>
+      </OurValuesBlock>
+      <OurValueItemBlock>
+        <properties>
+          <ItemTitle>
+            <caption>Item Title</caption>
+          </ItemTitle>
+        <ItemContent>
+            <caption>Item Content</caption>
+          </ItemContent>
+        </properties>
+      </OurValueItemBlock>
+      <!-- Career Page -->
+      <careerpage>
+        <properties>
+          <applysteps>
+            <caption>Appling steps</caption>
+          </applysteps>
+          <CareerBenefit>
+            <caption>Career benefits</caption>
+          </CareerBenefit>
+          <jobopenings>
+            <caption>Job openings</caption>
+          </jobopenings>
+          <jobopeningbackground>
+            <caption>Job opening background</caption>
+          </jobopeningbackground>
+          <contactus>
+            <caption>Contact us</caption>
+          </contactus>
+          <stayuptodate>
+            <caption>Stay up to date</caption>
+          </stayuptodate>
+        </properties>
+      </careerpage>
+      <!-- Apply career block -->
+      <applycareerblock>
+        <properties>
+          <steps>
+            <caption>Appling career steps</caption>
+          </steps>
+          <applycareerbackgroundimage>
+            <caption>Apply career background image</caption>
+          </applycareerbackgroundimage>
+        </properties>
+      </applycareerblock>
+      <CareerBenefitBlock>
+        <properties>
+          <mainimage>
+            <caption>Main image</caption>
+          </mainimage>
+        </properties>
+      </CareerBenefitBlock>
+      <jobpage>
+        <properties>
+          <teaserimage>
+            <caption>Teaser image</caption>
+          </teaserimage>
+          <worklocation>
+            <caption>Work location</caption>
+          </worklocation>
+          <jobcontent>
+            <caption>Job content</caption>
+          </jobcontent>
+        </properties>
+      </jobpage>
+      <socialinfoblock>
+        <properties>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <subtitle>
+            <caption>Sub title</caption>
+          </subtitle>
+          <shortdescription>
+            <caption>Short description</caption>
+          </shortdescription>
+          <imagecontentarea>
+            <caption>Images</caption>
+          </imagecontentarea>
+          <mainbody>
+            <caption>Main body</caption>
+          </mainbody>
+        </properties>
+      </socialinfoblock>
+      <aboutusofficeblock>
+        <properties>
+          <ImageBackGround>
+            <caption>Image background</caption>
+          </ImageBackGround>
+          <ImageUrl>
+            <caption>Image Url</caption>
+          </ImageUrl>
+        </properties>
+      </aboutusofficeblock>
+      <AboutusCertifyBlock>
+        <properties>
+          <NumberOfCertify>
+            <caption>Number of Certify</caption>
+          </NumberOfCertify>
+          <CertifiedName>
+            <caption>Certified Name</caption>
+          </CertifiedName>
+        </properties>
+      </AboutusCertifyBlock>
+      <CommunityPartnerBlock>
+        <properties>
+          <CommunityPartnerItems>
+            <caption>Community Partner Items</caption>
+          </CommunityPartnerItems>
+        </properties>
+      </CommunityPartnerBlock>
+      <sitemappage>
+        <properties>
+          <sitemaproot>
+            <caption>Sitemap root</caption>
+          </sitemaproot>
+        </properties>
+      </sitemappage>
+      <ourteampage>
+        <properties>
+          <teamscontentarea>
+            <caption>Teams</caption>
+          </teamscontentarea>
+        </properties>
+      </ourteampage>
+      <HowWeWorkOurProcessBlock>
+        <properties>
+          <Head>
+            <caption>Header</caption>
+          </Head>
+          <Description>
+            <caption>Description</caption>
+          </Description>
+          <OurProcessItem>
+            <caption>Our Process Item</caption>
+          </OurProcessItem>
+        </properties>
+      </HowWeWorkOurProcessBlock>
+      <HowWeWorkOurProcessItemBlock>
+        <properties>
+          <ImageIcon>
+            <caption>Image Icon</caption>
+          </ImageIcon>
+          <ImageBackground>
+            <caption>Image Background</caption>
+          </ImageBackground>
+          <ProcessTitle>
+            <caption>Process Title</caption>
+          </ProcessTitle>
+          <ProcessDetailTitle>
+            <caption>Process Detail Title</caption>
+          </ProcessDetailTitle>
+          <ProcessDetail>
+            <caption>Process Detail</caption>
+          </ProcessDetail>
+        </properties>
+      </HowWeWorkOurProcessItemBlock>
+      <HowWeWorkPartnershipBlock>
+        <properties>
+          <Title>
+            <caption>Title</caption>
+          </Title>
+          <PartnerShipItem>
+            <caption>PartnerShip Item</caption>
+          </PartnerShipItem>
+          <Text>
+            <caption>PartnerShip Text</caption>
+          </Text>
+          <ViewMoreText>
+            <caption>View More Text</caption>
+          </ViewMoreText>
+          <ButtonText>
+            <caption>Button Text</caption>
+          </ButtonText>
+          <ButtonLink>
+            <caption>Button Link</caption>
+          </ButtonLink>
+        </properties>
+      </HowWeWorkPartnershipBlock>
+      <HowWeWorkPartnershipItemBlock>
+        <properties>
+          <Title>
+            <caption>Title</caption>
+          </Title>
+          <Content>
+            <caption>Content</caption>
+          </Content>
+        </properties>
+      </HowWeWorkPartnershipItemBlock>
+      <CareerBenefitContainerBlock>
+        <properties>
+          <title>
+            <caption>Title</caption>
+          </title>
+          <shortdescription>
+            <caption>Short description</caption>
+          </shortdescription>
+          <careerbenefits>
+            <caption>Career benefits</caption>
+          </careerbenefits>
+        </properties>
+      </CareerBenefitContainerBlock>
+      <OfficeStayConnectedBlock>
+        <properties>
+          <shortdescription>
+            <caption>
+              Short description
+            </caption>
+          </shortdescription>
+        </properties>
+      </OfficeStayConnectedBlock>
+      <searchpage>
+        <properties>
+          <ContactUsPageLink>
+            <caption>
+              Contact us page link
+            </caption>
+          </ContactUsPageLink>
+        <CareerPageLink>
+            <caption>
+              Career page link
+            </caption>
+          </CareerPageLink>
+          <AboutTheCompanyPages>
+            <caption>
+              About the company pages
+            </caption>
+          </AboutTheCompanyPages>
+          
+        </properties>
+      </searchpage>
+      <casestudypage>
+        <properties>
+          <CaseStudyDetailItems>
+            <caption>Case Study Detail Items</caption>
+          </CaseStudyDetailItems>
+        </properties>
+      </casestudypage>
+      <!-- StayUpToDateBlock -->
+      <stayuptodateblock>
+        <properties>
+          <billboardimage>
+            <caption>Billboard image</caption>
+          </billboardimage>
+          <linktext>
+            <caption>Link text</caption>
+          </linktext>
+          <stayuptodateimage>
+            <caption>Stay up to date image</caption>
+          </stayuptodateimage>
+          <stayuptodateheader>
+            <caption>Stay up to date header</caption>
+          </stayuptodateheader>
+          <stayuptodatecontent>
+            <caption>Stay up to date content</caption>
+          </stayuptodatecontent>
+          <stayuptodatevoucher>
+            <caption>Stay up to date voucher</caption>
+          </stayuptodatevoucher>
+          <stayuptodatebuttontext>
+            <caption>Stay up to date button text</caption>
+          </stayuptodatebuttontext>
+        </properties>
+      </stayuptodateblock>
+    </contenttypes>
+  </language>
+</languages>

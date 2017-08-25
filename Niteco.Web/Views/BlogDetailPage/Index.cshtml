@@ -1,0 +1,393 @@
+﻿@using System.Configuration
+@using EPiServer
+@using EPiServer.Security
+@using EPiServer.ServiceLocation
+@using Niteco.ContentTypes
+@using Niteco.ContentTypes.Extension
+@model BlogDetailViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+    IContentLoader icontentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var categoryname = CategoryHelper.GetCategoryByName(Model.CurrentPage.BlogCategory) == null ? "Uncategorized" : Model.CurrentPage.BlogCategory;
+
+}
+
+<div class="content-container blog-detail-page" data-require="base/common-page-animation">
+<div class="blog-detail-wrapper content-wrapper">
+@*        {{> _social-share}}*@
+@{Html.RenderPartial("StickySocialSharing", Model.CurrentPage);}
+@*        {{>  _news-detail-introduction blog-detail.introduction}}*@
+<section class="page-introduction-container news-detail-introduction-container">
+    <div class="page-introduction-top-block news-detail-introduction-top-block" data-require="base/news-detail-introduction">
+        <div class="page-introduction-top-block__background page-introduction__background news-detail-introduction__background">
+            <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading"/>
+            </picture>
+        </div>
+        <div class="page-introduction-top-block__content page-introduction__content news-detail-introduction__content">
+            <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+            <div class="yellow-divider"></div>
+            <div class="page-description__description">
+                <p>
+                    <a href='@Url.ContentUrl(Model.CurrentPage.ParentLink)'><span class='fa fa-angle-left'></span>View all</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+@*        {{> blog-detail-content }}*@
+<div class="blog-detail-content__container">
+<div class="container">
+<div class="row">
+<div class="col-xs-12 col-sm-8 col-md-7">
+    @*                        {{> _blog-detail-article blog-detail.article}}*@
+    <div class="blog-list-articles__container blog-detail-article__container" data-require="base/code-highlighter">
+        <script id="dsq-count-scr" src="//@(SiteSettingsHandler.Instance.SiteSettings.CommentConfig)/count.js" async></script>
+        <div class="blog-list-articles__article">
+            <div class="blog-list-articles__article-title">
+                <h2>
+                    @Html.PropertyFor(x => x.CurrentPage.Title)
+                </h2>
+                <div class="yellow-divider"></div>
+                <div class="blog-list-articles__article-meta">
+                    <a class="blog-list-articles__article-meta__category" href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?cat=@categoryname">@categoryname</a>
+                    <a class="blog-list-articles__article-meta__author" href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?author=@Model.CurrentPage.AuthorName">@Model.CurrentPage.AuthorName</a>
+                    <a class="blog-list-articles__article-meta__comment" href="@Url.ContentUrl(Model.CurrentPage.ContentLink)#disqus_thread"></a>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-thumbnail">
+
+                <img src="@Url.ContentUrl(Model.CurrentPage.Thumbnail)" alt="@Model.CurrentPage.Title"/>
+
+                <div class="blog-list-articles__article-date">
+                    <span class="blog-list-articles__article-date__day">@Model.CurrentPage.StartPublish.Day</span>
+                    <span class="blog-list-articles__article-date__monthYear">@Model.CurrentPage.StartPublish.ToString("MMM").@Model.CurrentPage.StartPublish.Year</span>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-content">
+                <div class="blog-list-articles__article-content__description">
+                    @Html.PropertyFor(m => m.CurrentPage.Content, new {Tag = "InlineContent"})
+                </div>
+                @if (!string.IsNullOrEmpty(Model.CurrentPage.Tags))
+                {
+                    <nav class="blog-detail-article__article-content__tags">
+                        <ul>
+                            @foreach (var tag in Model.CurrentPage.Tags.Split(','))
+                            {
+                                Tags tagWrap = Model.ListTags.FirstOrDefault(x => x.TagName == tag);
+                                if (tagWrap != null)
+                                {
+                                    <li><a href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?tag=@tagWrap.TagName">@tagWrap.TagName <span class="articles-in-category">(@tagWrap.BlogCount)</span></a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
+                }
+            </div>
+        </div>
+    </div>
+    @*                        {{> _blog-detail-author blog-detail.author}}*@
+    @if (Model.CurrentPage.Author != null)
+    {
+        AuthorPage authorPage;
+        if (icontentLoader.TryGet(Model.CurrentPage.Author, out authorPage) && !authorPage.IsDeleted)
+        {
+
+            <div class="blog-detail-author__container">
+                <div class="blog-detail_author__wrapper">
+                    <div class="blog-detail-author__title">
+                        <h2>About The Author</h2>
+                        <div class="yellow-divider"></div>
+                    </div>
+                    <div class="blog-detail-author__content">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3">
+                                @if (Url.ContentUrl(authorPage.Thumbnail) == "")
+                                {
+                                    <img class="author-avatar" src="/globalassets/avatar.png" alt="@authorPage.Name"/>
+                                }
+                                else
+                                {
+                                    <img class="author-avatar" src="@Url.ContentUrl(authorPage.Thumbnail)" alt="@authorPage.Name"/>
+                                }
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-9 col-md-9">
+                                <h3 class="author-name">@authorPage.Name</h3>
+                                <h4 class="author-role">@authorPage.Position</h4>
+                                <p class="description">@authorPage.Description</p>
+                                <div class="social-following">
+                                    <ul>
+                                        @if (authorPage.EmailToLink != null || authorPage.TwitterLink != null || authorPage.LinkedinLink != null
+                                             || authorPage.FacebookLink != null || authorPage.StackoverflowLink != null || authorPage.EpiserverLink != null)
+                                        {
+                                            <li class="social-label">Follow Linus on:</li>
+                                        }
+                                        @if (authorPage.EmailToLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.EmailToLink)"><span class="fa fa-at"></span></a></li>
+                                        }
+                                        @if (authorPage.TwitterLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.TwitterLink)"><span class="fa fa-twitter"></span></a></li>
+                                        }
+                                        @if (authorPage.LinkedinLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.LinkedinLink)"><span class="fa fa-linkedin"></span></a></li>
+                                        }
+                                        @if (authorPage.FacebookLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.FacebookLink)"><span class="fa fa-facebook"></span></a></li>
+                                        }
+                                        @if (authorPage.StackoverflowLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.StackoverflowLink)"><span class="fa fa-stack-overflow"></span></a></li>
+                                        }
+                                        @if (authorPage.EpiserverLink != null)
+                                        {
+                                            <li><a href="@Url.ContentUrl(authorPage.EpiserverLink)"><span class="episerver-icon"></span></a></li>
+                                        }
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+                        @*                        {{> _related-blog-articles blog-detail.relatedArticles}}*@@if (Model.RelatedBlogsDetailPages.Any())
+                                                                                                            {
+                                                                                                                <div class="news-detail-related-articles__container blog-detail-related-articles__container" data-require="base/related-autoscale-thumbnail">
+                                                                                                                    <div class="news-detail-related-articles__title">
+                                                                                                                        <h2>Related Articles</h2>
+                                                                                                                        <div class="yellow-divider"></div>
+                                                                                                                    </div>
+                                                                                                                    <div class="row">
+                                                                                                                        @foreach (var relatedBlogsDetailPage in Model.RelatedBlogsDetailPages)
+                                                                                                                        {
+                                                                                                                            <div class="col-xs-12 col-sm-12 col-md-4 news-related-articles__article">
+                                                                                                                                <div class="row">
+                                                                                                                                    <div class="news-detail-releated-articles__article-thumbnail col-xs-12 col-sm-3 col-md-12">
+                                                                                                                                        <a href="@Url.ContentUrl(relatedBlogsDetailPage.ContentLink)">
+                                                                                                                                            <img src="@Url.ContentUrl(relatedBlogsDetailPage.Thumbnail)" alt="@relatedBlogsDetailPage.Title"/>
+                                                                                                                                        </a>
+                                                                                                                                        <div class="news-detail-article__meta">
+                                                                                                                                            <span class="news-detail-article__meta-date">@relatedBlogsDetailPage.StartPublish.Day</span>
+                                                                                                                                            <span class="news-detail-article__meta-monthYear">@relatedBlogsDetailPage.StartPublish.ToString("MMM").@relatedBlogsDetailPage.StartPublish.Year</span>
+                                                                                                                                        </div>
+                                                                                                                                    </div>
+                                                                                                                                    <div class="news-detail-related-articles__article-title col-xs-12 col-sm-9 col-md-12">
+                                                                                                                                        <h2>
+                                                                                                                                            <a href="@Url.ContentUrl(relatedBlogsDetailPage.ContentLink)">@relatedBlogsDetailPage.Title</a>
+                                                                                                                                        </h2>
+                                                                                                                                    </div>
+                                                                                                                                </div>
+                                                                                                                            </div>
+                                                                                                                        }
+
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            }
+                        @*                        {{> blog-detail-discuss}}*@<div class="blog-detail-disqus__container">
+        <div id="disqus_thread"></div>
+        <script>
+            (function() {
+                var d = document, s = d.createElement('script');
+
+                s.src = '//@(SiteSettingsHandler.Instance.SiteSettings.CommentConfig)/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        <!--<span class="disqus-comment-count" data-disqus-url="http://niteco.local/Static/compiled/pages/blog-detail.html">  Count will be inserted here  </span>-->
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-4 col-md-4 col-md-offset-1">
+    <div class="blog-list-sidebar__container">
+        <div class="blog-list-sidebar__widget blog-list-sidebar__widget_search" data-require="base/search-validation">
+            <div class="blog-list-sidebar__widget-title">
+                <h2>@Model.CurrentPage.BlogListPage.SearchTitle</h2>
+                <div class="yellow-divider"></div>
+            </div>
+            <div class="blog-list-sidebar__widget-content">
+                <div class="blog-list-sidebar__widget_search-form">
+                    <form action="@Url.ContentUrl(Model.CurrentPage.ParentLink)" method="GET">
+                        <label for="blog-list-sidebar__widget_search-form__input-field" class="hidden">Search</label>
+                        <input type="text" class="blog-list-sidebar__widget_search-form__input-field" id="blog-list-sidebar__widget_search-form__input-field" title="Search" placeholder="Search..." name="q"/>
+                        <input type="submit" class="blog-list-sidebar__widget_search-form__submit" value="Search" title="Submit"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-list-sidebar__widget blog-list-sidebar__widget_cate">
+            <div class="blog-list-sidebar__widget-title">
+                <h2>@Model.CurrentPage.BlogListPage.FilterCategoryTitle</h2>
+                <div class="yellow-divider"></div>
+            </div>
+            <div class="blog-list-sidebar__widget-content">
+                <nav class="blog-list-sidebar__widget_cate-nav">
+                    <ul>
+                        @foreach (var blogCategory in Model.ListBlogCategory)
+                        {
+                            if (!string.IsNullOrEmpty(Model.CurrentPage.BlogCategory) && Model.CurrentPage.BlogCategory == blogCategory.Category)
+                            {
+                                <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?cat=@blogCategory.Category">@blogCategory.Category <span class="articles-in-category">(@blogCategory.BlogCount)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?cat=@blogCategory.Category">@blogCategory.Category <span class="articles-in-category"> (@blogCategory.BlogCount)</span></a></li>
+                            }
+                        }
+                        @*                                                <li class="active"><a href="#">Episerver <span class="articles-in-category">(94)</span></a></li>*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="blog-list-sidebar__widget blog-list-sidebar__widget_cate">
+            <div class="blog-list-sidebar__widget-title">
+                <h2>@Model.CurrentPage.BlogListPage.TopAuthorTitle</h2>
+                <div class="yellow-divider"></div>
+            </div>
+            <div class="blog-list-sidebar__widget-content">
+                <nav class="blog-list-sidebar__widget_cate-nav">
+                    <ul>
+                        @foreach (var author in Model.ListAuthors)
+                        {
+                            if (!string.IsNullOrEmpty(Model.CurrentPage.AuthorName) && Model.CurrentPage.AuthorName == author.AuthorName)
+                            {
+                                <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?author=@author.AuthorName">@author.AuthorName <span class="articles-in-category"> (@author.BlogCount)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.ContentUrl(Model.CurrentPage.ParentLink)?author=@author.AuthorName">@author.AuthorName <span class="articles-in-category"> (@author.BlogCount)</span></a></li>
+                            }
+                        }
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="blog-list-sidebar__widget blog-list-sidebar__widget_tags">
+            <div class="blog-list-sidebar__widget-title">
+                <h2>@Model.CurrentPage.BlogListPage.TopTagTitle</h2>
+                <div class="yellow-divider"></div>
+            </div>
+            <div class="blog-list-sidebar__widget-content">
+                <nav class="blog-list-sidebar__widget_tags-clouds">
+                    <ul>
+                        @foreach (var tag in Model.ListTags)
+                        {
+                            if (!string.IsNullOrEmpty(Request.QueryString["tag"]) && Request.QueryString["tag"].ToString() == tag.TagName)
+                            {
+                                <li class="active"><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?tag=@tag.TagName">@tag.TagName<span class="articles-in-category"> (@tag.BlogCount)</span></a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.ContentUrl(Model.CurrentPage.ContentLink)?tag=@tag.TagName">@tag.TagName<span class="articles-in-category"> (@tag.BlogCount)</span></a></li>
+                            }
+                        }
+                        @*<li><a href="#">configuration <span class="articles-in-category">(27)</span></a></li>
+                                                <li><a href="#">windows <span class="articles-in-category">(23)</span></a></li>
+                                                <li class="active"><a href="#">ux design <span class="articles-in-category">(21)</span></a></li>
+                                                <li><a href="#">ui design <span class="articles-in-category">(17)</span></a></li>
+                                                <li><a href="#">template foundation <span class="articles-in-category">(13)</span></a></li>*@
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="blog-list-sidebar__widget blog-list-sidebar__widget_hiring" id="blog-list-sidebar__widget_hiring" data-require="base/sticky-sidebar">
+            <div class="blog-list-sidebar__widget-title">
+                <h2>@Model.CurrentPage.BlogListPage.WeAreHiringTitle</h2>
+                <div class="yellow-divider"></div>
+            </div>
+            <div class="blog-list-sidebar__widget-content">
+                <div class="blog-list-sidebar__widget_hiring-content">
+                    <div class="blog-list-sidebar__widget_hiring-content__description">
+                        <p>@Model.CurrentPage.BlogListPage.WeAreHiringDescription</p>
+                    </div>
+                    <nav class="blog-list-sidebar__widget_hiring-content__positions">
+                        <ul>
+                            @foreach (var jobPage in Model.ListJobPage)
+                            {
+                                <li><a href="@Url.ContentUrl(jobPage.ContentLink)">@jobPage.Name<span class="positions-location"> (@jobPage.WorkLocation)</span></a></li>
+                            }
+                        </ul>
+                        <a href="@Url.ContentUrl(Model.CurrentPage.BlogListPage.JobRoot)" alt="More Jobs" class="blog-list-sidebar__widget__more-link">View All Positions</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+
+@*        {{> _subscribe-newsletters news-detail.subscribe}}*@
+<div class="subscribe-newsletters__container" data-require="base/newsletter-form">
+    <div class="container">
+        <div class="subscribe-newsletters__title">
+            <h2>@ViewBag.SubscriptionText</h2>
+            <div class="subscribe-newsletters__description">
+                <p>@ViewBag.SubscriptionDescription</p>
+            </div>
+            <div class="yellow-divider"></div>
+        </div>
+        <div class="subscribe-newsletters__form">
+
+
+            @using (Html.BeginForm(null, null, FormMethod.Post, new {@action = string.Format("{0}", ViewBag.SubscriptionUrlPost), @id = "newsletter-mailchimp-form"}))
+            {
+                        @*                        <input type="hidden" name="u" value="2ab54997b707af88444e53881" />*@
+                        @*                        <input type="hidden" name="id" value="8fac177a7e" />*@
+                <input type="hidden" name="u" value="@ViewBag.MailChimpApiKey"/>
+                <input type="hidden" name="id" value="@ViewBag.MailChimpListId"/>
+                <div class="input">
+                    <input class="subscribe-newsletters__form-email-field" type="text" name="EMAIL" id="mce-EMAIL" placeholder="your email address"/>
+                </div>
+                <div class="input">
+                    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                    <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings["ReCaptchaSiteKey"]"></div>
+                </div>
+                <input type="submit" id="mc-embedded-subscribe" class="subscribe-newsletters__form-submit" value="Subscribe"/>
+            }
+            <p class="thank-you"></p>
+            @*<form action="" method="post">
+                        </form>*@
+        </div>
+    </div>
+</div>
+    
+@*        {{> news-list-footer}}*@
+@{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+
+@*        {{> _footer}}*@
+@{ Html.RenderPartial("Footer", Model); }
+</div>
+</div>
+

@@ -1,0 +1,122 @@
+﻿<div class="news-list-articles__title-container" data-require="base/news-list-endless-scroll">
+    <div class="container">
+        <div id="news-list-articles__content">
+            <div class="row news-list-article news-list-article-type-1">
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__thumbnail">
+                    <div class="news-list-article__thumbnail-box">
+                        <picture>
+                            <source srcset="{{first.thumbnail.standard}}" media="(max-width: 767px)">
+                            <source srcset="{{first.thumbnail.screen992}}" media="(max-width: 993px)">
+                            <source srcset="{{first.thumbnail.screen1200}}" media="(max-width: 1200px)">
+                            <img srcset="{{first.thumbnail.standard}}" alt="{{first.title}}">
+                        </picture>
+
+                        <div class="news-list-article__meta">
+                            <span class="news-list-article__meta-date">{{first.date.day}}</span>
+                            <span class="news-list-article__meta-monthYear">{{first.date.month}}.{{first.date.year}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__content">
+                    <h2 class="news-list-article__title">
+                        <a href="#">{{first.title}}</a>
+                    </h2>
+                    <div class="news-list-article__summary-desc">
+                        <p>
+                            {{first.summaryDesc}}
+                        </p>
+                    </div>
+                    <a class="news-list-article__read-more" href="#" alt="{{first.buttonText}}">{{first.buttonText}}</a>
+                </div>
+            </div>
+
+            <div class="row news-list-article news-list-article-type-2">
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__content">
+                    <h2 class="news-list-article__title">
+                        <a href="#">{{second.title}}</a>
+                    </h2>
+                    <div class="news-list-article__summary-desc">
+                        <p>
+                            {{second.summaryDesc}}
+                        </p>
+                    </div>
+                    <a class="news-list-article__read-more" href="#" alt="{{second.buttonText}}">{{second.buttonText}}</a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__thumbnail">
+                    <div class="news-list-article__thumbnail-box">
+                        <picture>
+                            <source srcset="{{second.thumbnail.standard}}" media="(max-width: 767px)">
+                            <source srcset="{{second.thumbnail.screen992}}" media="(max-width: 993px)">
+                            <source srcset="{{second.thumbnail.screen1200}}" media="(max-width: 1200px)">
+                            <img srcset="{{second.thumbnail.standard}}" alt="{{second.title}}">
+                        </picture>
+                        <div class="news-list-article__meta">
+                            <span class="news-list-article__meta-date">{{second.date.day}}</span>
+                            <span class="news-list-article__meta-monthYear">{{second.date.month}}.{{second.date.year}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row news-list-article news-list-article-type-1">
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__thumbnail">
+                    <div class="news-list-article__thumbnail-box">
+                        <picture>
+                            <source srcset="{{third.thumbnail.standard}}" media="(max-width: 767px)">
+                            <source srcset="{{third.thumbnail.screen992}}" media="(max-width: 993px)">
+                            <source srcset="{{third.thumbnail.screen1200}}" media="(max-width: 1200px)">
+                            <img srcset="{{third.thumbnail.standard}}" alt="{{third.title}}">
+                        </picture>
+                        <div class="news-list-article__meta">
+                            <span class="news-list-article__meta-date">{{third.date.day}}</span>
+                            <span class="news-list-article__meta-monthYear">{{third.date.month}}.{{third.date.year}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__content">
+                    <h2 class="news-list-article__title">
+                        <a href="#">{{third.title}}</a>
+                    </h2>
+                    <div class="news-list-article__summary-desc">
+                        <p>
+                            {{third.summaryDesc}}
+                        </p>
+                    </div>
+                    <a class="news-list-article__read-more" href="#" alt="{{third.buttonText}}">{{third.buttonText}}</a>
+                </div>
+            </div>
+
+            <div class="row news-list-article news-list-article-type-2">
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__content">
+                    <h2 class="news-list-article__title">
+                        <a href="#">{{fourth.title}}</a>
+                    </h2>
+                    <div class="news-list-article__summary-desc">
+                        <p>
+                            {{fourth.summaryDesc}}
+                        </p>
+                    </div>
+                    <a class="news-list-article__read-more" href="#" alt="{{fourth.buttonText}}">{{fourth.buttonText}}</a>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 news-list-article__thumbnail">
+                    <div class="news-list-article__thumbnail-box">
+                        <picture>
+                            <source srcset="{{fourth.thumbnail.standard}}" media="(max-width: 767px)">
+                            <source srcset="{{fourth.thumbnail.screen992}}" media="(max-width: 993px)">
+                            <source srcset="{{fourth.thumbnail.screen1200}}" media="(max-width: 1200px)">
+                            <img srcset="{{fourth.thumbnail.standard}}" alt="{{fourth.title}}">
+                        </picture>
+                        <div class="news-list-article__meta">
+                            <span class="news-list-article__meta-date">{{fourth.date.day}}</span>
+                            <span class="news-list-article__meta-monthYear">{{fourth.date.month}}.{{fourth.date.year}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loading-area">
+            <img src="{{loading.image}}" alt="Loading..." />
+            <span class="loading-text">{{loading.text}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+﻿{
+    "paths": [
+        { "id": "About", "path": "Static/compiled/components/about.html" },
+        { "id": "Footer", "path": "Static/compiled/components/footer.html" },
+        { "id": "Header", "path": "Static/compiled/components/header.html" },
+        { "id": "In Print", "path": "Static/compiled/components/in_print.html" },
+        { "id": "Navigator", "path": "Static/compiled/components/navigator.html" },
+        { "id": "Testimonial", "path": "Static/compiled/components/testimonial.html" },
+        { "id": "What we do", "path": "Static/compiled/components/what_we_do.html" },
+        { "id": "Hamburger menu", "path": "Static/compiled/components/menu.html" },
+        { "id": "Template", "path": "Static/compiled/components/template.html" }
+    ]
+}

@@ -1,0 +1,45 @@
+.parallax-paging-list{
+    transform: translate3d(0px, -50%, 0px);
+    position: fixed;
+    top: 50%;
+    right: 15px;
+    z-index: 90;
+    padding: 15px;
+    margin: 0px;
+    list-style: outside none none;
+    display: none;
+
+    &.active{
+        display: block;
+    }
+
+    & li{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        background-color: #ebe9ea;
+        cursor: pointer;
+
+        &.active{
+            background-color: #31323a;
+        }
+        &:hover{
+            background-color: #6e6f75;
+        }
+    }
+}
+.parallax-arrow-down{
+    width: 28px;
+    height: 16px;
+    background: url('/img/arrow_down.png') center center no-repeat;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -14px;
+    cursor: pointer;
+
+    &:hover{
+        background: url('/img/arrow_down_active.png') center center no-repeat;
+    }
+}

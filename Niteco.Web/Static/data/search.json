@@ -1,0 +1,68 @@
+﻿{
+    "data": [
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        },
+        {
+            "title": "Search result title",
+            "description": "Search result description",
+            "url": "#"
+        }
+    ],
+    "message": "",
+    "success": 1,
+    "hasShowMore": true,
+    "showMoreUrl":  "/Static/data/search.json"
+}

@@ -1,0 +1,16 @@
+﻿
+<span class="service-technology-column__title">{{title}}</span>
+<ul>
+    {{#each content}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+
+{{#if titleLevel2  }}
+<span class="service-technology-column__title service-technology-column__title__level2">{{titleLevel2}}</span>
+<ul>
+    {{#each contentLevel2}}
+    <li>{{this}}</li>
+    {{/each}}
+</ul>
+{{/if}}

@@ -1,0 +1,70 @@
+﻿@using System.Activities
+@model IPageViewModel<CareerPage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<section class="about-container content-container careers-page-container" data-require="base/career-page">
+    <div class="about-content-wrapper content-wrapper">
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading"/>
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+
+        @if (LocationHelpers.IsFromVietNam())
+        {
+            @Html.PropertyFor(x => x.CurrentPage.StayUpToDate)
+        }
+        
+        <section class="section-job-opening container-zindex-one" style="background-image: url('@Url.ContentUrl(Model.CurrentPage.JobOpeningBackground)')">
+            <div class="our-values-container container">
+                <div class="row">
+                    <div class="col-xs-12 our-value-header">
+                        <h2>@Html.Translate("/niteco/careerpage/jobopeningstitle")</h2>
+                        <div class="header-underline">
+                            <span class="header-underline-content"></span>
+                        </div>
+                        <div class="job-description">
+                            @Html.Translate("/niteco/careerpage/jobopeningsdescription")
+                        </div>
+                    </div>
+                </div>
+                @Html.PropertyFor(x => x.CurrentPage.JobOpenings, new { CustomTag = "div", CssClass = "row", ChildrenCustomTagName = "div", ChildrenCssClass = "col-xs-12" })
+                @Html.PropertyFor(x => x.CurrentPage.ContactUs)
+            </div>
+        </section>
+
+        @Html.PropertyFor(x => x.CurrentPage.CareerBenefit)
+        @*@Html.PropertyFor(x => x.CurrentPage.MainContent)*@
+        @Html.PropertyFor(x => x.CurrentPage.ApplySteps)
+    
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{Html.RenderPartial("StickySocialSharing", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</section>

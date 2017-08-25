@@ -1,0 +1,287 @@
+﻿.blog-list-articles__container {
+    font-family: "robotoregular", Arial, Helvetica, sans-serif;
+    .blog-list-articles__article {
+        margin-bottom: 60px;
+
+        .blog-list-articles__article-title {
+            h2 {
+                font: 3rem/3rem "robotobold", Arial, Helvetica, sans-serif;
+                margin: 0 0 15px 0;
+                text-transform: capitalize;
+
+                a {
+                    color: #282828;
+                }
+
+                @include respond-to-max($desktopSize) {
+                    font-size: 2.25rem;
+                }
+
+                @include respond-to-max($tabletSize) {
+                    text-align: center;
+                    font-size: 2.125rem;
+                    margin-bottom: 30px;
+                }
+            }
+
+            .yellow-divider {
+                @include respond-to-max($tabletSize) {
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .blog-list-articles__article-meta {
+                a {
+                    color: #a2aab1;
+                    padding: 5px 15px 5px 0;
+                    border-right: 1px solid #6a7885;
+                    font: 1rem/1.875rem "robotoregular", Arial, Helvetica, sans-serif;
+                    margin: 20px 0;
+                    display: inline-block;
+                    transition: all 0.5s ease;
+                    -webkit-transition: all 0.5s ease;
+
+                    &:last-child {
+                        border: none;
+                    }
+
+
+                    &:before {
+                        font-family: FontAwesome;
+                        font-size: 1.7rem;
+                        margin-right: 10px;
+                        vertical-align: middle;
+                        margin-left:10px;
+
+                        @include respond-to-max($tabletSize) {
+                            font-size: 1.5rem;
+                        }
+
+                        @include respond-to-max($phonePortrait) {
+                            font-size: 1.1rem;
+                            margin-right: 7px;
+                            margin-left: 3px;
+                        }
+                    }
+
+                    &.blog-list-articles__article-meta__category:before {
+                        content: "\f07b";
+                    }
+
+                    &.blog-list-articles__article-meta__author:before {
+                        content: "\f007";
+                    }
+
+                    &.blog-list-articles__article-meta__comment:before {
+                        content: "\f086";
+                    }
+
+                    &:first-child {
+                        &:before {
+                            margin-left: 0;
+                        }
+                    }
+
+                    @include respond-to-max($desktopSize) {
+                        font-size: 0.875rem;
+                    }
+
+                    @include respond-to-max($tabletSize) {
+                        font-size: 0.75rem;
+                        line-height: 1.1rem;
+                    }
+
+                    @include respond-to-max($phonePortrait) {
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        padding-right: 7px;
+
+                        .comment-text {
+                            display: none;
+                        }
+                    }
+
+                    &:hover {
+                        color: #282828;
+                    }
+                }
+                p {
+                    color:#6a7885;
+                }
+            }
+        }
+
+        .blog-list-articles__article-thumbnail {
+            position: relative;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 310px;
+            overflow: hidden;
+            margin-bottom: 10px;
+
+            @include respond-to-max($desktopSize) {
+                height: 210px;
+            }
+
+            @include respond-to-max($phonePortrait) {
+                height: 130px;
+            }
+
+            a {
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    transition: all 0.5s ease;
+                    -webkit-transition: all 0.5s ease;
+                    opacity: 0;
+                }
+
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .blog-list-articles__article-date {
+                padding: 20px;
+                background-color: #f8cd3b;
+                color: #282828;
+                display: inline-block;
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                -webkit-transform: translate(0, -50%);
+                left: 0;
+                z-index: 1;
+                text-align: center;
+                width: 150px;
+                height: 150px;
+
+                @include respond-to-max($desktopSize) {
+                    padding: 15px;
+                    width: 100px;
+                    height: 100px;
+                }
+
+                @include respond-to-max($phonePortrait) {
+                    padding: 10px;
+                    width: 70px;
+                    height: 70px;
+                }
+
+                span {
+                    display: block;
+                    text-align: center;
+                }
+
+                .blog-list-articles__article-date__day {
+                    font-family: "robotobold", Arial, Helvetica, sans-serif;
+                    font-size: 5.5rem;
+                    line-height: 5rem;
+
+                    @include respond-to-max($desktopSize) {
+                        font-size: 3.75rem;
+                        line-height: 3.25rem;
+                    }
+
+                    @include respond-to-max($phonePortrait) {
+                        font-size: 2.5rem;
+                        line-height: 2.15rem;
+                    }
+                }
+
+                .blog-list-articles__article-date__monthYear {
+                    font-family: "robotolight", Arial, Helvetica, sans-serif;
+                    font-size: 1.625rem;
+                    line-height: 1.45rem;
+                    @include respond-to-max($desktopSize) {
+                        font-size: 1rem;
+                        line-height: 1.4rem;
+                    }
+
+                    @include respond-to-max($phonePortrait) {
+                        font-size: 0.75rem;
+                        line-height: 1rem;
+                    }
+                }
+            }
+        }
+
+        .blog-list-articles__article-content {
+            .blog-list-articles__article-content__description {
+                font: 1.125rem/1.875rem "robotolight", Arial, Helvetica, sans-serif;
+                color: #6a7885;
+                letter-spacing: -0.2px;
+
+                p {
+                    @include respond-to-min($desktopSize) {
+                        margin-top: 40px;
+                    }
+                }
+            }
+
+            .blog-list-articles__article-content__more-link {
+                font-size: 15px;
+                border: 1px solid #6a7885;
+                border-radius: 2px;
+                padding: 17px 50px;
+                text-transform: uppercase;
+                color: #6a7885;
+                margin: 25px 0;
+                display: inline-block;
+                transition: all 0.5s ease;
+                background: #f4f6f7;
+
+                &:hover {
+                    color: #282828;
+                    background-color: #f8cd3b;
+                    border-color: #f8cd3b;
+                }
+
+                @include respond-to-max($tabletSize) {
+                    padding: 17px 0;
+                    text-align: center;
+                    width: 100%;
+                }
+
+                @include respond-to-max($phonePortrait) {
+                    font-size: 0.9rem;
+                    margin: 10px 0;
+                    padding: 17px 0;
+                }
+            }
+        }
+    }
+
+    .loading-area {
+        text-align: center;
+        display: none;
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .loading-text {
+            font-family: "robotolight", Arial, Helvetica, sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.875rem;
+            color: #6a7885;
+            display: block;
+        }
+    }
+}

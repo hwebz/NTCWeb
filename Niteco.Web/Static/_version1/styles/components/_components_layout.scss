@@ -1,0 +1,136 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    letter-spacing: 0.2px;
+}
+body{
+    overflow: hidden;
+}
+
+.parallax-panel{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: table;
+    min-height: 600px;
+    overflow: hidden;
+
+    .panel-bg{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        z-index: 0;
+        background-size: cover;
+    }
+
+    .panel-content{
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .logo-container{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        z-index: 10;
+    }
+	.panel-logo{
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        z-index: 10;
+		opacity:0.2;
+		cursor:pointer;
+		&:hover{
+			opacity:1;
+		}
+
+        &.fixed-logo{
+            position: fixed;
+        }
+    }
+}
+
+.overflow-hidden{
+    overflow: hidden;
+}
+
+/* text header */
+.block-header-contain{
+    @include respond-to-min($tabletSize) {
+		font-size: $font-size-header-tablet;
+        margin-bottom: 20px;
+	}
+    @include respond-to-min($desktopSize) {
+		font-size: $font-size-header-normal;
+        margin-bottom: 20px;
+	}
+    @include respond-to-min($laptopSize) {
+		font-size: $font-size-header-normal;
+        margin-bottom: 20px;
+	}
+    @include respond-to-min($bigScreen) {
+		font-size: $font-size-header-big;
+        margin-bottom: 50px;
+	}
+
+    &.header-center{
+        text-align: center;
+    }
+    &.header-left{
+        text-align: left;
+    }
+    &.header-right{
+        text-align: right;
+    }
+
+    h2{
+        margin-top: 0px;
+        @include respond-to-min($tabletSize) {
+		    margin-bottom: 10px;
+            padding-top: 10px;
+	    }
+        @include respond-to-min($bigScreen) {
+		    margin-bottom: 15px;
+            padding-top: 15px;
+	    }
+    }
+
+    .normal-text{
+        font-family: 'robotothin', Arial, sans-serif;
+        font-weight: normal;
+    }
+    .bold-text{
+        font-family: 'robotobold', Arial, sans-serif;
+        font-weight: bold;
+    }
+
+    .header-underline{
+        width: 100%;
+        height: $header-underline-height;
+
+        .header-underline-content{
+            background-color: $header-underline-color;
+            width: $header-underline-width;
+            height: $header-underline-height;
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}
+.no-padding-marrgin{
+    padding:0;
+    margin:0;
+}
+
+.animation-object{
+    opacity: 0;
+}

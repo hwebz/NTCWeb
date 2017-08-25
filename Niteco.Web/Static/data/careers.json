@@ -1,0 +1,21 @@
+﻿{
+    "introduction": {
+        "title": "Careers with Us",
+        "subTitle": "At Niteco, work doesn't mean labour.<br/>It means growth."
+    },
+    "description": {
+        "title": "How to Apply",
+        "subTitle": "The application process at Niteco is very straightforward",
+        "description": ""
+    },
+    "description_benefit": {
+        "title": "Why Niteco?",
+        "subTitle": "",
+        "description": "We aim to be an employer of choice - a place where talents inside and outside the country aspire to work at. And we have a lot to offer them in return."
+    },
+    "job_opening": {
+        "title": "Current Job Openings",
+        "subTitle": "",
+        "description":  "Below are working positions up for grabs. We will invite you for an interview if your application meets our requirements."
+    }
+}

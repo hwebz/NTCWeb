@@ -1,0 +1,20 @@
+---
+title: "Index"
+---
+
+<h1>Niteco Website</h1>
+<h2>Pages</h2>
+
+<ul>
+    {{#each views.paths}}
+    <li><a href="/{{path}}">{{id}}</a></li>
+    {{/each}}
+</ul>
+
+<h2>Components</h2>
+
+<ul>
+    {{#each components.paths}}
+    <li><a href="/{{path}}">{{id}}</a></li>
+    {{/each}}
+</ul>

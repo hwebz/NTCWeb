@@ -1,0 +1,37 @@
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@using Niteco.Web
+@using System.Web.Mvc.Html;
+@model PageViewModel<Niteco.ContentTypes.Pages.StartPage>
+
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+}
+<section class="home-container content-container" data-require="base/home">
+    <div class="home-content-wrapper content-wrapper">
+        <h1 class="all-page__header">Niteco</h1>
+        @Html.PropertyFor(x => x.CurrentPage.LeftContentArea, new { Tag = ContentAreaTags.SitePageOnLeft, CustomTag = "div", CssClass = "home-column-left", ChildrenCustomTag = "div", ChildrenCssClass = "home-block-row" })
+        <div class="home-column-right">
+            @if (Model.CurrentPage.RightContentArea != null && Model.CurrentPage.RightContentArea.Items.Any())
+            {
+                for (int i = 0; i < Model.CurrentPage.RightContentArea.Items.Count; i++)
+                {
+                    var item = Model.CurrentPage.RightContentArea.Items[i];
+                    var sitePage = contentLoader.Get<SitePageData>(item.ContentLink);
+                    sitePage.TeaserOrder = i;
+                    @Html.Html("<div class='home-block-row'>", i%2 == 0)
+                    {
+                        Html.RenderPartial("SitePageOnRight", sitePage);
+                    }
+                    @Html.Html("</div>", i%2 == 1)
+                    ;
+                }
+            }
+        </div>
+    </div>
+
+</section>
+        
+       

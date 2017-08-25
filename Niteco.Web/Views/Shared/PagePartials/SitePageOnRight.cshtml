@@ -1,0 +1,85 @@
+﻿@model SitePageData
+@{
+    var background = Model.TeaserBackgroundImage ?? Model.BackgroundImage;
+    var titleClass = string.Empty;
+    switch (Model.TeaserOrder)
+    {
+        case 0:
+            titleClass = "home-color-block-item__service-text";
+            break;
+        case 1:
+            titleClass = "home-color-block-item__our-team-text";
+            break;
+                   
+        case 2:
+            titleClass = "home-color-block-item__our-work-text";
+            break;
+
+        case 3:
+            titleClass = "home-color-block-item__engagement-text";
+            break;
+        case 4:
+            titleClass = "home-color-block-item__contact-us-text";
+            break;
+
+        case 5:
+            titleClass = "home-color-block-item__charity-text";
+            break;
+    }
+}
+<div class="home-block-item home-color-block-item">
+
+    <a href="@Url.ContentUrl(Model.ContentLink)" title="">
+        <span class="home-color-block-item__background" style="background-image: url('@Url.ContentUrl(background)')"></span>
+        <span class="home-color-block-item__background home-color-block-item__background-hover" style="background-image: url('@Url.ContentUrl(Model.HoverImage)')"></span>
+
+        <div class="home-color-block-item__content-container">
+            <div class="home-color-block-item__content">
+                <span class="home-block-animation-container">
+                    @if (Model.TeaserOrder == 0)
+                    {
+                        <span class="home-block__icon-computer">
+                            <span class="home-block__icon-spin-big"></span>
+                        </span>
+                        <span class="home-block__icon-mobile">
+                            <span class="home-block__icon-spin-small"></span>
+                        </span>
+                    }
+                    @if (Model.TeaserOrder == 1)
+                    {
+                        <span class="home-block__icon-puzzle-white"></span>
+                        <span class="home-block__icon-puzzle-blue"></span>
+                        <span class="home-block__line-separate"></span>
+                        <span class="home-block__icon-puzzle-yellow"></span>
+                        <span class="home-block__icon-puzzle-orange"></span>
+                    }
+                    @if (Model.TeaserOrder == 2)
+                    {
+                        <span class="home-block__icon-our-work-board"></span>
+                          <span class="home-block__icon-our-work-mobile"></span>
+                          <span class="home-block__icon-our-work-pencil"></span>
+                    }
+                    @if (Model.TeaserOrder == 3)
+                    {
+                        <span class="home-block__icon-engage-paper"></span>
+                    }
+                    @if (Model.TeaserOrder == 4)
+                    {
+                         <span class="home-block__icon-envelope-behind"></span>
+                          <span class="home-block__icon-envelope-paper-container">
+                              <span class="home-block__icon-envelope-paper"></span>
+                          </span>
+                          <span class="home-block__icon-envelope-in-front-of"></span>
+                    }
+                    @if (Model.TeaserOrder == 5)
+                    {
+                        <span class="home-block__icon-charity"></span>
+                    }
+                </span>
+                <h2 class="home-color-block-item__content__text @titleClass">
+                    @Model.TeaserTitle
+                </h2>
+            </div>
+        </div>
+    </a>
+</div>

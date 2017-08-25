@@ -1,0 +1,15 @@
+﻿@model EPiServer.XForms.Parsing.TextareaFragment
+<div class="col-xs-12">
+
+    @if (Model.Required)
+        {
+        @Html.TextArea(Model.Reference, Model.Value, Model.Rows, Model.Columns, new { @class = "input__field input__field--contact", required = "required", placeholder = @String.IsNullOrEmpty(Model.Label) ? Model.Title : Model.Label, maxlength = "4000" })
+        }
+        else
+        {
+        @Html.TextArea(Model.Reference, Model.Value, Model.Rows, Model.Columns, new { @class = "input__field input__field--contact", placeholder = @String.IsNullOrEmpty(Model.Label) ? Model.Title : Model.Label, maxlength = "4000" })
+        }
+    @*@Html.ValidationMessage(Model.Reference, Model.Title, new { @class = "error" })*@
+</div>
+
+

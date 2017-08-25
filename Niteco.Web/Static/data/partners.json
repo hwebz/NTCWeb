@@ -1,0 +1,34 @@
+﻿{
+    "introduction": {
+        "title": "Our Technologies",
+        "subTitle": "A world-class software development company<br/>on the rise"
+    },
+
+    "description": {
+        "title": "Our Technology Partners",
+        "description": "Customized, tailored, unique technology services is exactly what the global team of experts at Niteco strives for. Our clients range from rising mobile app makers, to award-winning wineries, to market-leading newspapers."
+    },
+    "data": [
+        {
+            "image": "/img/partner1.png"
+        },
+        {
+            "image": "/img/partner2.png"
+        },
+        {
+            "image": "/img/partner3.png"
+        },
+        {
+            "image": "/img/partner4.png"
+        },
+        {
+            "image": "/img/partner5.png"
+        },
+        {
+            "image": "/img/partner6.png"
+        },
+        {
+            "image": "/img/partner7.png"
+        }
+    ]
+}

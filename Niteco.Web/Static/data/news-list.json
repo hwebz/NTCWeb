@@ -1,0 +1,84 @@
+﻿{
+  "introduction": {
+    "title": "News",
+    "subTitle": "Up-to-date News, Conferences, Charity events.<br />Let us tell our own stories"
+  },
+
+  "description": {
+    "title": "2016 Microsoft Worldwide Partner Conference",
+    "subTitle": "at Toronto, Canada - with Niteco Attendance in",
+    "time": {
+      "days": "102",
+      "hours": "16",
+      "minutes": "45",
+      "seconds": "55",
+      "buttonText": "Agenda"
+    }
+  },
+  "articles": {
+    "first": {
+      "title": "3 ways to be just pushy enough on mobile",
+      "summaryDesc": "We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every.",
+      "buttonText": "Read more",
+      "thumbnail": {
+        "screen992": "/img/news-list-article-thumbnail-1-992.jpg",
+        "screen1200": "/img/news-list-article-thumbnail-1-1200.jpg",
+        "standard":  "/img/news-list-article-thumbnail-1.jpg"
+      },
+      "date": {
+        "day": "28",
+        "month": "Apr",
+        "year": "2016"
+      }
+    },
+    "second": {
+      "title": "\"A good mentor doesn’t tell you what to do—they help you think through problems.\"",
+      "summaryDesc": "We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be...",
+      "buttonText": "Read more",
+      "thumbnail": {
+        "screen992": "/img/news-list-article-thumbnail-2-992.jpg",
+        "screen1200": "/img/news-list-article-thumbnail-2-1200.jpg",
+        "standard":  "/img/news-list-article-thumbnail-2.jpg"
+      },
+      "date": {
+        "day": "15",
+        "month": "Mar",
+        "year": "2016"
+      }
+    },
+    "third": {
+      "title": "UX designers have two goals: help the user, and help the business.",
+      "summaryDesc": "We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be flexible and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every we aim to be flexibletransparent, agile, and responsive to a project's every",
+      "buttonText": "Read more",
+      "thumbnail": {
+        "screen992": "/img/news-list-article-thumbnail-3-992.jpg",
+        "screen1200": "/img/news-list-article-thumbnail-3-1200.jpg",
+        "standard":  "/img/news-list-article-thumbnail-3.jpg"
+      },
+      "date": {
+        "day": "03",
+        "month": "Mar",
+        "year": "2016"
+      }
+    },
+    "fourth": {
+      "title": "Reasons are excuses. If something is important enough, you can make it happen.",
+      "summaryDesc": "We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be flexible...",
+      "buttonText": "Read more",
+      "thumbnail": {
+        "screen992": "/img/news-list-article-thumbnail-4-992.jpg",
+        "screen1200": "/img/news-list-article-thumbnail-4-1200.jpg",
+        "standard":  "/img/news-list-article-thumbnail-4.jpg"
+      },
+      "date": {
+        "day": "07",
+        "month": "Feb",
+        "year": "2016"
+      }
+    },
+    "loading": {
+      "text": "More items are coming...",
+      "image": "/img/loading.gif"
+    }
+  }
+}

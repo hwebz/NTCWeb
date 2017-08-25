@@ -1,0 +1,44 @@
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using EPiServer.Web.Routing
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.OurValuesBlock
+
+<section class="about-group__content-container section-our-values" style="background-image: url('/img/values-bg.jpg')">
+    <div class="our-values-container container">
+        <div class="our-value-header">
+            <h2>Our Values</h2>
+            <div class="yellow-divider"></div>
+        </div>
+        @if (PageEditing.PageIsInEditMode)
+        {
+            @*@Html.PropertyFor(m => m.ValueItems, new
+                    {
+                        Tag = ContentAreaTags.NoWrappersContentArea,
+                    })*@
+            @Html.PropertyFor(m => m.ValueItems)
+        }
+        else
+        {
+            var contentRepository = ServiceLocator.Current.GetInstance<IContentRepository>();
+            if (Model != null && Model.ValueItems != null && Model.ValueItems.Items.Any())
+            {
+                var ourValueItems = Model.ValueItems.Items.Select(contentItem => contentRepository.Get<OurValueItemBlock>(contentItem.ContentLink));
+
+                var indexNumber = 1;
+                foreach (var ourValueItem in ourValueItems)
+                {
+                    var viewModel = new ItemViewModel<OurValueItemBlock>(ourValueItem, @indexNumber);
+                    Html.RenderPartial("OurValueItemPartialBlock", viewModel);
+                    
+                    indexNumber++;
+                }
+
+
+            }
+        }
+    </div>
+
+</section>
+

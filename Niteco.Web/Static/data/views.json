@@ -1,0 +1,17 @@
+﻿{
+    "paths": [
+        { "id": "Home Page", "path": "Static/compiled/pages/home.html" },
+        { "id": "About Us", "path": "Static/compiled/pages/about-us.html" },
+        { "id": "Our Works", "path": "Static/compiled/pages/our-works.html" },
+        { "id": "Our Team", "path": "Static/compiled/pages/our-team.html" },
+        { "id": "Contact us", "path": "Static/compiled/pages/contact-us.html" },
+        { "id": "Services", "path": "Static/compiled/pages/services.html" },
+        { "id": "Careers", "path": "Static/compiled/pages/careers.html" },
+        { "id": "How we work", "path": "Static/compiled/pages/how-we-work.html" },
+        { "id": "Our Partner", "path": "Static/compiled/pages/partners.html" },
+        { "id": "News list", "path": "Static/compiled/pages/news-list.html" },
+        { "id": "News detail", "path": "Static/compiled/pages/news-detail.html" },
+        {"id" : "Blog list", "path": "Static/compiled/pages/blog-list.html"},
+        { "id": "Blog detail", "path": "Static/compiled/pages/blog-detail.html" }
+    ]
+}

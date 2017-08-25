@@ -1,0 +1,83 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@model NewsListingViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+<div class="content-container news-list-page" data-require="base/news-list-endless-scroll">
+    <div class="news-list-wrapper content-wrapper">
+        @*{{> _social-share}}*@
+        @{Html.RenderPartial("StickySocialSharing", Model.CurrentPage);}
+        @*{{> _page-introduction news-list.introduction}}*@
+        <section class="page-introduction-container">
+            <div class="page-introduction-top-block" data-require="base/page-introduction">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <span class="yellow-divider"></span>
+                    <div class="page-introduction-top-block__content__sub-title">
+						<p>@Html.PropertyFor(x => x.CurrentPage.ShortDescription)</p>
+					</div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        @*{{> _news-list-articles news-list.articles}}*@
+        @if (Model.NewsDetailPages != null && Model.NewsDetailPages.Any())
+        {
+            <div class="news-list-articles__title-container" data-required="base/news-list-endless-scroll.">
+                <div class="container">
+                    <div id="news-list-articles__content">
+                        @Html.Partial("_NewsItems", Model)
+                    </div>
+                    <div id="next" class="loading-area">
+                        <img src="@Url.ContentUrl(Model.CurrentPage.LoadingImage)" alt="Loading..." />
+                        <span class="loading-text">@Html.PropertyFor(x => x.CurrentPage.LoadingText)</span>
+                    </div>
+                </div>
+            </div>
+        }@*{{> news-list-footer}}*@
+        @if (Model.CurrentPage.BottomContentArea != null && Model.CurrentPage.BottomContentArea.Items.Any())
+        {
+            <section class="home-block-row news-list-footer container-zindex-one" data-require="base/click-item">
+                @{
+                    var total = Model.CurrentPage.BottomContentArea.Items.Count > 2 ? 2 : Model.CurrentPage.BottomContentArea.Items.Count;
+                    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+                    for (var i = 0; i < total; i++)
+                    {
+                        var item = Model.CurrentPage.BottomContentArea.Items[i];
+                        SitePageData page;
+                        if (contentLoader.TryGet<SitePageData>
+                            (item.ContentLink, out page))
+                        {
+                            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__dark-bg'>", i == 0)
+                            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__bright-bg'>", i == 1)
+                            Html.RenderPartial("SitePageOnBottom", page);
+                            @Html.Html("</div>", true)
+                        }
+                    }
+                }
+            </section>
+                    }
+                    @*{{> _footer}}*@
+                    @{ Html.RenderPartial("Footer", Model); }
+                </div>
+            </div>

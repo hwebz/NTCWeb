@@ -1,0 +1,16 @@
+@using Niteco.Common.Consts
+@using Niteco.Web
+@model PageViewModel<Niteco.ContentTypes.Pages.HtmlPage>
+
+@{
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";   
+}
+
+<section class="about-container content-container">
+    <div class="about-content-wrapper content-wrapper">
+        @Html.Raw(Model.CurrentPage.MainBody)
+        @Html.PropertyFor(x => x.CurrentPage.MainContent)
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</section>

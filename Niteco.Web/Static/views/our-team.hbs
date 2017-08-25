@@ -1,0 +1,16 @@
+﻿---
+title: "Our team page"
+---
+{{> _loading }}
+{{> top_navigator }}
+<div class="page-wrapper">
+    <div class="content-container our-team-page" data-require="base/our-team-page">
+        <div class="our-team-wrapper content-wrapper">
+            {{> _social-share}}
+            {{> _page-introduction our_team.introduction}}
+            {{> list-our-team}}
+			{{> our-team-footer}}
+            {{> _footer}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model NisButtonBlock
+<div>
+    <div class="nis-intro">
+        
+        <picture>
+            <source media="(min-width: 62rem and (orientation: portrait))" srcset="/img/ipad-diagram.jpg">
+            <source media="(min-width: 48rem) and (orientation: portrait)" srcset="/img/tablet-diagram.jpg">
+            <source media="(min-width: 20rem) and (orientation: portrait)" srcset="/img/mobile-diagram.jpg">
+            <img src="/img/nis-intro.png" alt="Nis Introduce" />
+        </picture>
+    </div>
+    <div class="service-contact__container">
+
+        <div class="container">
+            <div class="row nis-infor ">
+                <div class="col-xs-12 col-sm-9 info">
+                        @Html.PropertyFor(x => x.Description)
+                </div>
+                <div class="col-xs-12 col-sm-3 button-list clear" data-require="base/button-prettyphoto">
+                    <a href="@Url.ContentUrl(@Model.ButtonLink)" target="_blank" class="download-brochure">
+                        <span></span>@Html.PropertyFor(x => x.ButtonText)
+                    </a>
+                    <a href="@Url.ContentUrl(@Model.Button2Link)" class="take-video-tour" rel="prettyPhoto">
+                        <span></span>@Html.PropertyFor(x => x.Button2Text)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

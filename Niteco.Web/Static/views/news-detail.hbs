@@ -1,0 +1,18 @@
+﻿---
+title: "News Detail"
+---
+{{> _loading }}
+{{> top_navigator }}
+<div class="page-wrapper">
+    <div class="content-container news-detail-page" data-require="base/common-page-animation">
+        <div class="news-detail-wrapper content-wrapper">
+            {{> _social-share}}
+            {{> _news-detail-introduction news-detail.introduction}}
+            {{> _news-detail-article news-detail.article}}
+            {{> _related-articles news-detail.relatedArticles}}
+            {{> _subscribe-newsletters news-detail.subscribe}}
+            {{> news-list-footer}}
+            {{> _footer}}
+        </div>
+    </div>
+</div>

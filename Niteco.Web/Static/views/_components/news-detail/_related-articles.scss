@@ -1,0 +1,147 @@
+﻿.news-detail-related-articles__container {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 15px 0 70px 0;
+
+    @include respond-to-max($tabletSize) {
+        padding-top: 15px;
+        padding-bottom: 30px;
+    }
+
+    .news-detail-related-articles__title {
+        margin-bottom: 40px;
+        h2 {
+            font: 2.25rem/3rem "robotobold", Arial, Helvetica, sans-serif;
+            margin: 0 0 10px 0;
+            text-transform: capitalize;
+
+            @include respond-to-max($desktopSize) {
+                font-size: 2.25rem;
+                line-height: 3.125rem;
+                margin-bottom: 25px;
+            }
+            
+            @include respond-to-max($phonePortrait) {
+                font-size: 2.05rem;
+                line-height: 3.125rem;
+            }
+        }
+
+        @include respond-to-max($tabletSize) {
+			text-align: center;
+            .yellow-divider {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .news-related-articles__article {
+        @include respond-to-max($tabletSize) {
+            margin-bottom: 40px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .news-detail-releated-articles__article-thumbnail {
+            position: relative;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 270px;
+
+            @include respond-to-max($desktopSize) {
+                height: 150px;
+            }
+
+            @include respond-to-max($tabletSize) {
+                height: inherit;
+            }
+
+            .news-detail-article__meta {
+                padding: 15px;
+                background-color: #f8cd3b;
+                color: #282828;
+                display: inline-block;
+                position: absolute;
+                top: 38px;
+                left: 0;
+                z-index: 1;
+
+                span {
+                    display: block;
+                    text-align: center;
+                }
+
+                @include respond-to-min-max($tabletSize, $desktopSize) {
+                    top: 25px;
+                }
+
+                .news-detail-article__meta-date {
+                    font-family: "robotobold", Arial, Helvetica, sans-serif;
+                    font-size: 3rem;
+                    line-height: 2.25rem;
+                }
+
+                .news-detail-article__meta-monthYear {
+                    font-family: "robotolight", Arial, Helvetica, sans-serif;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                }
+
+                /*@include respond-to-max($desktopSize) {
+                    transform: translate(0, -50%);
+                    top: 50%;
+                }*/
+            }
+
+            a {
+                img {
+                    max-width: 100%;
+                    width: 100%;
+                }
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    background-color: rgba(0, 0, 0, 0.4);
+                    width: 100%;
+                    height: 100%;
+                    display: block;
+                    top: 0;
+                    left: 0;
+                    transition: all 0.5s ease;
+                    opacity: 0;
+                }
+
+                &:hover {
+                    &:after {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .news-detail-related-articles__article-title {
+            h2 {
+                font-size: 1.5rem;
+                line-height: 2.25rem;
+                
+                a {
+                    color: #515152;
+
+                    &:hover {
+                        color: #282828;
+                    }
+                }
+
+                @include respond-to-max($desktopSize) {
+                    font-size: 1.1rem;
+                    line-height: 1.5rem;
+                }
+            }
+        }
+    }
+}

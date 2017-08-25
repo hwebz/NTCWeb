@@ -1,0 +1,86 @@
+﻿@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@using Niteco.Common.Data
+@model IPageViewModel<OurWorkPage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layouts/_Root.cshtml";
+
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var mediumImage = Model.CurrentPage.MediumBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.MediumBackgroundUrl;
+    var smallImage = Model.CurrentPage.SmallBackgroundUrl == null ? Model.CurrentPage.BackgroundImage : Model.CurrentPage.SmallBackgroundUrl;
+    var retinaImageUrl = Url.ContentUrl(mediumImage);
+    if (retinaImageUrl.Contains("tablet"))
+    {
+        retinaImageUrl = retinaImageUrl.Replace("tablet", "tablet_2x");
+    }
+}
+
+<div class="content-container our-works-page" data-require="base/our-works">
+    <div class="our-works-wrapper content-wrapper">
+        <section class="page-introduction-container" >
+            <div data-require="base/page-introduction" class="page-introduction-top-block">
+                <div class="page-introduction-top-block__background page-introduction__background">
+                    <picture @Html.EditAttributes(m => m.CurrentPage.BackgroundImage)>
+                        <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1900">
+                        <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(@Model.CurrentPage.BackgroundImage)?preset=1300">
+                        <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(@mediumImage)?preset=1000, @retinaImageUrl?preset=1900 2x">
+                        <img src="@Url.ContentUrl(@smallImage)?preset=800" alt="@Model.CurrentPage.Heading" />
+                    </picture>
+                </div>
+                <div class="page-introduction-top-block__content page-introduction__content" style="margin-top: 0px; opacity: 1;">
+                    <h1>@Html.PropertyFor(x => x.CurrentPage.Heading)</h1>
+                    <div class="yellow-divider"></div>
+                    <div class="page-introduction-top-block__content__sub-title">
+                        @Html.PropertyFor(x => x.CurrentPage.ShortDescription)
+                    </div>
+                </div>
+                <div class="page-introduction-top-block__arrow-down page-introduction__arrow">
+                    <i class="fa fa-angle-down"></i>
+                </div>
+            </div>
+        </section>
+        <section class="parallax-panel project-gallery container-zindex-one">
+            @if (PageEditing.PageIsInEditMode)
+            {
+                @Html.PropertyFor(x => x.CurrentPage.ProjectsContentArea, new { CustomTag = "ul", CssClass = "list-projects", ChildrenCustomTagName = "li", ChildrenCssClass = "project-item checking-animate fade-in" })
+            }
+            else
+            {
+                <ul class="list-projects">
+                    @foreach (var page in Model.CurrentPage.ProjectsContentArea.Items)
+                    {
+                        <li class="project-item checking-animate inactive fade-in" data-url="@Url.ContentUrl(page.ContentLink)">
+                            @{
+                                var caseStudyPage = contentLoader.Get<CaseStudyPage>(page.ContentLink);
+                                Html.RenderPartial("CaseStudyPagePartial", caseStudyPage);
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+
+
+        </section>
+        <section class="testimonial-container popular-container checking-animate fade-in" style="background-image: url('/img/testimonial-bg-2.png')">
+            <div class="testimonial-container__header">
+                <h2 class="header-title-section">@Html.Translate("/niteco/ourworkpage/whatclientssay")</h2>
+                <div class="yellow-divider"></div>
+                <div class="img__quote"></div>
+            </div>
+            <div class="testimonial_content" data-require="base/carousel-slider">
+                @Html.PropertyFor(m => m.CurrentPage.ClientQuotesContentArea, new { CssClass = "testimonial-carousel-container", ChildrenCssClass = "testimonial-panel" })
+            </div>
+        </section>
+        @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+</div>
+
+
+
+
+
+

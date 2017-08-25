@@ -1,0 +1,30 @@
+﻿@model Niteco.ContentTypes.Blocks.PeopleBlock
+<article class="__award award" data-award-id="@Model.PersonName">
+    <div class="__award-logo-container">
+        <div class="__award-logo">
+            <picture @Html.EditAttributes(m => m.PersonImage)>
+                <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.PersonImage)?preset=1900">
+                <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.PersonImage)?preset=1300">
+                <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.PersonImage)?preset=1000">
+                <img class="__award-logo" src="@Url.ContentUrl(Model.PersonImage)?preset=800" alt="@Model.PersonName" />
+            </picture>
+        </div>
+
+        <div class="__award-category">
+            <div class="__award-category__contents">
+                <i class="fa fa-fw __award-btn"></i>
+                <b>@Html.PropertyFor(x => x.PersonName)</b>
+                <span>@Html.PropertyFor(x => x.StaffTitle)</span>
+            </div>
+        </div>
+    </div>
+</article>
+
+@*<div class="award-details __details" data-award-id="@Model.PersonName">
+    <div class="__container">
+        <h4 class="__title">@Model.PersonName</h4>
+        <div class="__desc">
+            @Html.Raw(Model.Description)
+        </div>
+    </div>
+</div>*@

@@ -1,0 +1,26 @@
+﻿<div class="subscribe-newsletters__container" data-require="base/newsletter-form">
+    <div class="container">
+        <div class="subscribe-newsletters__title">
+            <h2>{{title}}</h2>
+            <div class="subscribe-newsletters__description">
+                <p>{{description}}</p>
+            </div>
+            <div class="yellow-divider"></div>
+        </div>
+        <div class="subscribe-newsletters__form">
+            <form id="newsletter-mailchimp-form" action="http://niteco.us13.list-manage.com/subscribe/post" method="post">
+                <input type="hidden" name="u" value="2ab54997b707af88444e53881" />
+                <input type="hidden" name="id" value="8fac177a7e" />
+                <div class="input">
+                    <input class="subscribe-newsletters__form-email-field" type="text" name="EMAIL" id="mce-EMAIL" placeholder="your email address" />
+                </div>
+                <div class="input">
+                    <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                    <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings[" ReCaptchaSiteKey"]"></div>
+                </div>
+                <input type="submit" id="mc-embedded-subscribe" class="subscribe-newsletters__form-submit" value="{{buttonText}}" />
+            </form>
+            <p class="thank-you"></p>
+        </div>
+    </div>
+</div>

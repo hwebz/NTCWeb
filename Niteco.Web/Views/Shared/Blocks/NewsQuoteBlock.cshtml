@@ -1,0 +1,11 @@
+﻿@model NewsQuoteBlock
+
+<div class="col-xs-12 col-sm-12 col-md-6">
+    <img src="@Url.ContentUrl(Model.Image)" />
+</div>
+<div class="col-xs-12 col-sm-12 col-md-6">
+    <blockquote>
+        @Html.PropertyFor(x => x.Quote)
+    </blockquote>
+    @Html.PropertyFor(x => x.SubQuote)
+</div>

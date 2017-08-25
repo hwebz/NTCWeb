@@ -1,0 +1,120 @@
+﻿.partner-technology-container {
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+    background-color: #fff;
+
+    .partner-technology__bg {
+        @include image-cover-center-center();
+        height: 100%;
+
+        &__mobile {
+            @include respond-to-min($tabletSize) {
+                display: none;
+            }
+        }
+
+        &__tablet {
+            display: none;
+
+            @include respond-to-min($tabletSize) {
+                display: block;
+            }
+
+            @include respond-to-min($desktopSize) {
+                display: none;
+            }
+        }
+
+        &__desktop {
+            display: none;
+
+            @include respond-to-min($desktopSize) {
+                display: block;
+            }
+        }
+    }
+
+    .page-description__title-container {
+        background: none;
+        padding-bottom: 30px;
+
+        @include respond-to-min($tabletSize) {
+            padding-bottom: 50px;
+        }
+
+        @include respond-to-min($desktopSize) {
+            padding-bottom: 70px;
+        }
+
+        .container {
+            padding-left: 35px;
+            padding-right: 35px;
+        }
+    }
+
+    .partner-listing-container {
+        padding-bottom: 60px;
+
+        @include respond-to-min($desktopSize) {
+            padding-bottom: 120px;
+        }
+    }
+
+    .partner-item {
+        &__column {
+            padding: 0 10px;
+        }
+
+        &__logo {
+            border: 3px solid #f0f1f5;
+            height: 180px;
+            text-align: center;
+            margin: 0 0 20px;
+            display: block;
+            font-size: 0;
+            vertical-align: middle;
+
+            &::before {
+                content: '';
+                height: 100%;
+                display: inline-block;
+                width: 0;
+                vertical-align: middle;
+            }
+
+            img {
+                max-width: 90%;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+
+        &__text {
+            height: 180px;
+            text-align: center;
+            margin: 0 0 20px;
+            background-color: #334350;
+            display: block;
+            font-size: 0;
+            vertical-align: middle;
+
+            &::before {
+                content: '';
+                height: 100%;
+                display: inline-block;
+                width: 0;
+                vertical-align: middle;
+            }
+
+            span {
+                display: inline-block;
+                font-size: 18px;
+                font-family: 'robotobold';
+                color: #fff;
+                text-transform: uppercase;
+                vertical-align: middle;
+            }
+        }
+    }
+}

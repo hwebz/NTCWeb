@@ -1,0 +1,24 @@
+﻿---
+title: "Home Item"
+---
+
+<a href="{{this.url}}" title="">
+    <span class="home-block-item__background">
+        <picture>
+            <source media="(min-width: 75rem)" srcset="{{this.background}}?preset=1900">
+            <source media="(min-width: 62rem)" srcset="{{this.background}}?preset=1300">
+            <source media="(min-width: 48rem)" srcset="{{this.background}}?preset=1000">
+            <img class="home-block-item__background" src="{{this.background}}?preset=800" alt="{{this.smallText}} {{this.largeText}}">
+        </picture>
+    </span>
+    <span class="home-block-item__content-container">
+        <span class="home-block-item__content">
+            <span class="home-block-item__small-text">{{this.smallText}}</span>
+            <span class="home-block-item__big-text">{{this.largeText}}</span>
+        </span>
+
+        <span class="home-block-item__content-second">
+            {{this.description}}
+        </span>
+    </span>
+</a>

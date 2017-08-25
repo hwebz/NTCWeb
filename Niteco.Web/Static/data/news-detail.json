@@ -1,0 +1,49 @@
+﻿{
+  "introduction": {
+    "title": "News",
+    "description": "<a href='#'><span class='fa fa-angle-left'></span>View all</a>" 
+  },
+  "article": {
+    "title": "We actualize your concepts and ideas with<br />rock-solid technology",
+    "date": {
+      "day": "28",
+      "month": "Apr",
+      "year": "2016"
+    }
+  },
+  "relatedArticles": {
+    "title": "More from niteco",
+    "first": {
+      "title": "News title here, It could be longer if needed",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "30",
+        "month": "Apr",
+        "year": "2016"
+      }
+    },
+    "second": {
+      "title": "News title here",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "30",
+        "month": "Apr",
+        "year": "2016"
+      }
+    },
+    "third": {
+      "title": "News title here",
+      "image": "/img/related-articles-thumbnail.jpg",
+      "date": {
+        "day": "30",
+        "month": "Apr",
+        "year": "2016"
+      }
+    }
+  },
+  "subscribe": {
+    "title": "Subscribe for our newsletters",
+    "description": "We only send greate stuff",
+    "buttonText":  "subscribe"
+  }
+}

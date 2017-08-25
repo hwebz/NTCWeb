@@ -1,0 +1,112 @@
+.job-details-sections {
+    padding: 50px 0;
+    background: #f9fafb;
+
+    @include respond-to-max($phoneLandscape) {
+         padding:0;
+    }
+
+    .job-details {
+		&:first-of-type p{
+			word-spacing : 2px; 
+			letter-spacing : 0.5px;
+		}
+        margin-bottom: 45px;
+        h2 {
+            padding-top: 30px;
+            font-family: 'robotoblack';
+            font-size: rem(36px);
+            color:#282828;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+			font-weight : 500;
+             @include respond-to-max($tabletSize) {
+                 font-size: 1.6rem;
+            }
+        }
+        p {
+            font-family: 'robotolight';
+            font-size: rem(18px);
+            line-height: rem(30px);
+            color: #7d8995;
+            strong, a {
+                font-family: 'robotobold';
+                color: #2f2933;
+            }
+        }
+        h4 {
+            font-family: 'robotolight';
+            font-size: rem(24px);
+            color: #282828;
+			font-weight: normal;
+			margin-bottom : 0;
+            span {
+                font-family : 'robotoregular';
+            }
+        }
+        .job-requires_list {
+            padding: 0;
+            li {
+                list-style: none;
+                padding-left: 35px;
+                background: url('/img/icon-tick.png') no-repeat 10px 10px;
+                font-family: 'robotolight';
+                font-size: rem(16px);
+                line-height: rem(32px);
+				color : #7d8995;
+				letter-spacing : 0.5px;				
+            }
+        }
+        
+    }
+	@include respond-to-min($phonePortrait) {
+		.job-details {
+            h2 {
+                font-size: rem(36px);
+            }
+            h4 {
+                font-size: rem(30px);
+            }
+        }
+    }
+	@include respond-to-min($phoneLandscape) {
+    }
+    @include respond-to-min($tabletSize) {
+    }
+
+    @include respond-to-min($desktopSize) {
+        .job-details {
+            h2 {
+                font-size: rem(36px);
+            }
+            h4 {
+                font-size: rem(30px);
+            }
+        }
+    }
+
+    @include respond-to-min($laptopSize) {
+        .job-details {
+            h2 {
+                font-size: rem(36px);
+            }
+            h4 {
+                font-size: rem(30px);
+            }
+        }
+    }
+}
+
+
+
+.job-details-description{
+	font-size : rem(18px);
+	color : #000;
+	text-indent: 40px;
+}
+
+.job-details-container{
+	.page-description__sub-title{
+		text-transform :lowercase;
+	}
+}

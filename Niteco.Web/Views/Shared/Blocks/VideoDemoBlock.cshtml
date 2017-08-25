@@ -1,0 +1,12 @@
+﻿@model VideoDemoBlock
+<div class="testimonial-container" style="background-image: url(/img/nis-background-video.png)">
+    <div class="nis__container">
+        <h2 class="nis-video__title">Watch The Demo Videos To Learn More</h2>
+        <div class="yellow-divider">
+        </div>
+    </div>
+    <div class="testimonial_content testimonial-carousel__video" data-require="base/carousel-slider">
+        @Html.PropertyFor(m => m.VideoItems, new { CssClass = "testimonial-carousel-container", ChildrenCssClass = "testimonial-panel" })
+    </div>
+</div>
+

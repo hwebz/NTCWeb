@@ -1,0 +1,18 @@
+﻿{
+	"article": {
+      "title": "3 ways to be just pushy enough on mobile",
+      "summaryDesc": "We stand behind every development project as its solid technology foundation - built on skillful people and refined services. In the ever-changing tech scene, we aim to be flexibletransparent, agile, and responsive to a project's every...",
+      "buttonText": "Read more",
+	  "isEnded": "true",
+      "thumbnail": {
+        "screen992": "/img/news-list-article-thumbnail-1-992.jpg",
+        "screen1200": "/img/news-list-article-thumbnail-1-1200.jpg",
+        "standard":  "/img/news-list-article-thumbnail-1.jpg"
+      },
+      "date": {
+        "day": "28",
+        "month": "Apr",
+        "year": "2016"
+      }
+    }
+}

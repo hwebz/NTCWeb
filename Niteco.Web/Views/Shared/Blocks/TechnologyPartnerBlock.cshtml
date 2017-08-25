@@ -1,0 +1,43 @@
+@using EPiServer
+@using EPiServer.Core
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.TechnologyPartnerBlock
+
+@{
+    var animateClass = "checking-animate inactive slide-in-from-bottom";
+}
+
+<div class="partner-technology-container container-zindex-one" style="background-image: url(/img/testimonial-bg-2.png);">
+    <div class="page-description__title-container">
+        <div class="container">
+            <h2 class="page-description__title">
+                @Html.PropertyFor(m => m.Title)
+            </h2>
+            <div class="yellow-divider page-description__yellow-underline">
+            </div>
+            <div class="page-description__description">
+                @Html.PropertyFor(m => m.ShortDescription)
+            </div>
+        </div>
+    </div>
+    <div class="container partner-listing-container">
+        @if (Model.TechnologyPartnerItems != null && Model.TechnologyPartnerItems.Items.Any())
+        {
+            foreach (var partnerItem in Model.TechnologyPartnerItems.Items)
+            {
+                @Html.Partial("Blocks/TechnologyPartnerItemBlock", (TechnologyPartnerItemBlock)partnerItem.GetContent());
+            }
+        }
+
+        <div class="col-xs-12 col-sm-6 col-lg-3 partner-item__column @(PageEditing.PageIsInEditMode ? "" : animateClass)" data-require="base/click-item">
+            <a class="partner-item__text" href="@Url.ContentUrl(Model.BecomeOurPartnerLink)" title="" target="_blank">
+                <span>
+                    @Html.Raw(Model.BecomeOurPartnerText)
+                </span>
+            </a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿{
+    "paths": [
+        { "id": "Our works introduction", "path": "Static/compiled/components/our-works-introduction.html" },
+        { "id": "Our works gallery", "path": "Static/compiled/components/gallery.html" },
+        { "id": "Our works testimonial", "path": "Static/compiled/components/our-works-teestimonial.html" },
+        { "id": "Service introduction", "path": "Static/compiled/components/service-introduction.html" },
+        { "id": "Service listing", "path": "Static/compiled/components/service-listing.html" },
+        { "id": "Service contact", "path": "Static/compiled/components/service-contact.html" },
+        { "id": "Service listing detail", "path": "Static/compiled/components/service-listing-detail.html" },
+        { "id": "Service Technology", "path": "Static/compiled/components/service-technology.html" }
+    ]
+}

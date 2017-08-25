@@ -1,0 +1,5 @@
+﻿{
+    "paths": [
+        { "id": "Home Page", "path": "Static/compiled/pages/home.html" }
+    ]
+}

@@ -1,0 +1,79 @@
+﻿.news-detail-introduction-container {
+    height: 370px;
+
+    .news-detail-introduction__content {
+        top: 60%;
+    }
+
+    .news-detail-introduction-top-block {
+        .page-introduction__background {
+            img {
+                height: initial;
+                width: 101%;
+            }
+        }
+
+        .page-introduction-top-block__content {
+            .page-description__description {
+                display: block;
+                color: #fff;
+                margin-top: 30px;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                font-family: robotolight;
+                opacity: 0.8;
+
+                a {
+                    color: #fff;
+                }
+
+                @include respond-to-min($tabletSize) {
+                    margin-top: 50px;
+                    font-size: 2rem;
+                    line-height: 40px;
+                }
+
+                @include respond-to-min($laptopSize) {
+                    font-size: rem(40px);
+                    line-height: 50px;
+                    margin-top: 0px;
+                 
+                    p {
+                        margin-top: 25px;
+                    }
+                }
+                @include respond-to-max-orientation($phoneLandscape,$landscapeMode) {
+                     margin-top: 0;
+                     p{
+                         margin-top:10px;
+                     }
+                }
+                p {
+                    a {
+                        span.fa-angle-left {
+                            margin-right: 10px;
+			                color: #facd20;
+                            margin-left: -23px;
+                            cursor: pointer;
+                            vertical-align: top;
+			                font-size : 3rem;
+
+                            @include respond-to-min-max($tabletSize, $laptopSize) {
+                                vertical-align: text-bottom;
+                            }
+
+                            @include respond-to-max($desktopSize) {
+                                font-size: 2.5rem;
+                            }
+
+                            @include respond-to-max($tabletSize) {
+                                font-size: 1.5rem;
+                                vertical-align: inherit;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

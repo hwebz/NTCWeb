@@ -1,0 +1,22 @@
+﻿@model NisVerifyByEpiServer
+
+<div class="about-group__content-container about-offices-block__container ">
+    <div class="about-offices-block__bg">
+        <img src="@Url.ContentUrl(Model.ImageBackground)" alt="About office" />
+    </div>
+
+    <div class="about-offices-block__content container-zindex-one checking-animate inactive fade-in">
+        <h3>
+           @Html.PropertyFor(x => x.Title)
+        </h3>        
+    </div>
+    <img class="about-offices-block__image checking-animate inactive fade-in" src="@Url.ContentUrl(Model.ImageUrl)" alt="@Html.PropertyFor(x => x.Title)" />
+    <div class="container container-zindex-one checking-animate inactive fade-in">
+        <div class="about-offices-block__img">
+            <img src="@Url.ContentUrl(Model.ImageUrl)" alt="About office" />
+        </div>
+        <div class="about-offices-block__description checking-animate inactive slide-in-from-right">
+            @Html.PropertyFor(x => x.Decription)
+        </div>
+    </div>
+</div>

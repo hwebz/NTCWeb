@@ -1,0 +1,21 @@
+﻿@using System.Configuration
+@using EPiServer.Shell.Web.Mvc.Html
+@using EPiServer.XForms
+@model EPiServer.XForms.Parsing.SubmitFragment
+
+<div class="col-xs-12 col-sm-6 col-md-6 recaptra">
+        <span class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings["ReCaptchaSiteKey"]"></span>
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6">
+    <button type="submit" class="contactform-submit" name="@Html.Raw(Model.UniqueName)" title="@Html.Raw(Model.Title)">
+        @if (Model.ChannelOptions == ChannelOptions.Email)
+        {
+            <span class="fui-mail">[&gt;]</span>
+        }
+        else
+        {
+        @*@Html.Raw(Model.Value)*@
+            <span>Submit Request</span>
+        }
+    </button>
+</div>

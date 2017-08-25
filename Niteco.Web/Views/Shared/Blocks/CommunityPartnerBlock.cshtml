@@ -1,0 +1,23 @@
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.ServiceLocation
+@using Niteco.Common.Consts
+@model Niteco.ContentTypes.Blocks.CommunityPartnerBlock
+
+<div class="careers-middle-block careers-block community-column-container" style="background-image: url('/img/about_community_bg.jpg');">
+    <div class="container">
+        <div class="community-header">
+            <h2>@Html.PropertyFor(x => x.Title)</h2>
+            <div class="yellow-divider"></div>
+        </div>
+        <div class="row careers-apply-step">
+            @if (!PageEditing.PageIsInEditMode)
+            {
+                @Html.PropertyFor(m => m.CommunityPartnerItems, new { CssClass = "row careers-apply-step", ChildrenCssClass = "col-xs-12 col-sm-4 checking-animate inactive slide-in-from-bottom" })
+            }
+        
+            
+            
+        </div>
+    </div>
+</div>

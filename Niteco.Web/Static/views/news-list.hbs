@@ -1,0 +1,16 @@
+﻿---
+title: "News"
+---
+{{> _loading }}
+{{> top_navigator }}
+<div class="page-wrapper">
+    <div class="content-container news-list-page" data-require="base/news-list-endless-scroll">
+        <div class="news-list-wrapper content-wrapper">
+            {{> _social-share}}
+            {{> _page-introduction news-list.introduction}}
+            {{> _news-list-articles news-list.articles}}
+            {{> news-list-footer}}
+            {{> _footer}}
+        </div>
+    </div>
+</div>

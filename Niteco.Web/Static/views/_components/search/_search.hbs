@@ -1,0 +1,77 @@
+﻿---
+title: "Search"
+---
+<div class="search-container" data-require="base/search" data-action-search="/Static/data/search.json">
+    <!--<div class="seach-box__placeholder">Search...</div>-->
+    <div class="close-button"></div>
+    <div class="container-fluid">
+        <div class="search-form">
+            <input type="text" id="searchBox" class="search-box" placeholder="Search..." />
+		    <img class="img-loading" src="/img/ajax-loader.gif" />
+        </div>
+    </div>
+    <div class="container-fluid search-result">
+
+    </div>
+	<div class="search-showmore-container">
+		<span>Show More</span>
+	</div>
+    <div class="container-fluid search-default">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>Office Location</h3>
+                <a class="search-default__item  search-default__location" href="#" title="">
+                    Ha Noi, Viet Nam
+                </a>
+                <a class="search-default__item  search-default__location" href="#" title="">
+                    Ho Chi Minh, Viet Nam
+                </a>
+                <a class="search-default__item  search-default__location" href="#" title="">
+                    Stockholm, Sweden
+                </a>
+                <a class="search-default__item  search-default__location" href="#" title="">
+                    CA 92260, USA
+                </a>
+                <a class="search-default__item  search-default__location" href="#" title="">
+                    Causeway Bay, Hong Kong
+                </a>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>Popular</h3>
+                <a class="search-default__item search-default__location" href="/{{views.paths.2.path}}" title="">
+                    A popular article
+                </a>
+                <a class="search-default__item search-default__location" href="/{{views.paths.2.path}}" title="">
+                    A popular article
+                </a>
+                <a class="search-default__item search-default__location" href="/{{views.paths.2.path}}" title="">
+                    A popular article
+                </a>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A popular article
+                </a>
+                <a class="search-default__item search-default__location" href=" #" title="">
+                    A popular article
+                </a>              
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-4 search-default__column">
+                <h3>Recent</h3>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A recent search
+                </a>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A recent search
+                </a>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A recent search
+                </a>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A recent search
+                </a>
+                <a class="search-default__item search-default__location" href="#" title="">
+                    A recent search
+                </a>               
+            </div>
+        </div>
+    </div>
+</div>

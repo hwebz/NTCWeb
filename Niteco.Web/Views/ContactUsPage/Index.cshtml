@@ -1,0 +1,144 @@
+@using System.Configuration
+@using System.Web.Razor.Parser
+@using EPiServer
+@using EPiServer.Editor
+@using EPiServer.HtmlParsing
+@using EPiServer.ServiceLocation
+@using EPiServer.XForms.Parsing
+@using EPiServer.XForms.Util
+@using Niteco.Common.Consts
+@using Niteco.Common.Extensions
+@using Niteco.ContentTypes
+@model  ContactUsPageModel
+@{
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    var settingPage = SiteSettingsHandler.Instance.SiteSettings;
+}
+
+<div class="content-container contact-us-page" data-require="base/contact-us-page">
+    <div class="contact-us-wrapper content-wrapper">
+        <h1 class="all-page__header">Contac Us</h1>
+        <h2 class="all-page__header">Contac Us</h2>
+
+        <section class="map-office-section container-zindex-one" data-locations="@Model.Locations">
+            <div id="cd-google-map">
+                <div id="google-container"></div>
+                <div id="cd-zoom-in"></div>
+                <div id="cd-zoom-out"></div>
+            </div>
+        </section>
+
+        @Html.PropertyFor(x => x.CurrentPage.MainContent)
+
+        <section class="section-our-locations container-fluid container-zindex-one">
+            <div class="row location-item">
+                @if (PageEditing.PageIsInEditMode)
+                {
+                    @Html.PropertyFor(x => x.CurrentPage.OfficeItems, new { Tag = ContentAreaTags.NoWrappersContentArea, })
+                }
+                else
+                {
+                    for (int i = 0; i < Model.CurrentPage.OfficeItems.Items.Count; i++)
+                    {
+                        var item = Model.CurrentPage.OfficeItems.Items[i];
+                        var block = contentLoader.Get<OfficeBlock>(item.ContentLink);
+                        var viewModel = new ItemViewModel<OfficeBlock>(block, @i);
+                        viewModel.IndexNumber = i;
+                        Html.RenderPartial("OfficeBlockPartial", viewModel);
+                    }
+                }
+
+            </div>
+        </section>
+        <input type="hidden" value="@ViewBag.Country" id="countryName" />
+        <input type="hidden" value="@ViewBag.PhoneCode" id="phoneCode" />
+        <input type="hidden" value="@ViewBag.ListCountry" id="listCountry" />
+        <input type="hidden" id="currentPage"  value="@Url.PageUrl(Model.CurrentPage.LinkURL)"/>
+
+        <section class="section-our-contact-form container-zindex-one" data-require="base/contact-form">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h3>Here’s Your Ticket to Tech Bliss. Drop Us a Line: </h3>
+                    </div>
+
+                    <div class="col-xs-12">
+                        <span class="thank-message" id="thank-message"> </span>
+                    </div>
+
+                    <div class="col-xs-12" id="ct-form">
+                        <div class="row" id="contact-box">
+                            <img class="img-loading" id="imgLoading" alt="Loading icon" style="display: none;position: absolute;top:50%;left:50%;z-index:10;margin:-70px 0 0 -32px;" src="/img/ajax-loader.gif">
+                            <!--Contact Box-->
+                            <div class="col-xs-12 col-sm-6 col-md-6 contact-column">
+                                <!--Left-->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <span class="input">
+                                            <span class="input__label--top">Full Name</span>
+                                            <input class="input__field input__field--contact" type="text" name="fullname" id="Name" title="Name" />
+                                            <span class="input__label-content input__label-content--contact error-message" id="error-for-Name"></span>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <span class="input">
+                                            <span class="input__label--top">Email Address</span>
+                                            <input class="input__field input__field--contact" type="text" name="email" id="Email" title="Email"/>
+                                            <span class="input__label-content input__label-content--contact error-message" id="error-for-Email"></span>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <span class="input">
+                                            <span class="input__label--top">Phone Number</span>
+                                            <input class="input__field input__field--contact" type="text" name="phone" id="Phone" title="Phone" />
+                                            <span class="input__label-content input__label-content--contact error-message" id="error-for-Phone"></span>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <span class="input__label--top">Country</span>
+                                        <select class="cs-select cs-skin-elastic input" title="Country" id="Country">
+                                            <option value="" disabled="" selected>Select a country</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div><!--Left-->
+
+                            <div class="col-xs-12 col-sm-6 col-md-6 contact-column">
+                                <!--Right-->
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="input">
+                                            <span class="input__label--top">Message</span>
+                                            <textarea class="input__field input__field--contact" title="Message" name="message" id="message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-lg-7 recaptra">
+                                                <script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+                                                <div class="g-recaptcha" data-sitekey="@ConfigurationManager.AppSettings["ReCaptchaSiteKey"]"></div>
+                                                <span class="error-message" id="inValidCapcha"></span>
+                                            </div>
+                                            <div class="col-xs-12 col-lg-5 ">
+                                                <button id="btnSubmit" class="contactform-submit" title="Submit Request">
+                                                    <span>Submit Request</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--Right-->
+
+                        </div><!--Contact Box-->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @{ Html.RenderPartial("Footer", Model); }
+    </div>
+
+    @{Html.RenderPartial("BottomNavigation", Model.CurrentPage);}
+
+
+</div>

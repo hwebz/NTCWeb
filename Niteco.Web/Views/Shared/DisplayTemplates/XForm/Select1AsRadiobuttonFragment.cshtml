@@ -1,0 +1,20 @@
+﻿@using EPiServer.XForms.Parsing
+@model Select1Fragment
+
+<div class="control-group @(Model.Class) orientation@(Model.Orientation) clearfix">
+    @if (!string.IsNullOrEmpty(Model.Label))
+    {
+        <div class="control-label">@Model.Label</div>
+    }
+    <div class="form-group">
+        @foreach (SelectOption selectoption in Model.Options)
+        {
+            <div class="select-item radio">
+                @Html.RadioButton(Model.Reference, Server.HtmlDecode(selectoption.Value) ?? string.Empty, selectoption.SelectedItem, new { id = selectoption.Id })
+                <label class="control-label" for="@selectoption.Id">@Html.Raw(selectoption.Text)</label>
+            </div>
+        }
+        @Html.ValidationMessage(Model.Reference, Model.Title, new { @class = "error" })
+    </div>
+</div>
+

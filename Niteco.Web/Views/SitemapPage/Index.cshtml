@@ -1,0 +1,23 @@
+﻿@using EPiServer.Core
+@model IPageViewModel<SitemapPage>
+@{
+    Layout = null;
+}
+
+@{
+    var root = SitemapHelpers.Root;
+}
+<div class="bigTitle">
+    <h1>@Model.CurrentPage.DisplayName</h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div id="navigation">
+            @foreach (var i in root.Children)
+            {
+                @Html.Partial("TreeItem", i)
+            }
+        </div>
+    </div>
+</div>

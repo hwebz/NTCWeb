@@ -1,0 +1,45 @@
+﻿@model OfficeBlock
+
+@if (Model.IsInfoLeft)
+{
+    <div class="col-xs-12 col-lg-4">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 no-gutter location-image">
+                <img src="@Url.ContentUrl(Model.OfficeImage)" alt="@Model.OfficeName" />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 no-gutter location-info">
+                <span class="location-title">@Html.PropertyFor(x => x.OfficeName)</span>
+                <span class="location-address">
+                    @Html.PropertyFor(x => x.Address)
+                </span>
+                <div class="contact-info">
+                    <a class="icon-map" href="javascript:void(0);"><i class="fa fa-map-marker"></i>view map</a>
+                    <a href="mailto:@Model.Email" class="iconMail"><i class="fa fa-envelope"></i>@Model.Email</a>
+                    <a href="tel:+8435739623" class="iconTel"><i class="fa fa-phone-square"></i>@Model.Phone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="col-xs-12 col-lg-4">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-sm-push-6 col-lg-push-0 no-gutter location-image">
+                <img src="@Url.ContentUrl(Model.OfficeImage)" alt="@Model.OfficeImage" />
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-sm-pull-6 col-lg-pull-0 no-gutter location-info">
+                <span class="location-title">@Html.PropertyFor(x => x.OfficeName)</span>
+                <span class="location-address">;
+                    @Html.PropertyFor(x => x.Address)
+                </span>
+                <div class="contact-info">
+                    <a class="icon-map" href="javascript:void(0);"><i class="fa fa-map-marker"></i>view map</a>
+                    <a href="mailto:@Model.Email" class="iconMail"><i class="fa fa-envelope"></i>@Model.Email</a>
+                    <a href="tel:+8435739623" class="iconTel"><i class="fa fa-phone-square"></i>@Model.Phone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

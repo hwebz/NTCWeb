@@ -1,0 +1,14 @@
+﻿.blog-detail-content__container {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 100px 0 50px 0;
+
+    @include respond-to-max($desktopSize) {
+        padding-top: 50px;
+    }
+
+    @include respond-to-max($phonePortrait) {
+        padding-top: 40px;
+    }
+}

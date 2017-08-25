@@ -1,0 +1,20 @@
+﻿@model AboutUsOfficeBlock
+<div class="about-group__content-container about-offices-block__container">
+    <div class="about-offices-block__bg" style="background-image: url(@Url.ContentUrl(Model.ImageBackground));"></div>
+
+        <div class="about-offices-block__content container-zindex-one checking-animate inactive fade-in">
+            <h3>@Html.PropertyFor(x => x.Title)</h3>            
+        </div>
+        <picture  @Html.EditAttributes(m => m.ImageUrl)>
+            <source media="(min-width: 75rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1900">
+            <source media="(min-width: 62rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1300">
+            <source media="(min-width: 48rem)" srcset="@Url.ContentUrl(Model.ImageUrl)?preset=1000">
+            <img class="about-offices-block__image checking-animate inactive fade-in" src="@Url.ContentUrl(Model.ImageUrl)?preset=800" alt="@Model.Title" />
+        </picture>
+        <div class="container container-zindex-one checking-animate inactive fade-in">
+            <div class="about-offices-block__description checking-animate inactive slide-in-from-right">
+                @Html.PropertyFor(x => x.Decription) 
+            </div>
+        </div>
+    </div>
+

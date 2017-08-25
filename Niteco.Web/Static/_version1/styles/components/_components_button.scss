@@ -1,0 +1,105 @@
+
+.niteco-button{
+    display:block;
+    text-align:center;      
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;       
+    text-transform: uppercase;
+    transition: all 0.5s;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+    }
+
+    @include respond-to-min($tabletSize) {
+		width: 130px;
+        height: 40px;
+        font: 0.75rem/40px robotoblack;
+	}
+    @include respond-to-min($desktopSize) {
+        width: 160px;
+        height: 45px;
+        font: 0.9rem/43px robotoblack;  
+	}
+    @include respond-to-min($laptopSize) {
+		width:189px;
+        height:48px;
+        font: 1.125rem/46px robotoblack;
+	}
+}
+.niteco-fat-button{
+    display:block;
+    width:200px;
+    height:60px;   
+    text-align:center;      
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;       
+    font: 16px robotoregular;
+    text-transform:uppercase;
+    transition: all 0.5s;
+	line-height: 60px;
+     &:hover{
+        text-decoration: none;
+    }
+      @include respond-to-min($tabletSize) {
+		width: 130px;
+        height: 40px;
+        font: 0.75rem/40px robotoregular;
+	}
+    @include respond-to-min($desktopSize) {
+        width: 160px;
+        height: 45px;
+        font: 0.9rem/43px robotoregular;  
+	}
+    @include respond-to-min($laptopSize) {
+		width:200px;
+        height:60px;
+        font: 0.9375rem/60px robotoregular;
+	}
+}
+
+.btn-white{
+    border: 1px solid #facd20;
+    color:#282828;
+    
+    &:hover{
+        color: #282828;
+        background-color: #facd20;
+        border-color:#facd20;
+    }
+}
+
+.btn-black{
+    color: #fff;
+    background-color: #000;
+    border: 1px solid #000;
+    &:hover{
+        border-color: #282828;
+        color:#282828;
+        background-color:transparent !important;
+    }
+}
+
+.btn-yellow{
+    color: #282828;
+    background-color: #facd20;
+    &:hover{
+        color: #fff;
+        background-color: #282828;
+    }
+}
+
+
+.btn-red{
+	background: #cf3348;
+	color:#fafafa;		
+	vertical-align: middle;
+     &:hover{
+        color: #fff;
+        background: #000;
+	    text-decoration:none;
+    }
+}
+

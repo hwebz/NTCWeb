@@ -1,0 +1,27 @@
+@using EPiServer.Web.Routing
+    @model Niteco.Web.Models.ViewModels.ItemViewModel<CaseStudyDetailBlock>
+
+@{
+    var longImage = Model.CurrentBlock.LongImage == null ? Model.CurrentBlock.Image : Model.CurrentBlock.LongImage;
+}
+<div class="case-study-image">
+    <picture>
+        <source media="(min-width: 1900px)" srcset="@Url.ContentUrl(Model.CurrentBlock.Image)">
+        <source media="(min-width: 768px)" srcset="@Url.ContentUrl(@longImage)">
+        <img src="@Url.ContentUrl(Model.CurrentBlock.Image)" alt="@Model.CurrentBlock.Heading" />
+
+    </picture>
+</div>
+@*<div class="verticalDevider">
+    &nbsp;
+</div>*@
+<div class="case-study-content">
+    <div class="case-study-content__container">
+        <div class="case-study-content__title">@Html.PropertyFor(x => x.CurrentBlock.Heading)</div>
+        <div class="yellow-divider"></div>
+        <div class="case-study-content__description">
+            @Html.PropertyFor(x => x.CurrentBlock.ContentDescription)
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>

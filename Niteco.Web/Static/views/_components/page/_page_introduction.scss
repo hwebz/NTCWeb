@@ -1,0 +1,148 @@
+﻿
+.page-introduction-container {
+    position: relative;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    height: 565px;
+
+    @include respond-to-min($tabletSize) {
+        height: 921px;
+    }
+
+    @include respond-to-min($laptopSize) {
+        height: 700px;
+    }
+
+    @include respond-to-min($midLaptopSize) {
+        height: 800px;
+    }
+
+    @include respond-to-min($bigScreen) {
+        height: 855px;
+    }
+
+    .page-introduction-top-block {
+        display: block;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+		z-index: 1;
+        background: #282828;
+
+        &__background {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+
+            img {
+                @include image-cover-center-top();
+                display: none;
+            }
+        }
+
+        &__content {
+            position: absolute;
+            font-family: robotoblack;
+            text-align: center;            
+            font-size: 0px;
+            top: 47%;
+            @include align-center-block(50%,50%);
+            width: 95%;
+
+            @include respond-to-min($tabletSize) {
+                top: 37%;
+            }
+
+            @include respond-to-min($laptopSize) {
+                top: 35%;
+            }
+
+            h1 {
+                font-size: 3rem;
+                padding: 0 0 10px 0;
+                padding: 0;
+                margin: 0;
+                color: #fff;
+				font-weight : 500;
+                @include respond-to-min($tabletSize) {
+                    font-size: 4rem;
+                    /*padding: 0 0 20px 0;*/
+                    padding: 0;
+                }
+
+                @include respond-to-min($laptopSize) {
+                    font-size: rem(90px);
+                    padding: 0 0 0px 0;
+                }
+
+                @include respond-to-max-orientation($phoneLandscape,$landscapeMode) {
+                    font-size: 3rem;
+                    padding: 20px 0 0;
+                }
+
+            }
+
+            &__sub-title {
+                display: block;
+                color: #fff;
+                margin-top: 30px;
+                font-size: 1.3rem;
+                line-height: 1.8rem;
+                font-family: robotolight;
+                opacity: 0.8;
+
+
+
+                @include respond-to-min($tabletSize) {
+                    margin-top: 50px;
+                    font-size: 2rem;
+                    line-height: 40px;
+                }
+
+                @include respond-to-min($laptopSize) {
+                    font-size: rem(40px);
+                    line-height: 50px;
+                    margin-top: 0px;
+                 
+                    p {
+                        margin-top: 25px;
+                    }
+                }
+                @include respond-to-max-orientation($phoneLandscape,$landscapeMode) {
+                     margin-top: 0;
+                     p{
+                         margin-top:10px;
+                     }
+                }
+               
+            }
+        }
+
+        &__arrow-down {
+            width: 46px;
+            height: 16px;
+            text-align: center;
+			color: #fff;
+			font-size: 50px;
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            margin-left: -23px;
+            cursor: pointer;
+			font-size : 4.5rem;
+			&:hover{
+				color : #facd20;
+			}
+
+            span {
+                font-size: 85px;
+            }
+        }
+    }
+}

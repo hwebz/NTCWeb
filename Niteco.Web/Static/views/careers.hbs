@@ -1,0 +1,23 @@
+---
+title: "Careers page"
+---
+{{> _loading }}
+{{> top_navigator }}
+
+<div class="page-wrapper">
+    <section class="about-container content-container careers-page-container" data-require="base/career-page">
+        <div class="about-content-wrapper content-wrapper">
+            {{> _social-share}}
+            {{> _page-introduction careers.introduction}}
+            {{> careers-stay-up-to-date }}
+            <div class="career-steps__container" style="background:url('/img/career_step_bg.jpg') no-repeat center center; background-size: cover;">
+                {{> _page-description careers.description}}
+                {{> careers-how-to-apply-step}}
+            </div>
+            {{> _page_description_big_title careers.description_benefit}}
+            {{> careers-benefit}}
+            {{> careers-job-openings}}
+            {{> _footer}}
+        </div>
+    </section>
+</div>

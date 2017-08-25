@@ -1,0 +1,96 @@
+﻿<!--<div class="blog-list-articles__container" data-require="base/blog-list-endless-scroll">-->
+<div class="blog-list-articles__container">
+    <div id="blog-list-articles__content" class="blog-list-articles__content">
+        <div class="blog-list-articles__article">
+            <div class="blog-list-articles__article-title">
+                <h2>
+                    <a href="#">{{{first.title}}}</a>
+                </h2>
+                <div class="yellow-divider"></div>
+                <div class="blog-list-articles__article-meta">
+                    <a class="blog-list-articles__article-meta__category" href="#"><span class="fa fa-folder"></span>{{first.category}}</a>
+                    <a class="blog-list-articles__article-meta__author" href="#"><span class="fa fa-user"></span>{{first.author}}</a>
+                    <a class="blog-list-articles__article-meta__comment" href="#"><span class="fa fa-comments"></span>{{first.comment}}<span class="comment-text"> comments</span></a>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-thumbnail">
+                <a href="#">
+                    <img src="{{first.image}}" alt="{{first.title}}" />
+                </a>
+                <div class="blog-list-articles__article-date">
+                    <span class="blog-list-articles__article-date__day">{{first.date.day}}</span>
+                    <span class="blog-list-articles__article-date__monthYear">{{first.date.month}}.{{first.date.year}}</span>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-content">
+                <div class="blog-list-articles__article-content__description">
+                    <p>{{{first.description}}}</p>
+                </div>
+                <a href="#" alt="{{first.title}}" class="blog-list-articles__article-content__more-link">{{first.buttonText}}</a>
+            </div>
+        </div>
+
+        <div class="blog-list-articles__article">
+            <div class="blog-list-articles__article-title">
+                <h2>
+                    <a href="#">{{{second.title}}}</a>
+                </h2>
+                <div class="yellow-divider"></div>
+                <div class="blog-list-articles__article-meta">
+                    <a class="blog-list-articles__article-meta__category" href="#"><span class="fa fa-folder"></span>{{second.category}}</a>
+                    <a class="blog-list-articles__article-meta__author" href="#"><span class="fa fa-user"></span>{{second.author}}</a>
+                    <a class="blog-list-articles__article-meta__comment" href="#"><span class="fa fa-comments"></span>{{second.comment}}<span class="comment-text"> comments</span></a>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-thumbnail">
+                <a href="#">
+                    <img src="{{second.image}}" alt="{{second.title}}" />
+                </a>
+                <div class="blog-list-articles__article-date">
+                    <span class="blog-list-articles__article-date__day">{{second.date.day}}</span>
+                    <span class="blog-list-articles__article-date__monthYear">{{second.date.month}}.{{second.date.year}}</span>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-content">
+                <div class="blog-list-articles__article-content__description">
+                    <p>{{{second.description}}}</p>
+                </div>
+                <a href="#" alt="{{second.title}}" class="blog-list-articles__article-content__more-link">{{second.buttonText}}</a>
+            </div>
+        </div>
+
+        <div class="blog-list-articles__article">
+            <div class="blog-list-articles__article-title">
+                <h2>
+                    <a href="#">{{{third.title}}}</a>
+                </h2>
+                <div class="yellow-divider"></div>
+                <div class="blog-list-articles__article-meta">
+                    <a class="blog-list-articles__article-meta__category" href="#"><span class="fa fa-folder"></span>{{second.category}}</a>
+                    <a class="blog-list-articles__article-meta__author" href="#"><span class="fa fa-user"></span>{{second.author}}</a>
+                    <a class="blog-list-articles__article-meta__comment" href="#"><span class="fa fa-comments"></span>{{second.comment}}<span class="comment-text"> comments</span></a>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-thumbnail">
+                <a href="#">
+                    <img src="{{third.image}}" alt="{{third.title}}" />
+                </a>
+                <div class="blog-list-articles__article-date">
+                    <span class="blog-list-articles__article-date__day">{{third.date.day}}</span>
+                    <span class="blog-list-articles__article-date__monthYear">{{third.date.month}}.{{third.date.year}}</span>
+                </div>
+            </div>
+            <div class="blog-list-articles__article-content">
+                <div class="blog-list-articles__article-content__description">
+                    <p>{{{third.description}}}</p>
+                </div>
+                <a href="#" alt="{{third.title}}" class="blog-list-articles__article-content__more-link">{{third.buttonText}}</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-area">
+        <img src="{{loading.image}}" alt="Loading..." />
+        <span class="loading-text">{{loading.text}}</span>
+    </div>
+</div>

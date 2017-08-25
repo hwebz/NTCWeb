@@ -1,0 +1,43 @@
+<package>
+  <metadata>
+    <id>NitecoCom</id>
+    <version>1.0</version>
+    <authors>Author</authors>
+    <owners>Niteco Team</owners>
+    <licenseUrl>http://niteco.com</licenseUrl>
+    <projectUrl>http://niteco.com</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Description</description>
+	<releaseNotes>Notes</releaseNotes>
+  </metadata>
+  <files>
+    <file src="**\modules\**\*.zip" target="Webroot" />
+    <file src="**\*.as?x" target="Webroot" />
+    <file src="**\*.cshtml" target="Webroot" />
+    <file src="**\*.svc" target="Webroot" />
+    <file src="**\*.master" target="Webroot" />
+    <file src="**\*.css" target="Webroot" />
+    <file src="**\*.gif" target="Webroot" />
+    <file src="**\*.ico" target="Webroot" />
+    <file src="**\*.jpg" target="Webroot" />
+    <file src="**\*.png" target="Webroot" />
+    <file src="**\*.woff" target="Webroot" />
+    <file src="**\*.woff2" target="Webroot" />
+    <file src="**\*.eot" target="Webroot" />
+    <file src="**\*.otf" target="Webroot" />
+    <file src="**\*.svg" target="Webroot" />
+    <file src="**\*.ttf" target="Webroot" />
+    <file src="**\*.htm" target="Webroot" />
+    <file src="**\*.html" target="Webroot" />
+    <file src="**\*.properties" target="Webroot" />
+    <file src="**\*.xml" target="Webroot" />
+    <file src="**\*.browser" target="Webroot" />
+    <file src="**\Static\videos\*.mp4" target="Webroot" />
+    <file src="**\Static\videos\*.ogg" target="Webroot" />
+    <file src="**\Static\videos\*.webm" target="Webroot" />
+    <file src="**\*.js" target="Webroot" exclude="**\Niteco.Web\node_modules\**\*.*;**\Niteco.Web\node_modules\**\*.*;**\Niteco.Web\Gruntfile.js;**\Niteco.Web\Grunthelpers.js;**\Niteco.Web\Gruntproject.js" />
+    <file src="**\*.config" target="Webroot" exclude="**\connectionStrings.config;**\EPiSolr.config;**\License.config;**\EPiServerCommunityLicense.config" />
+    <file src="**\*.txt" target="Webroot" exclude="**\*Log*.txt;**\obj\**\*.*"/>
+    <file src="**\*.dll" target="Webroot"  exclude="**\obj\**\*.*"/>   
+  </files>
+</package>

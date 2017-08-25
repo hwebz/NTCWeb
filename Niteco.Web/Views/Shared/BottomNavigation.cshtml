@@ -1,0 +1,28 @@
+﻿@using EPiServer
+@using EPiServer.ServiceLocation
+@model SitePageData
+
+
+@if (Model.BottomContentArea != null && Model.BottomContentArea.Items.Any())
+{
+    <section class="home-block-row our-work-footer container-zindex-one" data-require="base/click-item">
+        @{
+    var total = Model.BottomContentArea.Items.Count > 2 ? 2 : Model.BottomContentArea.Items.Count;
+    var contentLoader = ServiceLocator.Current.GetInstance<IContentLoader>();
+    for (var i = 0; i < total; i++)
+    {
+        var item = Model.BottomContentArea.Items[i];
+        SitePageData page;
+        if (contentLoader.TryGet<SitePageData>
+        (item.ContentLink, out page))
+        {
+            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__dark-bg'>", i == 0)
+            @Html.Html("<div class='our-works-footer__item home-block-item home-block-item__bright-bg'>", i == 1)
+            Html.RenderPartial("SitePageOnBottom", page);
+            @Html.Html("</div>", true)
+        }
+    }
+        }
+
+    </section>
+}
